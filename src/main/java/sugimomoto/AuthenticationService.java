@@ -4,9 +4,9 @@ public interface AuthenticationService {
 
     public String getAuthorizationCode(AuthorizationParameters paramers);
 
-    public AccessTokenResponse getAccessToken(String code);
+    public BaseResponse<AccessTokenResponse> getAccessToken(String code);
 
-    public RefreshTokenResponse getRefreshToken();
+    public BaseResponse<AccessTokenResponse> getRefreshToken(AccessTokenResponse accessToken);
 
     public String getAuthorizationUrl();
 

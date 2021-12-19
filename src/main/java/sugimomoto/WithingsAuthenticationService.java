@@ -42,7 +42,7 @@ public class WithingsAuthenticationService implements AuthenticationService {
     }
 
     @Override
-    public RefreshTokenResponse getRefreshToken() {
+    public BaseResponse<AccessTokenResponse> getRefreshToken(AccessTokenResponse token) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -69,7 +69,7 @@ public class WithingsAuthenticationService implements AuthenticationService {
     }
     
     @Override
-    public AccessTokenResponse getAccessToken(String code) {
+    public BaseResponse<AccessTokenResponse> getAccessToken(String code) {
         // TODO Auto-generated method stub
         return null;
     }
