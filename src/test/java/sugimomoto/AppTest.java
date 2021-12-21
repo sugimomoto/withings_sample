@@ -1,9 +1,6 @@
 package sugimomoto;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.net.URI;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -38,7 +35,8 @@ public class AppTest
     public void authorizationParameterTest(){
         Scope[] scope = {Scope.USER_METRICS};
         AuthorizationUrlPatameter parameter = new AuthorizationUrlPatameter("code",clientId,"1234",scope,redirectUrl,true);
-        assertEquals("response_type=code&client_id=test_client_id&state=12345&scope=user.metrics&redirect_uri=http://localhost:33333", parameter.toQueryParameter());
+
+        assertEquals("response_type=code&client_id=test_client_id&state=12345&scope=user.metrics&redirect_uri=http://localhost:33333&mode=demo", parameter.toQueryParameter());
     }
 
     @Test
