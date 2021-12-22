@@ -34,9 +34,8 @@ public class AppTest
     @Test
     public void authorizationParameterTest(){
         Scope[] scope = {Scope.USER_METRICS};
-        AuthorizationUrlPatameter parameter = new AuthorizationUrlPatameter("code",clientId,"1234",scope,redirectUrl,true);
-
-        assertEquals("response_type=code&client_id=test_client_id&state=12345&scope=user.metrics&redirect_uri=http://localhost:33333&mode=demo", parameter.toQueryParameter());
+        AuthorizationUrlParameter parameter = new AuthorizationUrlParameter(ResponseType.AUTHORIZATION_CODE,clientId,"12345",scope,redirectUrl,true);
+        assertEquals("response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333&scope=user.metrics&mode=demo", parameter.toQueryParameter());
     }
 
     @Test

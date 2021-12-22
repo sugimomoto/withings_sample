@@ -2,10 +2,11 @@ package sugimomoto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.StringJoiner;
 
 import com.sun.tools.javac.util.List;
 
-public class AuthorizationUrlPatameter {
+public class AuthorizationUrlParameter {
 
     private ResponseType responseType;
 
@@ -19,7 +20,7 @@ public class AuthorizationUrlPatameter {
 
     private Boolean mode;
 
-    public AuthorizationUrlPatameter(ResponseType responseType, String clientId, String state, Scope[] scope, String redirectUrl, Boolean mode){
+    public AuthorizationUrlParameter(ResponseType responseType, String clientId, String state, Scope[] scope, String redirectUrl, Boolean mode){
         this.responseType = responseType;
         this.clinetId = clientId;
         this.state = state;
@@ -29,9 +30,11 @@ public class AuthorizationUrlPatameter {
     }
 
     public String toQueryParameter() {
-        String query = "response_type=" + responseType  + "&client_id=" + clinetId + "&state=" + state + "&redirect_uri=" + redirectUrl;
+        String query = "response_type=" + responseType.getValue()  + "&client_id=" + clinetId + "&state=" + state + "&redirect_uri=" + redirectUrl;
 
-        query = query + "&scope=" + String.join(",", Arrays.asList(scope));
+        for (Scope item : scope) {
+            query = query.contains("&scope") ? query + "," + item.getValue() : query + "&scope=" + item.getValue() ;
+        }
 
         if (mode) {
             query = query + "&mode=demo";
@@ -39,7 +42,4 @@ public class AuthorizationUrlPatameter {
 
         return query;
     }
-
-    
-
 }
