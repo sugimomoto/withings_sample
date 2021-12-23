@@ -21,6 +21,7 @@ public class AuthorizationUrlParameter {
     private Boolean mode;
 
     public AuthorizationUrlParameter(ResponseType responseType, String clientId, String state, Scope[] scope, String redirectUrl, Boolean mode){
+
         this.responseType = responseType;
         this.clinetId = clientId;
         this.state = state;
