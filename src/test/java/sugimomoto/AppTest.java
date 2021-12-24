@@ -2,6 +2,9 @@ package sugimomoto;
 
 import static org.junit.Assert.*;
 
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -9,6 +12,10 @@ import org.junit.Test;
  */
 public class AppTest 
 {
+
+    @Rule
+    public WireMockRule wireMockRule = new WireMockRule(8081);
+
     private String clientId = "test_client_id";
     private String clientSecret = "test_client_secret";
     private String redirectUrl = "http://localhost:33333";
@@ -50,15 +57,16 @@ public class AppTest
     @Test
     public void oAuthGetAccessTokenTest(){
         this.init();
+        authService.setEndpointUrl(mockUrl);
 
         BaseResponse<AccessTokenResponse> token = authService.getAccessToken("dummy_code");
 
         AccessTokenResponse response = token.getBody();
-        assertEquals("a075f8c14fb8df40b08ebc8508533dc332a6910a", response.getAccessToken());
-        assertEquals("f631236f02b991810feb774765b6ae8e6c6839ca", response.getRefreshToken());
-        assertEquals("363", response.getUserid());
+        assertEquals("a508999978b28369eebf173ef78f2f248321e163", response.getAccessToken());
+        assertEquals("296ab698174e87e29417a24032aa88f14baaebd7", response.getRefreshToken());
+        assertEquals("27718374", response.getUserid());
         assertEquals((Integer)10800, response.getExpiresIn());
-        assertEquals("user.info,user.metrics", response.getScope());
+        assertEquals("user.metrics", response.getScope());
         assertEquals("Bearer", response.getTokenType());
     }
 

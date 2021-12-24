@@ -2,8 +2,6 @@ package sugimomoto;
 
 public interface AuthenticationService {
 
-    public String getAuthorizationCode(AuthorizationParameters paramers);
-
     public BaseResponse<AccessTokenResponse> getAccessToken(String code);
 
     public BaseResponse<AccessTokenResponse> getRefreshToken(AccessTokenResponse accessToken);
