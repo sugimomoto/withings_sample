@@ -34,17 +34,15 @@ public class AppTest
     @Test
     public void authorizationParameterTest(){
         Scope[] scope = {Scope.USER_METRICS};
-        AuthorizationUrlParameter parameter = new AuthorizationUrlParameter(ResponseType.AUTHORIZATION_CODE,clientId,"12345",scope,redirectUrl,true);
-        assertEquals("response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333&scope=user.metrics&mode=demo", parameter.toQueryParameter());
-
+        String result1 = AuthorizationUrlParameter.toQueryParameter(ResponseType.AUTHORIZATION_CODE,clientId,"12345",scope,redirectUrl,true);
+        assertEquals("response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333&scope=user.metrics&mode=demo", result1);
 
         Scope[] scope2 = {Scope.USER_METRICS,Scope.USER_ACTIVITY};
-        AuthorizationUrlParameter parameter2 = new AuthorizationUrlParameter(ResponseType.AUTHORIZATION_CODE,clientId,"12345",scope2,redirectUrl,false);
-        assertEquals("response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333&scope=user.metrics,user.activity", parameter2.toQueryParameter());
+        String result2 = AuthorizationUrlParameter.toQueryParameter(ResponseType.AUTHORIZATION_CODE,clientId,"12345",scope2,redirectUrl,false);
+        assertEquals("response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333&scope=user.metrics,user.activity", result2);
 
-        AuthorizationUrlParameter parameter3 = new AuthorizationUrlParameter(ResponseType.AUTHORIZATION_CODE,clientId,"12345",null,redirectUrl,false);
-        assertEquals("response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333", parameter3.toQueryParameter());
-
+        String result3 = AuthorizationUrlParameter.toQueryParameter(ResponseType.AUTHORIZATION_CODE,clientId,"12345",null,redirectUrl,false);
+        assertEquals("response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333", result3);
     }
 
     @Test

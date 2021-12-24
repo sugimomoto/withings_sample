@@ -64,8 +64,7 @@ public class WithingsAuthenticationService implements AuthenticationService {
 
     @Override
     public String getAuthorizationUrl(String state, Boolean mode) {
-        AuthorizationUrlParameter parameter = new AuthorizationUrlParameter(ResponseType.AUTHORIZATION_CODE,clientId,state,scope,redirectUrl,mode);
-        return authenticationUrl + parameter.toQueryParameter();
+        return AuthorizationUrlParameter.toQueryParameter(ResponseType.AUTHORIZATION_CODE,clientId,state,scope,redirectUrl,mode);
     }
     
     @Override
