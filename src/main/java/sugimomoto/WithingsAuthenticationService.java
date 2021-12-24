@@ -32,7 +32,6 @@ public class WithingsAuthenticationService implements AuthenticationService {
         this.redirectUrl = redirectUrl;
         this.scope = scope;
         this.endpointUrl = " https://wbsapi.withings.net/" + authenticationEndpointVersion + "/oauth2";
-        this.state = ((Integer)new Random().nextInt(99999)).toString();
     }
 
     @Override
@@ -48,23 +47,13 @@ public class WithingsAuthenticationService implements AuthenticationService {
     }
 
     @Override
-    public String getAuthorizationUrl() {
-        return getAuthorizationUrl(false);
-    }
-
-    @Override
-    public String getAuthorizationUrl(Boolean mode) {
-        return getAuthorizationUrl(state,mode);
-    }
-
-    @Override
     public String getAuthorizationUrl(String state) {
         return getAuthorizationUrl(state,false);
     }
 
     @Override
     public String getAuthorizationUrl(String state, Boolean mode) {
-        return AuthorizationUrlParameter.toQueryParameter(ResponseType.AUTHORIZATION_CODE,clientId,state,scope,redirectUrl,mode);
+        return authenticationUrl + "?" + AuthorizationUrlParameter.toQueryParameter(ResponseType.AUTHORIZATION_CODE,clientId,state,scope,redirectUrl,mode);
     }
     
     @Override

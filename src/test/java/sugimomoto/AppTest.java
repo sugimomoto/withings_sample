@@ -13,6 +13,7 @@ public class AppTest
     private String clientSecret = "test_client_secret";
     private String redirectUrl = "http://localhost:33333";
     private Scope[] scopes = {Scope.USER_METRICS};
+
     private String mockUrl = "http://localhost:8081";
 
     AuthenticationService authService;
@@ -25,10 +26,11 @@ public class AppTest
     @Test
     public void oAuthAuthorizationUrlTest(){
         this.init();
-        String authorizationUrl = authService.getAuthorizationUrl();
+        String authorizationUrl = authService.getAuthorizationUrl("12345");
+        assertEquals("https://account.withings.com/oauth2_user/authorize2?response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333&scope=user.metrics", authorizationUrl);
 
-        String expectAuthorizationUrl = "https://account.withings.com/oauth2_user/authorize2?response_type=code&client_id=test_client_id&state=12345&scope=user.metrics&redirect_uri=http://localhost:33333";
-        assertEquals(expectAuthorizationUrl, authorizationUrl);
+        authorizationUrl = authService.getAuthorizationUrl("12345",true);
+        assertEquals("https://account.withings.com/oauth2_user/authorize2?response_type=code&client_id=test_client_id&state=12345&redirect_uri=http://localhost:33333&scope=user.metrics&mode=demo", authorizationUrl);
     }
 
     @Test
@@ -58,10 +60,6 @@ public class AppTest
         assertEquals((Integer)10800, response.getExpiresIn());
         assertEquals("user.info,user.metrics", response.getScope());
         assertEquals("Bearer", response.getTokenType());
-
-
-
-
     }
 
     @Test
