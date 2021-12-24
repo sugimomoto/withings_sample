@@ -1,12 +1,16 @@
 package sugimomoto;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import okhttp3.OkHttpClient;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import okhttp3.*;
+
 
 public class WithingsAuthenticationService implements AuthenticationService {
 
@@ -19,8 +23,6 @@ public class WithingsAuthenticationService implements AuthenticationService {
     private String redirectUrl;
 
     private Scope[] scope;
-
-    private final String grantType = "authorization_code";
 
     private final String authenticationEndpointVersion = "v2";
 
@@ -42,18 +44,65 @@ public class WithingsAuthenticationService implements AuthenticationService {
     }
 
     @Override
-    public BaseResponse<AccessTokenResponse> getAccessToken(String code) {
-        BaseResponse<AccessTokenResponse> response = new BaseResponse<AccessTokenResponse>();
+    public BaseResponse getAccessToken(String code) throws IOException {
 
-        return response;
+        RequestBody body = this.buildRequestBodyWithCode(code);
+
+        Request requst = new Request.Builder()
+            .url(endpointUrl)
+            .post(body)
+            .header("Content-Type", "application/x-www-form-urlencoded")
+            .build();
+
+        Response response = client.newCall(requst).execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+        
+        BaseResponse token = mapper.readValue(response.body().byteStream(), BaseResponse.class);
+
+        return token;
     }
 
     @Override
-    public BaseResponse<AccessTokenResponse> getRefreshToken(AccessTokenResponse token) {
-        BaseResponse<AccessTokenResponse> response = new BaseResponse<AccessTokenResponse>();
+    public BaseResponse getRefreshToken(AccessTokenResponse refreshToken) throws IOException {
+        RequestBody body = this.buildRequestBodyWithRefreshToken(refreshToken.getRefreshToken());
 
-        return response;
+        Request requst = new Request.Builder()
+            .url(endpointUrl)
+            .post(body)
+            .build();
+
+        Response response = client.newCall(requst).execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+        
+        BaseResponse token = mapper.readValue(response.body().byteStream(), BaseResponse.class);
+
+        return token;
     }
+
+
+    private RequestBody buildRequestBodyWithRefreshToken(String refreshToken) {
+        return new FormBody.Builder()
+            .add("action", "requesttoken")
+            .add("client_id", clientId)
+            .add("client_secret", clientSecret)
+            .add("grant_type", GrantType.REFRESH_TOKEN.getValue())
+            .add("refresh_token", refreshToken)
+            .build();
+    }
+
+    private RequestBody buildRequestBodyWithCode(String code) {
+        return new FormBody.Builder()
+            .add("action", "requesttoken")
+            .add("client_id", clientId)
+            .add("client_secret", clientSecret)
+            .add("grant_type", GrantType.AUTHORIZATION_CODE.getValue())
+            .add("code", code)
+            .add("redirect_uri", redirectUrl)
+            .build();
+    }
+
 
     @Override
     public String getAuthorizationUrl(String state) {

@@ -1,10 +1,12 @@
 package sugimomoto;
 
+import java.io.IOException;
+
 public interface AuthenticationService {
 
-    public BaseResponse<AccessTokenResponse> getAccessToken(String code);
+    public BaseResponse getAccessToken(String code) throws IOException;
 
-    public BaseResponse<AccessTokenResponse> getRefreshToken(AccessTokenResponse accessToken);
+    public BaseResponse getRefreshToken(AccessTokenResponse accessToken) throws IOException;
 
     public String getAuthorizationUrl(String state);
 

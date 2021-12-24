@@ -1,16 +1,16 @@
 package sugimomoto;
 
-public class BaseResponse<E> {
+public class BaseResponse {
 
     private Integer status;
 
-    private E body;
+    private AccessTokenResponse body;
 
-    public E getBody(){
+    public AccessTokenResponse getBody(){
         return body;
     }
 
-    public void setBody(E body){
+    public void setBody(AccessTokenResponse body){
         this.body = body;
     }
 

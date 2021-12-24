@@ -2,6 +2,8 @@ package sugimomoto;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
 import org.junit.Rule;
@@ -27,7 +29,7 @@ public class AppTest
 
     public void init(){
         authService = new WithingsAuthenticationService(clientId,clientSecret,redirectUrl,scopes);
-        authService.setEndpointUrl(mockUrl);
+        authService.setEndpointUrl(mockUrl + "/v2/oauth2");
     }
 
     @Test
@@ -55,11 +57,10 @@ public class AppTest
     }
 
     @Test
-    public void oAuthGetAccessTokenTest(){
+    public void oAuthGetAccessTokenTest() throws IOException{
         this.init();
-        authService.setEndpointUrl(mockUrl);
 
-        BaseResponse<AccessTokenResponse> token = authService.getAccessToken("dummy_code");
+        BaseResponse token = authService.getAccessToken("dummy_code");
 
         AccessTokenResponse response = token.getBody();
         assertEquals("a508999978b28369eebf173ef78f2f248321e163", response.getAccessToken());
@@ -71,11 +72,11 @@ public class AppTest
     }
 
     @Test
-    public void oAuthGetRefreshAccessTokenTest(){
+    public void oAuthGetRefreshAccessTokenTest() throws IOException{
         this.init();
 
-        BaseResponse<AccessTokenResponse> token = authService.getAccessToken("dummy_code");
-        BaseResponse<AccessTokenResponse> refreshToken = authService.getRefreshToken(token.getBody());
+        BaseResponse token = authService.getAccessToken("dummy_code");
+        BaseResponse refreshToken = authService.getRefreshToken(token.getBody());
 
         AccessTokenResponse response = refreshToken.getBody();
         assertEquals("a075f8c14fb8df40b08ebc8508533dc332a6910a", response.getAccessToken());
