@@ -29,9 +29,6 @@ public class AppTest
 
     AuthenticationService authService;
 
-    
-    private static final OkHttpClient client = new OkHttpClient();
-
     public void init(){
         authService = new WithingsAuthenticationService(clientId,clientSecret,redirectUrl,scopes);
         authService.setEndpointUrl(mockUrl + "/v2/oauth2");
@@ -84,11 +81,11 @@ public class AppTest
         BaseResponse refreshToken = authService.getRefreshToken(token.getBody());
 
         AccessTokenResponse response = refreshToken.getBody();
-        assertEquals("a075f8c14fb8df40b08ebc8508533dc332a6910a", response.getAccessToken());
-        assertEquals("f631236f02b991810feb774765b6ae8e6c6839ca", response.getRefreshToken());
-        assertEquals("361", response.getUserid());
-        assertEquals((Integer)10801, response.getExpiresIn());
-        assertEquals("user.info,user.metrics", response.getScope());
+        assertEquals("18ccc6828e660a6e350f503ef1fb98790884087c", response.getAccessToken());
+        assertEquals("1cd132b9bcd80b3d4d5ad2017dddcdd14be9d0bf", response.getRefreshToken());
+        assertEquals("362", response.getUserid());
+        assertEquals((Integer)10800, response.getExpiresIn());
+        assertEquals("user.metrics", response.getScope());
         assertEquals("Bearer", response.getTokenType());
     }
 

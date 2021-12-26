@@ -1,5 +1,41 @@
 {
     "mappings": [
+        
+        {
+            "request": {
+                "method": "POST",
+                "urlPattern": "/v2/oauth2",
+                "headers": {
+                    "Content-Type": {
+                        "matches": "application/x-www-form-urlencoded"
+                    }
+                },
+                "bodyPatterns": [
+                    {
+                        "matches": "(.*&|^)action=requesttoken($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)grant_type=refresh_token($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)client_id=test_client_id($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)client_secret=test_client_secret($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)refresh_token=296ab698174e87e29417a24032aa88f14baaebd7($|&.*)"
+                    }
+                ]
+            },
+            "response": {
+                "status": 200,
+                "bodyFileName": "getRefreshToken.json",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
         {
             "request": {
                 "method": "POST",
