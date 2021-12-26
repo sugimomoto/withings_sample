@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AccessTokenResponse {
 
-    @JsonProperty("user_id")
+    @JsonProperty("userid")
     private String userid;
 
     @JsonProperty("access_token")
@@ -13,7 +13,7 @@ public class AccessTokenResponse {
     @JsonProperty("refresh_token")
     private String refreshToken;
 
-    @JsonProperty("expire_in")
+    @JsonProperty("expires_in")
     private Integer expiresIn;
 
     @JsonProperty("scope")

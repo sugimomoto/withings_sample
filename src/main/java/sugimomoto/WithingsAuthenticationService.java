@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import javax.print.attribute.standard.Media;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.*;
@@ -47,18 +49,17 @@ public class WithingsAuthenticationService implements AuthenticationService {
     public BaseResponse getAccessToken(String code) throws IOException {
 
         RequestBody body = this.buildRequestBodyWithCode(code);
-
+        
         Request requst = new Request.Builder()
-            .url(endpointUrl)
+            .url("http://localhost:8081/v2/oauth2")
             .post(body)
-            .header("Content-Type", "application/x-www-form-urlencoded")
             .build();
 
         Response response = client.newCall(requst).execute();
-
+        String result = response.body().string();
         ObjectMapper mapper = new ObjectMapper();
         
-        BaseResponse token = mapper.readValue(response.body().byteStream(), BaseResponse.class);
+        BaseResponse token = mapper.readValue(result, BaseResponse.class);
 
         return token;
     }

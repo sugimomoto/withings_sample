@@ -3,10 +3,10 @@
         {
             "request": {
                 "method": "POST",
-                "url": " /v2/oauth2",
+                "urlPattern": "/v2/oauth2",
                 "headers": {
                     "Content-Type": {
-                        "contains": "application/x-www-form-urlencoded"
+                        "matches": "application/x-www-form-urlencoded"
                     }
                 },
                 "bodyPatterns": [
@@ -20,7 +20,7 @@
                         "matches": "(.*&|^)client_id=test_client_id($|&.*)"
                     },
                     {
-                        "matches": "(.*&|^)client_secret=test_client_secret&($|&.*)"
+                        "matches": "(.*&|^)client_secret=test_client_secret($|&.*)"
                     },
                     {
                         "matches": "(.*&|^)code=dummy_code($|&.*)"
@@ -33,6 +33,26 @@
             "response": {
                 "status": 200,
                 "bodyFileName": "getAccessToken.json",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "urlPattern": "/foo_json_body",
+                "headers": {
+                    "Accept": {
+                        "matches": "text/.*"
+                    }
+                }
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": {
+                    "name": "hello"
+                },
                 "headers": {
                     "Content-Type": "application/json"
                 }

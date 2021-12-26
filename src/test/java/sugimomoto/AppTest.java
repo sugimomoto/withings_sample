@@ -9,6 +9,8 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.Rule;
 import org.junit.Test;
 
+import okhttp3.*;
+
 /**
  * Unit test for simple App.
  */
@@ -26,6 +28,9 @@ public class AppTest
     private String mockUrl = "http://localhost:8081";
 
     AuthenticationService authService;
+
+    
+    private static final OkHttpClient client = new OkHttpClient();
 
     public void init(){
         authService = new WithingsAuthenticationService(clientId,clientSecret,redirectUrl,scopes);
