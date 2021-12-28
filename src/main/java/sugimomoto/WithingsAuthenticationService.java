@@ -9,6 +9,7 @@ import java.util.Random;
 
 import javax.print.attribute.standard.Media;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.*;
@@ -47,41 +48,34 @@ public class WithingsAuthenticationService implements AuthenticationService {
 
     @Override
     public BaseResponse getAccessToken(String code) throws IOException {
+        return getToken(this.buildRequestBodyWithCode(code));
+    }
 
-        RequestBody body = this.buildRequestBodyWithCode(code);
-        
+    @Override
+    public BaseResponse getRefreshToken(AccessTokenResponse refreshToken) throws IOException {
+        return getToken(this.buildRequestBodyWithRefreshToken(refreshToken.getRefreshToken()));
+    }
+
+    private BaseResponse getToken(RequestBody body) throws IOException, WithingsAPIException{
         Request requst = new Request.Builder()
             .url("http://localhost:8081/v2/oauth2")
             .post(body)
             .build();
 
         Response response = client.newCall(requst).execute();
+
         String result = response.body().string();
         ObjectMapper mapper = new ObjectMapper();
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         
         BaseResponse token = mapper.readValue(result, BaseResponse.class);
 
-        return token;
-    }
-
-    @Override
-    public BaseResponse getRefreshToken(AccessTokenResponse refreshToken) throws IOException {
-        RequestBody body = this.buildRequestBodyWithRefreshToken(refreshToken.getRefreshToken());
-
-        Request requst = new Request.Builder()
-            .url(endpointUrl)
-            .post(body)
-            .build();
-
-        Response response = client.newCall(requst).execute();
-
-        ObjectMapper mapper = new ObjectMapper();
-        
-        BaseResponse token = mapper.readValue(response.body().byteStream(), BaseResponse.class);
+        if(token.getStatus() != 0){
+            throw new WithingsAPIException(token.getError(),token.getStatus());
+        }
 
         return token;
     }
-
 
     private RequestBody buildRequestBodyWithRefreshToken(String refreshToken) {
         return new FormBody.Builder()
@@ -103,7 +97,6 @@ public class WithingsAuthenticationService implements AuthenticationService {
             .add("redirect_uri", redirectUrl)
             .build();
     }
-
 
     @Override
     public String getAuthorizationUrl(String state) {

@@ -1,10 +1,14 @@
 package sugimomoto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 public class BaseResponse {
 
     private Integer status;
 
     private AccessTokenResponse body;
+
+    private String error;
 
     public AccessTokenResponse getBody(){
         return body;
@@ -22,4 +26,11 @@ public class BaseResponse {
         this.status = status;
     }
 
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 }

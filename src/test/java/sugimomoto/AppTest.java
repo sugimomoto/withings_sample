@@ -9,8 +9,6 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.Rule;
 import org.junit.Test;
 
-import okhttp3.*;
-
 /**
  * Unit test for simple App.
  */
@@ -87,6 +85,50 @@ public class AppTest
         assertEquals((Integer)10800, response.getExpiresIn());
         assertEquals("user.metrics", response.getScope());
         assertEquals("Bearer", response.getTokenType());
+    }
+
+    @Test
+    public void oAuthGetAccessTokenInvalidCodeTest() throws IOException{
+        this.init();
+
+        String message = "";
+        Integer status = 0;
+
+        try{
+            BaseResponse token = authService.getAccessToken("exception_code");
+        }catch(WithingsAPIException ex){
+            message = ex.getMessage();
+            status = ex.getStatus();
+        }
+
+        assertEquals("Invalid Params: invalid code", message);
+        assertEquals((Integer)503, status);
+    }
+
+    @Test
+    public void oAuthGetRefreshTokenInvalidRefreshTokenTest() throws IOException{
+        this.init();
+
+        String message = "";
+        Integer status = 0;
+
+        AccessTokenResponse accessToken = new AccessTokenResponse();
+        accessToken.setAccessToken("18ccc6828e660a6e350f503ef1fb98790884087c");
+        accessToken.setExpiresIn((Integer)10800);
+        accessToken.setRefreshToken("invalid_refresth_token");
+        accessToken.setScope("user.metrics");
+        accessToken.setTokenType("Bearer");
+        accessToken.setUserid("362");
+
+        try{
+            BaseResponse token = authService.getRefreshToken(accessToken);
+        }catch(WithingsAPIException ex){
+            message = ex.getMessage();
+            status = ex.getStatus();
+        }
+
+        assertEquals("Invalid Params: invalid refresh_token", message);
+        assertEquals((Integer)503, status);
     }
 
 }
