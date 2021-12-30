@@ -1,0 +1,790 @@
+{
+    "status": 0,
+    "body": {
+        "updatetime": 1640818701,
+        "timezone": "Asia/Tokyo",
+        "measuregrps": [
+            {
+                "grpid": 3259812118,
+                "attrib": 0,
+                "date": 1640815445,
+                "created": 1640815483,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79400,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3257522193,
+                "attrib": 0,
+                "date": 1640729123,
+                "created": 1640729162,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78800,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3256483900,
+                "attrib": 0,
+                "date": 1640643132,
+                "created": 1640694022,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3252998037,
+                "attrib": 0,
+                "date": 1640555633,
+                "created": 1640555671,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78400,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3250827205,
+                "attrib": 0,
+                "date": 1640471861,
+                "created": 1640471901,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3240294292,
+                "attrib": 0,
+                "date": 1640034408,
+                "created": 1640034447,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3238268936,
+                "attrib": 0,
+                "date": 1639948726,
+                "created": 1639948764,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78800,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3236399941,
+                "attrib": 0,
+                "date": 1639866324,
+                "created": 1639866369,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78200,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3236399925,
+                "attrib": 0,
+                "date": 1639866295,
+                "created": 1639866368,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78200,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 0,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3234397304,
+                "attrib": 0,
+                "date": 1639778662,
+                "created": 1639778700,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3232341365,
+                "attrib": 0,
+                "date": 1639691256,
+                "created": 1639691295,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3230222339,
+                "attrib": 0,
+                "date": 1639604935,
+                "created": 1639604974,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78800,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3228038245,
+                "attrib": 0,
+                "date": 1639519009,
+                "created": 1639519039,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 0,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3225871494,
+                "attrib": 0,
+                "date": 1639431807,
+                "created": 1639431851,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78400,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3223644698,
+                "attrib": 0,
+                "date": 1639343737,
+                "created": 1639343776,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3219534134,
+                "attrib": 0,
+                "date": 1639172275,
+                "created": 1639172315,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78400,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3217291239,
+                "attrib": 0,
+                "date": 1639084839,
+                "created": 1639084877,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3215007359,
+                "attrib": 0,
+                "date": 1638999027,
+                "created": 1638999064,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78200,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3212709727,
+                "attrib": 0,
+                "date": 1638913152,
+                "created": 1638913194,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3212709706,
+                "attrib": 0,
+                "date": 1638913119,
+                "created": 1638913193,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78800,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 0,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3210464465,
+                "attrib": 0,
+                "date": 1638825750,
+                "created": 1638825790,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3208396878,
+                "attrib": 0,
+                "date": 1638743834,
+                "created": 1638743874,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79200,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3206317859,
+                "attrib": 0,
+                "date": 1638655273,
+                "created": 1638655313,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3204247035,
+                "attrib": 0,
+                "date": 1638568141,
+                "created": 1638568182,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79200,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3202006360,
+                "attrib": 0,
+                "date": 1638479690,
+                "created": 1638479720,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79200,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 0,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3199875496,
+                "attrib": 0,
+                "date": 1638399329,
+                "created": 1638399404,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3197387689,
+                "attrib": 0,
+                "date": 1638307308,
+                "created": 1638307348,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 78800,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3195113832,
+                "attrib": 0,
+                "date": 1638221844,
+                "created": 1638221888,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3195111194,
+                "attrib": 0,
+                "date": 1638221729,
+                "created": 1638221772,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79800,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3192784232,
+                "attrib": 0,
+                "date": 1638135091,
+                "created": 1638135132,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3190883388,
+                "attrib": 0,
+                "date": 1638054839,
+                "created": 1638054880,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79200,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3188789481,
+                "attrib": 0,
+                "date": 1637963552,
+                "created": 1637963592,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3186861973,
+                "attrib": 0,
+                "date": 1637877069,
+                "created": 1637877120,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3184850150,
+                "attrib": 0,
+                "date": 1637793455,
+                "created": 1637793496,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79200,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3182610272,
+                "attrib": 0,
+                "date": 1637703732,
+                "created": 1637703783,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79400,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3180478369,
+                "attrib": 0,
+                "date": 1637619458,
+                "created": 1637619495,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3178280167,
+                "attrib": 0,
+                "date": 1637530718,
+                "created": 1637530754,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 80000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3176388560,
+                "attrib": 0,
+                "date": 1637450048,
+                "created": 1637450088,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 79600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3174512412,
+                "attrib": 0,
+                "date": 1637373594,
+                "created": 1637373632,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 80600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 3,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3174512403,
+                "attrib": 0,
+                "date": 1637373570,
+                "created": 1637373631,
+                "category": 1,
+                "deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "hash_deviceid": "d60dfb80d09098b63204a32bca96cfed581dc5ce",
+                "measures": [
+                    {
+                        "value": 80600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 0,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            },
+            {
+                "grpid": 3174506440,
+                "attrib": 2,
+                "date": 1637373073,
+                "created": 1637373073,
+                "category": 1,
+                "deviceid": null,
+                "hash_deviceid": null,
+                "measures": [
+                    {
+                        "value": 80000,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 0,
+                        "fm": 128,
+                        "apppfmid": 7,
+                        "appliver": 5070201
+                    }
+                ],
+                "comment": null
+            }
+        ]
+    }
+}
