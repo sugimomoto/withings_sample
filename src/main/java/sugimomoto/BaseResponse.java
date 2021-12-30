@@ -1,7 +1,5 @@
 package sugimomoto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 public class BaseResponse {
 
     private Integer status;
