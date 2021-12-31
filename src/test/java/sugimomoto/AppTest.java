@@ -33,6 +33,12 @@ public class AppTest
     }
 
     @Test
+    public void endpointUrlTest(){
+        AuthenticationService normalService = new WithingsAuthenticationService(clientId,clientSecret,redirectUrl,scopes);
+        assertEquals("https://wbsapi.withings.net/v2/oauth2", normalService.getEndpointUrl());
+    }
+
+    @Test
     public void oAuthAuthorizationUrlTest(){
         this.init();
         String authorizationUrl = authService.getAuthorizationUrl("12345");

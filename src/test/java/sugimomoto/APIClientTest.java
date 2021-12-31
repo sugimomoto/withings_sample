@@ -15,7 +15,7 @@ public class APIClientTest {
 
         WithingsAPIClient client = new WithingsAPIClient(token);
 
-        ActivitiesQueryParam param = new ActivitiesQueryParam();    
+        ActivitiesQueryParameters param = new ActivitiesQueryParameters();    
         param.setStartDateYMD("2021-01-01");
         param.setEndDateYMD("2021-01-02");
 

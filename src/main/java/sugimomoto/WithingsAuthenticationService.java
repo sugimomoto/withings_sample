@@ -47,6 +47,11 @@ public class WithingsAuthenticationService implements AuthenticationService {
     }
 
     @Override
+    public String getEndpointUrl(){
+        return endpointUrl;
+    }
+
+    @Override
     public BaseResponse getAccessToken(String code) throws IOException {
         return getToken(this.buildRequestBodyWithCode(code));
     }
@@ -58,7 +63,7 @@ public class WithingsAuthenticationService implements AuthenticationService {
 
     private BaseResponse getToken(RequestBody body) throws IOException, WithingsAPIException{
         Request requst = new Request.Builder()
-            .url("http://localhost:8081/v2/oauth2")
+            .url(endpointUrl)
             .post(body)
             .build();
 

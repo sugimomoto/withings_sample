@@ -1,4 +1,4 @@
-package sugimomoto;
+package sugimomoto.withings4j;
 
 /**
  * Hello world!
