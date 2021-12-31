@@ -1,54 +1,24 @@
 package sugimomoto;
 
-public class ActivitiesQueryParameters {
-
-    private String startDateYMD;
-
-    private String endDateYMD;
-
-    private Integer lastUpdate;
-
-    private Integer offset;
-
-    private String dataFileds;
-
-    public String getStartDateYMD() {
-        return startDateYMD;
-    }
+public class ActivitiesQueryParameters extends QueryParameters {
 
     public void setStartDateYMD(String startDateYMD) {
-        this.startDateYMD = startDateYMD;
-    }
-
-    public String getEndDateYMD() {
-        return endDateYMD;
+        this.builder.add("startdateymd", startDateYMD);
     }
 
     public void setEndDateYMD(String endDateYMD) {
-        this.endDateYMD = endDateYMD;
-    }
-
-    public Integer getLastUpdate() {
-        return lastUpdate;
+        this.builder.add("enddateymd", endDateYMD);
     }
 
     public void setLastUpdate(Integer lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public Integer getOffset() {
-        return offset;
+        this.builder.add("lastupdate", lastUpdate.toString());
     }
 
     public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-    public String getDataFileds() {
-        return dataFileds;
+        this.builder.add("offset", offset.toString());
     }
 
     public void setDataFileds(String dataFileds) {
-        this.dataFileds = dataFileds;
+        this.builder.add("data_fields", dataFileds);
     }
 }

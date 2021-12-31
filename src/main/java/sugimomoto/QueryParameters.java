@@ -1,12 +1,12 @@
 package sugimomoto;
 
-import java.util.ArrayList;
-import java.util.List;
+import okhttp3.FormBody;
 
 public abstract class QueryParameters {
-    protected List<NameValuePair> parameters = new ArrayList<NameValuePair>();
 
-    public List<NameValuePair> getParamList() {
-        return parameters;
+    protected FormBody.Builder builder = new FormBody.Builder();
+
+    public FormBody getQueryParameters() {
+        return builder.build();
     }
 }
