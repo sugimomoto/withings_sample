@@ -1,36 +1,27 @@
 package sugimomoto;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ActivityBase {
-    
     private Integer status;
-
-    private List<Activity> body;
-
+    private ActivityBody body;    
     private String error;
 
-    public List<Activity> getBody(){
-        return body;
-    }
+    @JsonProperty("status")
+    public Integer getStatus() { return status; }
+    
+    @JsonProperty("status")
+    public void setStatus(Integer value) { this.status = value; }
 
-    public void setBody(List<Activity> body){
-        this.body = body;
-    }
+    @JsonProperty("body")
+    public ActivityBody getBody() { return body; }
 
-    public Integer getStatus() {
-        return status;
-    }
+    @JsonProperty("body")
+    public void setBody(ActivityBody value) { this.body = value; }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+    @JsonProperty("error")
+    public String getError() { return error; }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
+    @JsonProperty("error")
+    public void setError(String error) { this.error = error; }
 }

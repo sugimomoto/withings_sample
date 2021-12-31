@@ -2,6 +2,10 @@ package sugimomoto;
 
 public class ActivitiesQueryParameters extends QueryParameters {
 
+    public ActivitiesQueryParameters() {
+        this.builder.add("action", "getactivity");
+    }
+
     public void setStartDateYMD(String startDateYMD) {
         this.builder.add("startdateymd", startDateYMD);
     }
