@@ -11,8 +11,4 @@ public interface AuthenticationService {
     public String getAuthorizationUrl(String state);
 
     public String getAuthorizationUrl(String state, Boolean mode);
-
-    public void setEndpointUrl(String mockUrl);
-
-    public String getEndpointUrl();
 }

@@ -25,7 +25,7 @@ public class AppTest
 
     private String mockUrl = "http://localhost:8081";
 
-    AuthenticationService authService;
+    WithingsAuthenticationService authService;
 
     public void init(){
         authService = new WithingsAuthenticationService(clientId,clientSecret,redirectUrl,scopes);
@@ -34,7 +34,7 @@ public class AppTest
 
     @Test
     public void endpointUrlTest(){
-        AuthenticationService normalService = new WithingsAuthenticationService(clientId,clientSecret,redirectUrl,scopes);
+        WithingsAuthenticationService normalService = new WithingsAuthenticationService(clientId,clientSecret,redirectUrl,scopes);
         assertEquals("https://wbsapi.withings.net/v2/oauth2", normalService.getEndpointUrl());
     }
 

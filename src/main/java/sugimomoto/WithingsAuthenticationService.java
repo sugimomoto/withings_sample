@@ -15,9 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
 
 
-public class WithingsAuthenticationService implements AuthenticationService {
-
-    private String endpointUrl;
+public class WithingsAuthenticationService extends APIClient implements AuthenticationService {
 
     private String clientId;
 
@@ -31,24 +29,12 @@ public class WithingsAuthenticationService implements AuthenticationService {
 
     private final String authenticationUrl = "https://account.withings.com/oauth2_user/authorize2";
 
-    private static final OkHttpClient client = new OkHttpClient();
-
     public WithingsAuthenticationService(String clientId, String clientSecret, String redirectUrl, Scope[] scope) {
         this.clientId = clientId;
         this.clientSecret = clientSecret;
         this.redirectUrl = redirectUrl;
         this.scope = scope;
-        this.endpointUrl = " https://wbsapi.withings.net/" + authenticationEndpointVersion + "/oauth2";
-    }
-
-    @Override
-    public void setEndpointUrl(String mockUrl) {
-        this.endpointUrl = mockUrl;
-    }
-
-    @Override
-    public String getEndpointUrl(){
-        return endpointUrl;
+        this.endpointUrl = "https://wbsapi.withings.net/" + authenticationEndpointVersion + "/oauth2";
     }
 
     @Override
@@ -61,15 +47,10 @@ public class WithingsAuthenticationService implements AuthenticationService {
         return getToken(this.buildRequestBodyWithRefreshToken(refreshToken.getRefreshToken()));
     }
 
-    private BaseResponse getToken(RequestBody body) throws IOException, WithingsAPIException{
-        Request requst = new Request.Builder()
-            .url(endpointUrl)
-            .post(body)
-            .build();
+    private BaseResponse getToken(FormBody body) throws IOException, WithingsAPIException{
+        Headers headers = Headers.of("User-Agent","Withings4J");
+        String result = buildRequest(endpointUrl, body, headers);
 
-        Response response = client.newCall(requst).execute();
-
-        String result = response.body().string();
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         
@@ -82,7 +63,7 @@ public class WithingsAuthenticationService implements AuthenticationService {
         return token;
     }
 
-    private RequestBody buildRequestBodyWithRefreshToken(String refreshToken) {
+    private FormBody buildRequestBodyWithRefreshToken(String refreshToken) {
         return new FormBody.Builder()
             .add("action", "requesttoken")
             .add("client_id", clientId)
@@ -92,7 +73,7 @@ public class WithingsAuthenticationService implements AuthenticationService {
             .build();
     }
 
-    private RequestBody buildRequestBodyWithCode(String code) {
+    private FormBody buildRequestBodyWithCode(String code) {
         return new FormBody.Builder()
             .add("action", "requesttoken")
             .add("client_id", clientId)
