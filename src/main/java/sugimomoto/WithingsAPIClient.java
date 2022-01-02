@@ -7,18 +7,11 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import okhttp3.FormBody;
-import okhttp3.Headers;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.internal.http1.HeadersReader;
+import okhttp3.*;
 
 public class WithingsAPIClient extends APIClient {
 
     private AccessTokenResponse token;
-
-    private static final OkHttpClient client = new OkHttpClient();
 
     private final String version = "v2";
 
@@ -43,5 +36,4 @@ public class WithingsAPIClient extends APIClient {
 
         return activity;
     }
-
 }
