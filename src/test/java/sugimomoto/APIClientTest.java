@@ -32,8 +32,50 @@ public class APIClientTest {
     }
 
 
+
     @Test
-    public void parameterTest(){
+    public void MeasQueryParametersTest(){
+        MeasQueryParameters param = new MeasQueryParameters();
+        param.setMeasType(MeasType.Weight);
+        param.setMeasTypes(new MeasType[]{MeasType.Weight,MeasType.Height});
+        param.setCategory(MeasCategory.RealMeasures);
+        param.setStartDate("2021-01-01");
+        param.setEndDate("2021-01-02");
+        param.setLastUpdate(12345);
+        param.setOffset(23456);
+
+        FormBody body = param.getQueryParameters();
+
+        assertEquals(8, body.size());
+        assertEquals("action", body.name(0));
+        assertEquals("getmeas", body.value(0));
+
+        assertEquals("meastype", body.name(1));
+        assertEquals("1", body.value(1));
+
+        assertEquals("meastypes", body.name(2));
+        assertEquals("1,4", body.value(2));
+
+        assertEquals("category", body.name(3));
+        assertEquals("1", body.value(3));
+
+        assertEquals("startdate", body.name(4));
+        assertEquals("2021-01-01", body.value(4));
+
+        assertEquals("enddate", body.name(4));
+        assertEquals("2021-01-02", body.value(4));
+
+        assertEquals("lastupdate", body.name(4));
+        assertEquals("12345", body.value(4));
+
+        assertEquals("offset", body.name(5));
+        assertEquals("23456", body.value(5));
+
+
+    }
+
+    @Test
+    public void ActivitiesQueryParametersTest(){
 
         ActivitiesQueryParameters param = new ActivitiesQueryParameters();
         param.setStartDateYMD("2021-01-01");
