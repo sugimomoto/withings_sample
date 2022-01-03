@@ -24,13 +24,13 @@ public enum MeasType {
     CorrectedQTIntervalDurationBasedOnECGSignal(138),
     AtrialFibrillationResultFromPPG(139);
 
-    private final int value;
+    private final Integer value;
 
-    private MeasType(int value){
+    private MeasType(Integer value){
         this.value = value;
     }
 
-    public int getValue(){
+    public Integer getValue(){
         return value;
     }
 }

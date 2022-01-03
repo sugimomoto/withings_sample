@@ -37,7 +37,7 @@ public class APIClientTest {
     public void MeasQueryParametersTest(){
         MeasQueryParameters param = new MeasQueryParameters();
         param.setMeasType(MeasType.Weight);
-        param.setMeasTypes(new MeasType[]{MeasType.Weight,MeasType.Height});
+        param.setMeasTypes(new MeasType[]{MeasType.Weight,MeasType.Height,MeasType.MuscleMass});
         param.setCategory(MeasCategory.RealMeasures);
         param.setStartDate("2021-01-01");
         param.setEndDate("2021-01-02");
@@ -54,7 +54,7 @@ public class APIClientTest {
         assertEquals("1", body.value(1));
 
         assertEquals("meastypes", body.name(2));
-        assertEquals("1,4", body.value(2));
+        assertEquals("1,4,76", body.value(2));
 
         assertEquals("category", body.name(3));
         assertEquals("1", body.value(3));
@@ -62,16 +62,14 @@ public class APIClientTest {
         assertEquals("startdate", body.name(4));
         assertEquals("2021-01-01", body.value(4));
 
-        assertEquals("enddate", body.name(4));
-        assertEquals("2021-01-02", body.value(4));
+        assertEquals("enddate", body.name(5));
+        assertEquals("2021-01-02", body.value(5));
 
-        assertEquals("lastupdate", body.name(4));
-        assertEquals("12345", body.value(4));
+        assertEquals("lastupdate", body.name(6));
+        assertEquals("12345", body.value(6));
 
-        assertEquals("offset", body.name(5));
-        assertEquals("23456", body.value(5));
-
-
+        assertEquals("offset", body.name(7));
+        assertEquals("23456", body.value(7));
     }
 
     @Test
