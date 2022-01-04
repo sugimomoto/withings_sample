@@ -11,6 +11,7 @@ public class Measuregrp {
     private long created;
     private long category;
     private String deviceid;
+    private String hashDeviceid;
     private List<Measure> measures;
     private String comment;
 
@@ -43,6 +44,11 @@ public class Measuregrp {
     public String getDeviceid() { return deviceid; }
     @JsonProperty("deviceid")
     public void setDeviceid(String value) { this.deviceid = value; }
+
+    @JsonProperty("hash_deviceid")
+    public String getHashDeviceid() { return hashDeviceid; }
+    @JsonProperty("hash_deviceid")
+    public void setHashDeviceid(String value) { this.hashDeviceid = value; }
 
     @JsonProperty("measures")
     public List<Measure> getMeasures() { return measures; }

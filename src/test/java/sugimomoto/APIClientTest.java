@@ -31,8 +31,6 @@ public class APIClientTest {
         client.setEndpointUrl(mockUrl);
     }
 
-
-
     @Test
     public void MeasQueryParametersTest(){
         MeasQueryParameters param = new MeasQueryParameters();
@@ -145,7 +143,54 @@ public class APIClientTest {
 
     @Test
     public void getMeasureTest(){
+        init();
 
+        MeasQueryParameters param = new MeasQueryParameters();
+        param.setMeasType(MeasType.Weight);
+        param.setStartDate("2021-01-01");
+        param.setEndDate("2021-01-02");
 
+        FormBody body = param.getQueryParameters();
+
+        MeasBase measBase = client.getMeasures();
+
+        assertEquals((Integer)0, measBase.getStatus());
+
+        MeasBody measBody = measBase.getBody();
+
+        assertEquals(1, measBody.getMore());
+        assertEquals(0, measBody.getOffset());
+        assertEquals("Asia/Tokyo", measBody.getTimezone());
+        assertEquals(1640818701, measBody.getUpdatetime());
+
+        List<Measuregrp> measuregrps = measBody.getMeasuregrps();
+        assertEquals(41, measuregrps.size());
+
+        int count = 0;
+        for (Measuregrp measuregrp : measuregrps) {
+
+            if(count == 0){
+                assertEquals(0, measuregrp.getAttrib());
+                assertEquals(1, measuregrp.getCategory());
+                assertEquals("hello", measuregrp.getComment());
+                assertEquals(1640815483, measuregrp.getCreated());
+                assertEquals(1640815445, measuregrp.getDate());
+                assertEquals("d60dfb80d09098b63204a32bca96cfed581dc5ce", measuregrp.getDeviceid());
+                assertEquals("d60dfb80d09098b63204a32bca96cfed581dc5c1", measuregrp.getHashDeviceid());
+                assertEquals("3259812118", measuregrp.getGrpid());
+
+                List<Measure> measures = measuregrp.getMeasures();
+
+                assertEquals(1, measures.size());
+
+                Measure measure = measures.get(0);
+
+                assertEquals(79400, measure.getValue());
+                assertEquals(1, measure.getType());
+                assertEquals(-3, measure.getUnit());
+                assertEquals(3, measure.getAlgo());
+                assertEquals(131, measure.getFm());
+            }
+        }
     }
 }
