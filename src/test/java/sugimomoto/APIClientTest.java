@@ -159,7 +159,7 @@ public class APIClientTest {
         assertEquals(1, measBody.getMore());
         assertEquals(0, measBody.getOffset());
         assertEquals("Asia/Tokyo", measBody.getTimezone());
-        assertEquals(1640818701, measBody.getUpdatetime());
+        assertEquals("1640818701", measBody.getUpdatetime());
 
         List<Measuregrp> measuregrps = measBody.getMeasuregrps();
         assertEquals(41, measuregrps.size());
@@ -175,7 +175,7 @@ public class APIClientTest {
                 assertEquals(1640815445, measuregrp.getDate());
                 assertEquals("d60dfb80d09098b63204a32bca96cfed581dc5ce", measuregrp.getDeviceid());
                 assertEquals("d60dfb80d09098b63204a32bca96cfed581dc5c1", measuregrp.getHashDeviceid());
-                assertEquals("3259812118", measuregrp.getGrpid());
+                assertEquals(Long.parseLong("3259812118"), measuregrp.getGrpid());
 
                 List<Measure> measures = measuregrp.getMeasures();
 
@@ -189,6 +189,7 @@ public class APIClientTest {
                 assertEquals(3, measure.getAlgo());
                 assertEquals(131, measure.getFm());
             }
+            count++;
         }
     }
 }

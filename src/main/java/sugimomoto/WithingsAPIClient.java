@@ -13,11 +13,13 @@ public class WithingsAPIClient extends APIClient {
 
     private AccessTokenResponse token;
 
-    private final String version = "v2";
+    private final String API_VERSION = "v2";
+
+    private final String API_ENDPOINT = "https://wbsapi.withings.net";
 
     public WithingsAPIClient(AccessTokenResponse token) {
         this.token = token;
-        this.endpointUrl = "https://wbsapi.withings.net";
+        this.endpointUrl = API_ENDPOINT;
     }
 
     private Headers getHeaderSettings(){
@@ -25,11 +27,11 @@ public class WithingsAPIClient extends APIClient {
     }
 
     private String getUrl(String resource){
-        return this.endpointUrl + "/" + this.version + "/" + resource;
+        return this.endpointUrl + "/" + API_VERSION + "/" + resource;
     }
 
-    private <T extends IResponse> IResponse getAPIResponse(String resource, IQueryParameters param,Class<T> valueType) throws IOException{
-        String result = buildRequest(getUrl("measure"), param.getQueryParameters(), getHeaderSettings());
+    private <T extends IResponse> IResponse getAPIResponse(String url, IQueryParameters param, Class<T> valueType) throws IOException{
+        String result = buildRequest(url, param.getQueryParameters(), getHeaderSettings());
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
@@ -44,10 +46,18 @@ public class WithingsAPIClient extends APIClient {
     }
 
     public ActivityBase getActivities(ActivitiesQueryParameters param) throws IOException,WithingsAPIException {
-        return (ActivityBase)getAPIResponse("measure", param, ActivityBase.class);
+        return (ActivityBase)getAPIResponse(getUrl("measure"), param, ActivityBase.class);
     }
 
     public MeasBase getMeasures(MeasQueryParameters param) throws IOException,WithingsAPIException {
-        return (MeasBase)getAPIResponse("measure", param, MeasBase.class);
+        return (MeasBase)getAPIResponse(getUrl("measure"), param, MeasBase.class);
+    }
+
+    public void setToken(AccessTokenResponse token){
+        this.token = token;
+    }
+
+    public AccessTokenResponse getToken(){
+        return token;
     }
 }
