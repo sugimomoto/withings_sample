@@ -116,6 +116,8 @@ public class APIClientTest {
 
         int count = 0;
 
+        assertEquals(27, activities.size());
+
         for (Activity activity : activities) {
             if(count == 0){
                 assertEquals((Integer)6676, activity.getSteps());
@@ -137,12 +139,10 @@ public class APIClientTest {
             
             count++;
         }
-        
-        assertEquals(27, count);
     }
 
     @Test
-    public void getMeasureTest(){
+    public void getMeasureTest() throws WithingsAPIException, IOException{
         init();
 
         MeasQueryParameters param = new MeasQueryParameters();
@@ -150,9 +150,7 @@ public class APIClientTest {
         param.setStartDate("2021-01-01");
         param.setEndDate("2021-01-02");
 
-        FormBody body = param.getQueryParameters();
-
-        MeasBase measBase = client.getMeasures();
+        MeasBase measBase = client.getMeasures(param);
 
         assertEquals((Integer)0, measBase.getStatus());
 

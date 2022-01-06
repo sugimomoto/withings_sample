@@ -20,20 +20,34 @@ public class WithingsAPIClient extends APIClient {
         this.endpointUrl = "https://wbsapi.withings.net";
     }
 
-    public ActivityBase getActivities(ActivitiesQueryParameters param) throws IOException,WithingsAPIException {
+    private Headers getHeaderSettings(){
+        return Headers.of("Authorization","Bearer " + token.getAccessToken());
+    }
 
-        Headers headers = Headers.of("Authorization","Bearer " + token.getAccessToken());
-        String result = buildRequest(this.endpointUrl + "/" + this.version + "/measure", param.getQueryParameters(),headers);
+    private String getUrl(String resource){
+        return this.endpointUrl + "/" + this.version + "/" + resource;
+    }
+
+    private <T extends IResponse> IResponse getAPIResponse(String resource, IQueryParameters param,Class<T> valueType) throws IOException{
+        String result = buildRequest(getUrl("measure"), param.getQueryParameters(), getHeaderSettings());
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         
-        ActivityBase activity = mapper.readValue(result, ActivityBase.class);
+        IResponse response = mapper.readValue(result, valueType);
 
-        if(activity.getStatus() != 0){
-            throw new WithingsAPIException(activity.getError(),activity.getStatus());
+        if(response.getStatus() != 0){
+            throw new WithingsAPIException(response.getError(),response.getStatus());
         }
 
-        return activity;
+        return response;
+    }
+
+    public ActivityBase getActivities(ActivitiesQueryParameters param) throws IOException,WithingsAPIException {
+        return (ActivityBase)getAPIResponse("measure", param, ActivityBase.class);
+    }
+
+    public MeasBase getMeasures(MeasQueryParameters param) throws IOException,WithingsAPIException {
+        return (MeasBase)getAPIResponse("measure", param, MeasBase.class);
     }
 }

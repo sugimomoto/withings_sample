@@ -2,7 +2,7 @@ package sugimomoto;
 
 import okhttp3.FormBody;
 
-public abstract class QueryParameters {
+public abstract class QueryParameters implements IQueryParameters {
 
     protected FormBody.Builder builder = new FormBody.Builder();
 
