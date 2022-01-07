@@ -1,4 +1,4 @@
-package sugimomoto;
+package sugimomoto.withings4j.query;
 
 public class ActivitiesQueryParameters extends QueryParameters {
 

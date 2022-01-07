@@ -1,4 +1,4 @@
-package sugimomoto;
+package sugimomoto.withings4j;
 
 public class WithingsAPIException extends WithingsException {
     private Integer status;

@@ -1,4 +1,4 @@
-package sugimomoto;
+package sugimomoto.withings4j.query;
 
 import okhttp3.FormBody;
 

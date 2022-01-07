@@ -1,4 +1,4 @@
-package sugimomoto;
+package sugimomoto.withings4j.model;
 
 public enum Scope {
     USER_ACTIVITY("user.activity"),

@@ -1,4 +1,4 @@
-package sugimomoto;
+package sugimomoto.withings4j.model;
 
 public enum ResponseType {
     AUTHORIZATION_CODE("code");

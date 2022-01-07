@@ -13,6 +13,19 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import okhttp3.FormBody;
+import sugimomoto.withings4j.WithingsAPIClient;
+import sugimomoto.withings4j.WithingsAPIException;
+import sugimomoto.withings4j.model.AccessTokenResponse;
+import sugimomoto.withings4j.model.Activity;
+import sugimomoto.withings4j.model.ActivityBase;
+import sugimomoto.withings4j.model.MeasBase;
+import sugimomoto.withings4j.model.MeasBody;
+import sugimomoto.withings4j.model.MeasCategory;
+import sugimomoto.withings4j.model.MeasType;
+import sugimomoto.withings4j.model.Measure;
+import sugimomoto.withings4j.model.Measuregrp;
+import sugimomoto.withings4j.query.ActivitiesQueryParameters;
+import sugimomoto.withings4j.query.MeasQueryParameters;
 
 public class APIClientTest {
 

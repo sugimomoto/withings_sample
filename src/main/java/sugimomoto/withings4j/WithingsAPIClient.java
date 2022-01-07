@@ -1,4 +1,4 @@
-package sugimomoto;
+package sugimomoto.withings4j;
 
 import java.io.IOException;
 
@@ -8,6 +8,13 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.*;
+import sugimomoto.withings4j.model.AccessTokenResponse;
+import sugimomoto.withings4j.model.ActivityBase;
+import sugimomoto.withings4j.model.IResponse;
+import sugimomoto.withings4j.model.MeasBase;
+import sugimomoto.withings4j.query.ActivitiesQueryParameters;
+import sugimomoto.withings4j.query.IQueryParameters;
+import sugimomoto.withings4j.query.MeasQueryParameters;
 
 public class WithingsAPIClient extends APIClient {
 

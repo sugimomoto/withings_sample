@@ -1,4 +1,4 @@
-package sugimomoto;
+package sugimomoto.withings4j;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +11,12 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.*;
+import sugimomoto.withings4j.model.AccessTokenResponse;
+import sugimomoto.withings4j.model.BaseResponse;
+import sugimomoto.withings4j.model.GrantType;
+import sugimomoto.withings4j.model.ResponseType;
+import sugimomoto.withings4j.model.Scope;
+import sugimomoto.withings4j.query.AuthorizationUrlParameter;
 
 
 public class WithingsAuthenticationService extends APIClient implements AuthenticationService {

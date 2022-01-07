@@ -1,4 +1,6 @@
-package sugimomoto;
+package sugimomoto.withings4j.query;
+
+import sugimomoto.withings4j.model.*;
 
 public class AuthorizationUrlParameter {
 
