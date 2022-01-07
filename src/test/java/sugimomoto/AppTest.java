@@ -9,13 +9,9 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.Rule;
 import org.junit.Test;
 
-import sugimomoto.withings4j.WithingsAPIException;
-import sugimomoto.withings4j.WithingsAuthenticationService;
-import sugimomoto.withings4j.model.AccessToken;
-import sugimomoto.withings4j.model.AccessTokenBase;
-import sugimomoto.withings4j.model.ResponseType;
-import sugimomoto.withings4j.model.Scope;
-import sugimomoto.withings4j.query.AuthorizationUrlParameter;
+import sugimomoto.withings4j.*;
+import sugimomoto.withings4j.model.*;
+import sugimomoto.withings4j.query.*;
 
 /**
  * Unit test for simple App.
