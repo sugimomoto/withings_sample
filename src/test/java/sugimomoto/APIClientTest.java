@@ -15,7 +15,7 @@ import org.junit.Test;
 import okhttp3.FormBody;
 import sugimomoto.withings4j.WithingsAPIClient;
 import sugimomoto.withings4j.WithingsAPIException;
-import sugimomoto.withings4j.model.AccessTokenResponse;
+import sugimomoto.withings4j.model.AccessToken;
 import sugimomoto.withings4j.model.Activity;
 import sugimomoto.withings4j.model.ActivityBase;
 import sugimomoto.withings4j.model.MeasBase;
@@ -37,7 +37,7 @@ public class APIClientTest {
     private WithingsAPIClient client;
 
     public void init(){
-        AccessTokenResponse token = new AccessTokenResponse();
+        AccessToken token = new AccessToken();
         token.setAccessToken("dummy_token");
 
         client = new WithingsAPIClient(token);

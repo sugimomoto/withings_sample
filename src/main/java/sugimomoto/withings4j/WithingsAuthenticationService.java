@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.*;
-import sugimomoto.withings4j.model.AccessTokenResponse;
-import sugimomoto.withings4j.model.BaseResponse;
+import sugimomoto.withings4j.model.AccessToken;
+import sugimomoto.withings4j.model.AccessTokenBase;
 import sugimomoto.withings4j.model.GrantType;
 import sugimomoto.withings4j.model.ResponseType;
 import sugimomoto.withings4j.model.Scope;
@@ -42,23 +42,23 @@ public class WithingsAuthenticationService extends APIClient implements Authenti
     }
 
     @Override
-    public BaseResponse getAccessToken(String code) throws IOException {
+    public AccessTokenBase getAccessToken(String code) throws IOException {
         return getToken(this.buildRequestBodyWithCode(code));
     }
 
     @Override
-    public BaseResponse getRefreshToken(AccessTokenResponse refreshToken) throws IOException {
+    public AccessTokenBase getRefreshToken(AccessToken refreshToken) throws IOException {
         return getToken(this.buildRequestBodyWithRefreshToken(refreshToken.getRefreshToken()));
     }
 
-    private BaseResponse getToken(FormBody body) throws IOException, WithingsAPIException{
+    private AccessTokenBase getToken(FormBody body) throws IOException, WithingsAPIException{
         Headers headers = Headers.of("User-Agent","Withings4J");
         String result = buildRequest(endpointUrl, body, headers);
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         
-        BaseResponse token = mapper.readValue(result, BaseResponse.class);
+        AccessTokenBase token = mapper.readValue(result, AccessTokenBase.class);
 
         if(token.getStatus() != 0){
             throw new WithingsAPIException(token.getError(),token.getStatus());

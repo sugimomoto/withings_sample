@@ -2,14 +2,14 @@ package sugimomoto.withings4j;
 
 import java.io.IOException;
 
-import sugimomoto.withings4j.model.AccessTokenResponse;
-import sugimomoto.withings4j.model.BaseResponse;
+import sugimomoto.withings4j.model.AccessToken;
+import sugimomoto.withings4j.model.AccessTokenBase;
 
 public interface AuthenticationService {
 
-    public BaseResponse getAccessToken(String code) throws IOException;
+    public AccessTokenBase getAccessToken(String code) throws IOException;
 
-    public BaseResponse getRefreshToken(AccessTokenResponse accessToken) throws IOException;
+    public AccessTokenBase getRefreshToken(AccessToken accessToken) throws IOException;
 
     public String getAuthorizationUrl(String state);
 

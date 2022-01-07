@@ -11,8 +11,8 @@ import org.junit.Test;
 
 import sugimomoto.withings4j.WithingsAPIException;
 import sugimomoto.withings4j.WithingsAuthenticationService;
-import sugimomoto.withings4j.model.AccessTokenResponse;
-import sugimomoto.withings4j.model.BaseResponse;
+import sugimomoto.withings4j.model.AccessToken;
+import sugimomoto.withings4j.model.AccessTokenBase;
 import sugimomoto.withings4j.model.ResponseType;
 import sugimomoto.withings4j.model.Scope;
 import sugimomoto.withings4j.query.AuthorizationUrlParameter;
@@ -74,9 +74,9 @@ public class AppTest
     public void oAuthGetAccessTokenTest() throws IOException{
         this.init();
 
-        BaseResponse token = authService.getAccessToken("dummy_code");
+        AccessTokenBase token = authService.getAccessToken("dummy_code");
 
-        AccessTokenResponse response = token.getBody();
+        AccessToken response = token.getBody();
         assertEquals("a508999978b28369eebf173ef78f2f248321e163", response.getAccessToken());
         assertEquals("296ab698174e87e29417a24032aa88f14baaebd7", response.getRefreshToken());
         assertEquals("27718374", response.getUserid());
@@ -89,10 +89,10 @@ public class AppTest
     public void oAuthGetRefreshAccessTokenTest() throws IOException{
         this.init();
 
-        BaseResponse token = authService.getAccessToken("dummy_code");
-        BaseResponse refreshToken = authService.getRefreshToken(token.getBody());
+        AccessTokenBase token = authService.getAccessToken("dummy_code");
+        AccessTokenBase refreshToken = authService.getRefreshToken(token.getBody());
 
-        AccessTokenResponse response = refreshToken.getBody();
+        AccessToken response = refreshToken.getBody();
         assertEquals("18ccc6828e660a6e350f503ef1fb98790884087c", response.getAccessToken());
         assertEquals("1cd132b9bcd80b3d4d5ad2017dddcdd14be9d0bf", response.getRefreshToken());
         assertEquals("362", response.getUserid());
@@ -109,7 +109,7 @@ public class AppTest
         Integer status = 0;
 
         try{
-            BaseResponse token = authService.getAccessToken("exception_code");
+            AccessTokenBase token = authService.getAccessToken("exception_code");
         }catch(WithingsAPIException ex){
             message = ex.getMessage();
             status = ex.getStatus();
@@ -126,7 +126,7 @@ public class AppTest
         String message = "";
         Integer status = 0;
 
-        AccessTokenResponse accessToken = new AccessTokenResponse();
+        AccessToken accessToken = new AccessToken();
         accessToken.setAccessToken("18ccc6828e660a6e350f503ef1fb98790884087c");
         accessToken.setExpiresIn((Integer)10800);
         accessToken.setRefreshToken("invalid_refresth_token");
@@ -135,7 +135,7 @@ public class AppTest
         accessToken.setUserid("362");
 
         try{
-            BaseResponse token = authService.getRefreshToken(accessToken);
+            AccessTokenBase token = authService.getRefreshToken(accessToken);
         }catch(WithingsAPIException ex){
             message = ex.getMessage();
             status = ex.getStatus();

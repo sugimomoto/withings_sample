@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.*;
-import sugimomoto.withings4j.model.AccessTokenResponse;
+import sugimomoto.withings4j.model.AccessToken;
 import sugimomoto.withings4j.model.ActivityBase;
 import sugimomoto.withings4j.model.IResponse;
 import sugimomoto.withings4j.model.MeasBase;
@@ -18,13 +18,13 @@ import sugimomoto.withings4j.query.MeasQueryParameters;
 
 public class WithingsAPIClient extends APIClient {
 
-    private AccessTokenResponse token;
+    private AccessToken token;
 
     private final String API_VERSION = "v2";
 
     private final String API_ENDPOINT = "https://wbsapi.withings.net";
 
-    public WithingsAPIClient(AccessTokenResponse token) {
+    public WithingsAPIClient(AccessToken token) {
         this.token = token;
         this.endpointUrl = API_ENDPOINT;
     }
@@ -60,11 +60,11 @@ public class WithingsAPIClient extends APIClient {
         return (MeasBase)getAPIResponse(getUrl("measure"), param, MeasBase.class);
     }
 
-    public void setToken(AccessTokenResponse token){
+    public void setToken(AccessToken token){
         this.token = token;
     }
 
-    public AccessTokenResponse getToken(){
+    public AccessToken getToken(){
         return token;
     }
 }

@@ -2,7 +2,7 @@ package sugimomoto.withings4j.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AccessTokenResponse {
+public class AccessToken {
 
     @JsonProperty("userid")
     private String userid;
