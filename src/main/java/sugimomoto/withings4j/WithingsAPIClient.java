@@ -12,9 +12,9 @@ import sugimomoto.withings4j.model.AccessToken;
 import sugimomoto.withings4j.model.ActivityBase;
 import sugimomoto.withings4j.model.IResponse;
 import sugimomoto.withings4j.model.MeasBase;
-import sugimomoto.withings4j.query.ActivitiesQueryParameters;
+import sugimomoto.withings4j.query.GetActivityQueryParameters;
 import sugimomoto.withings4j.query.IQueryParameters;
-import sugimomoto.withings4j.query.MeasQueryParameters;
+import sugimomoto.withings4j.query.GetMeasQueryParameters;
 
 public class WithingsAPIClient extends APIClient {
 
@@ -52,11 +52,11 @@ public class WithingsAPIClient extends APIClient {
         return response;
     }
 
-    public ActivityBase getActivities(ActivitiesQueryParameters param) throws IOException,WithingsAPIException {
+    public ActivityBase getActivities(GetActivityQueryParameters param) throws IOException,WithingsAPIException {
         return (ActivityBase)getAPIResponse(getUrl("measure"), param, ActivityBase.class);
     }
 
-    public MeasBase getMeasures(MeasQueryParameters param) throws IOException,WithingsAPIException {
+    public MeasBase getMeasures(GetMeasQueryParameters param) throws IOException,WithingsAPIException {
         return (MeasBase)getAPIResponse(getUrl("measure"), param, MeasBase.class);
     }
 

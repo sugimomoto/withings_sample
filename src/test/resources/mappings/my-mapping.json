@@ -29,7 +29,7 @@
             },
             "response": {
                 "status": 200,
-                "bodyFileName": "MeasureGetmeas.json",
+                "bodyFileName": "Measure-Getmeas.json",
                 "headers": {
                     "Content-Type": "application/json"
                 }
@@ -61,7 +61,7 @@
             },
             "response": {
                 "status": 200,
-                "bodyFileName": "GetActivity.json",
+                "bodyFileName": "Measurev2-Getactivity.json",
                 "headers": {
                     "Content-Type": "application/json"
                 }
@@ -96,7 +96,7 @@
             },
             "response": {
                 "status": 200,
-                "bodyFileName": "getRefreshTokenException.json",
+                "bodyFileName": "OAuth20-RefreshyouraccesstokenException.json",
                 "headers": {
                     "Content-Type": "application/json"
                 }
@@ -134,7 +134,7 @@
             },
             "response": {
                 "status": 200,
-                "bodyFileName": "getAccessTokenException.json",
+                "bodyFileName": "OAuth20-GetyouraccesstokenException.json",
                 "headers": {
                     "Content-Type": "application/json"
                 }
@@ -169,7 +169,7 @@
             },
             "response": {
                 "status": 200,
-                "bodyFileName": "getRefreshToken.json",
+                "bodyFileName": "OAuth20-Refreshyouraccesstoken.json",
                 "headers": {
                     "Content-Type": "application/json"
                 }
@@ -207,7 +207,7 @@
             },
             "response": {
                 "status": 200,
-                "bodyFileName": "getAccessToken.json",
+                "bodyFileName": "OAuth20-Getyouraccesstoken.json",
                 "headers": {
                     "Content-Type": "application/json"
                 }
