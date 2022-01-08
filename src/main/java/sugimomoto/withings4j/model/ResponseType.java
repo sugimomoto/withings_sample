@@ -12,5 +12,4 @@ public enum ResponseType {
     public String getValue(){
         return value;
     }
-
 }
