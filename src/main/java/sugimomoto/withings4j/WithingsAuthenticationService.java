@@ -97,4 +97,10 @@ public class WithingsAuthenticationService extends APIClient implements Authenti
     public String getAuthorizationUrl(String state, Boolean mode) {
         return authenticationUrl + "?" + AuthorizationUrlParameter.toQueryParameter(ResponseType.AUTHORIZATION_CODE,clientId,state,scope,redirectUrl,mode);
     }
+
+    @Override
+    protected Headers getHeaderSettings() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

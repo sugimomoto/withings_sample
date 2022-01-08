@@ -3,7 +3,7 @@
         {            
             "request": {
                 "method": "POST",
-                "urlPattern": "/v2/measure",
+                "urlPattern": "/measure",
                 "headers": {
                     "Authorization": {
                         "matches": "Bearer dummy_token"

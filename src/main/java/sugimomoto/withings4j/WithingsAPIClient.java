@@ -12,6 +12,7 @@ import sugimomoto.withings4j.model.AccessToken;
 import sugimomoto.withings4j.model.ActivityBase;
 import sugimomoto.withings4j.model.IResponse;
 import sugimomoto.withings4j.model.MeasBase;
+import sugimomoto.withings4j.model.Resource;
 import sugimomoto.withings4j.query.GetActivityQueryParameters;
 import sugimomoto.withings4j.query.IQueryParameters;
 import sugimomoto.withings4j.query.GetMeasQueryParameters;
@@ -20,8 +21,6 @@ public class WithingsAPIClient extends APIClient {
 
     private AccessToken token;
 
-    private final String API_VERSION = "v2";
-
     private final String API_ENDPOINT = "https://wbsapi.withings.net";
 
     public WithingsAPIClient(AccessToken token) {
@@ -29,35 +28,21 @@ public class WithingsAPIClient extends APIClient {
         this.endpointUrl = API_ENDPOINT;
     }
 
-    private Headers getHeaderSettings(){
+    @Override
+    protected Headers getHeaderSettings(){
         return Headers.of("Authorization","Bearer " + token.getAccessToken());
     }
 
-    private String getUrl(String resource){
-        return this.endpointUrl + "/" + API_VERSION + "/" + resource;
-    }
-
-    private <T extends IResponse> IResponse getAPIResponse(String url, IQueryParameters param, Class<T> valueType) throws IOException{
-        String result = buildRequest(url, param.getQueryParameters(), getHeaderSettings());
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        
-        IResponse response = mapper.readValue(result, valueType);
-
-        if(response.getStatus() != 0){
-            throw new WithingsAPIException(response.getError(),response.getStatus());
-        }
-
-        return response;
+    private String getUrl(Resource resource){
+        return this.endpointUrl + resource.getValue();
     }
 
     public ActivityBase getActivities(GetActivityQueryParameters param) throws IOException,WithingsAPIException {
-        return (ActivityBase)getAPIResponse(getUrl("measure"), param, ActivityBase.class);
+        return (ActivityBase)getAPIResponse(getUrl(Resource.V2_MEASURE), param, ActivityBase.class);
     }
 
     public MeasBase getMeasures(GetMeasQueryParameters param) throws IOException,WithingsAPIException {
-        return (MeasBase)getAPIResponse(getUrl("measure"), param, MeasBase.class);
+        return (MeasBase)getAPIResponse(getUrl(Resource.V1_MEASURE), param, MeasBase.class);
     }
 
     public void setToken(AccessToken token){

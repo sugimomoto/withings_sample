@@ -2,7 +2,12 @@ package sugimomoto.withings4j;
 
 import java.io.IOException;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import okhttp3.*;
+import sugimomoto.withings4j.model.IResponse;
+import sugimomoto.withings4j.query.IQueryParameters;
 
 public abstract class APIClient {
 
@@ -16,6 +21,23 @@ public abstract class APIClient {
 
     public String getEndpointUrl(){
         return endpointUrl;
+    }
+
+    protected abstract Headers getHeaderSettings();
+
+    protected <T extends IResponse> IResponse getAPIResponse(String url, IQueryParameters param, Class<T> valueType) throws IOException{
+        String result = buildRequest(url, param.getQueryParameters(), getHeaderSettings());
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        
+        IResponse response = mapper.readValue(result, valueType);
+
+        if(response.getStatus() != 0){
+            throw new WithingsAPIException(response.getError(),response.getStatus());
+        }
+
+        return response;
     }
 
     public String buildRequest(String url, FormBody body, Headers headers) throws IOException{
