@@ -10,16 +10,17 @@ public class WithingsAPIClient extends APIClient {
 
     private AccessToken token;
 
-    private final String API_ENDPOINT = "https://wbsapi.withings.net";
-
     public WithingsAPIClient(AccessToken token) {
         this.token = token;
-        this.endpointUrl = API_ENDPOINT;
+        this.endpointUrl = WithingsConst.ENDPOINT_URL;
     }
 
     @Override
     protected Headers getHeaderSettings(){
-        return Headers.of("Authorization","Bearer " + token.getAccessToken());
+        return Headers.of(
+            "Authorization","Bearer " + token.getAccessToken(),
+            "User-Agent",WithingsConst.WITHINGS_4J_USER_AGENT_NAME
+            );
     }
 
     private String getUrl(Resource resource){

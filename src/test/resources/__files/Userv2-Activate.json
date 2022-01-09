@@ -1,0 +1,21 @@
+{
+    "status": 0,
+    "body": {
+      "user": {
+        "code": "490ed603fe9bd2ce10027bdba0c932069cd27085",
+        "external_id": "3b7a6db0-ec7e-479b-9675-2a3d8d6a7e51"
+      },
+      "devices": [
+        {
+          "mac_address": "00:24:e4:69:b2:30",
+          "type": "Scale",
+          "model": "Body Cardio",
+          "model_id": 6,
+          "battery": "medium",
+          "deviceid": "892359876fd8805ac45bab078c4828692f0276b1",
+          "timezone": "Europe/Paris",
+          "last_session_date": 1594159644
+        }
+      ]
+    }
+  }

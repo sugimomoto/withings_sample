@@ -1,0 +1,22 @@
+{
+    "status": 0,
+    "body": {
+      "user": {
+        "code": "490ed603fe9bd2ce10027bdba0c932069cd27085",
+        "external_id": "3b7a6db0-ec7e-479b-9675-2a3d8d6a7e51"
+      },
+      "orders": [
+        {
+          "order_id": "D12345678",
+          "customer_ref_id": "MOUVEMENTREFERENCE12345678",
+          "status": "VERIFIED",
+          "products": [
+            {
+              "ean": "3700546702518",
+              "quantity": 3
+            }
+          ]
+        }
+      ]
+    }
+  }

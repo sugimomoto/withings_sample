@@ -1,0 +1,21 @@
+{
+    "status": 0,
+    "body": {
+      "series": {
+        "startdate": 1594159200,
+        "enddate": 1594202400,
+        "state": 1,
+        "hr": {
+          "$timestamp": 0
+        },
+        "rr": {
+          "$timestamp": 0
+        },
+        "snoring": {
+          "$timestamp": 0
+        }
+      },
+      "model": "Aura Sensor V2",
+      "model_id": 63
+    }
+  }

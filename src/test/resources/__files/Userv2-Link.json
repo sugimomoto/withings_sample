@@ -1,0 +1,17 @@
+{
+    "status": 0,
+    "body": {
+      "devices": [
+        {
+          "mac_address": "00:24:e4:69:b2:30",
+          "type": "Scale",
+          "model": "Body Cardio",
+          "model_id": 6,
+          "battery": "medium",
+          "deviceid": "892359876fd8805ac45bab078c4828692f0276b1",
+          "timezone": "Europe/Paris",
+          "last_session_date": 1594159644
+        }
+      ]
+    }
+  }

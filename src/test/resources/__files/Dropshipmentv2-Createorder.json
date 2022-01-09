@@ -1,0 +1,18 @@
+{
+    "status": 0,
+    "body": {
+      "orders": [
+        {
+          "order_id": "D12345678",
+          "customer_ref_id": "MOUVEMENTREFERENCE12345678",
+          "status": "VERIFIED",
+          "products": [
+            {
+              "ean": "3700546702518",
+              "quantity": 3
+            }
+          ]
+        }
+      ]
+    }
+  }

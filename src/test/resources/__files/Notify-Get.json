@@ -1,0 +1,8 @@
+{
+    "status": 0,
+    "body": {
+      "appli": 4,
+      "callbackurl": "https://www.withings.com",
+      "comment": "My notification subcription comment"
+    }
+  }
