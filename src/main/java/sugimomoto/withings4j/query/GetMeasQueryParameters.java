@@ -1,7 +1,6 @@
 package sugimomoto.withings4j.query;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import sugimomoto.withings4j.model.*;
