@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.*;
-import sugimomoto.withings4j.model.IResponse;
-import sugimomoto.withings4j.query.IQueryParameters;
+import sugimomoto.withings4j.model.*;
+import sugimomoto.withings4j.query.*;
 
 public abstract class APIClient {
 
@@ -25,7 +25,7 @@ public abstract class APIClient {
 
     protected abstract Headers getHeaderSettings();
 
-    protected <T extends IResponse> IResponse getAPIResponse(String url, IQueryParameters param, Class<T> valueType) throws IOException{
+    protected <T extends IResponse> IResponse getAPIResponse(String url, IQueryParameters param, Class<T> valueType) throws IOException, WithingsAPIException{
         String result = buildRequest(url, param.getQueryParameters(), getHeaderSettings());
 
         ObjectMapper mapper = new ObjectMapper();

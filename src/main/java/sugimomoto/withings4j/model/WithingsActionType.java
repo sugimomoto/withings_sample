@@ -1,6 +1,6 @@
 package sugimomoto.withings4j.model;
 
-public enum Action {
+public enum WithingsActionType {
     /*
     OAuth 2.0 - Get your access token : requesttoken
     OAuth 2.0 - Refresh your access token : requesttoken
@@ -62,7 +62,7 @@ public enum Action {
     SIGNATURE_V2_GETNONCE_GETNONCE("getnonce"); 
     private final String value;
 
-    private Action(String value){
+    private WithingsActionType(String value){
         this.value = value;
     }
 
