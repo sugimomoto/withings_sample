@@ -122,6 +122,127 @@
         {            
             "request": {
                 "method": "POST",
+                "urlPattern": "/v2/dropshipment",
+                "headers": {
+                    "Authorization": {
+                        "doesNotMatch": "Bearer ($|&.*)"
+                    },
+                    "Content-Type": {
+                        "matches": "application/x-www-form-urlencoded"
+                    }
+                },
+                "bodyPatterns": [
+                    {
+                        "matches": "(.*&|^)action=delete($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)client_id=test_client_id($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)nonce=test_nonce($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)order_id=test_order_id($|&.*)"
+                    }
+                ]
+            },
+            "response": {
+                "status": 200,
+                "bodyFileName": "Dropshipmentv2-Delete.json",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
+        {            
+            "request": {
+                "method": "POST",
+                "urlPattern": "/v2/dropshipment",
+                "headers": {
+                    "Authorization": {
+                        "doesNotMatch": "Bearer ($|&.*)"
+                    },
+                    "Content-Type": {
+                        "matches": "application/x-www-form-urlencoded"
+                    }
+                },
+                "bodyPatterns": [
+                    {
+                        "matches": "(.*&|^)action=delete($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)client_id=test_client_id($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)nonce=test_nonce($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)order_ids=[\"order_id_1\",\"order_id_2\"]($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)customer_ref_ids=[\"customer_ref_id_1\",\"customer_ref_id_2\"]($|&.*)"
+                    }
+                ]
+            },
+            "response": {
+                "status": 200,
+                "bodyFileName": "Dropshipmentv2-Getorderstatus.json",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
+        {            
+            "request": {
+                "method": "POST",
+                "urlPattern": "/v2/dropshipment",
+                "headers": {
+                    "Authorization": {
+                        "doesNotMatch": "Bearer ($|&.*)"
+                    },
+                    "Content-Type": {
+                        "matches": "application/x-www-form-urlencoded"
+                    }
+                },
+                "bodyPatterns": [
+                    {
+                        "matches": "(.*&|^)action=delete($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)client_id=test_client_id($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)nonce=test_nonce($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)order_id=test_order_id($|&.*)"
+                    },
+                    {
+                        "matches": "(.*&|^)order=[{\"address\": {\"name\": \"John Wayne\",\"email\": \"john.wayne@farwest.com\",\"address1\": \"1st Avenue\",\"address2\": \"Apartment 12\",\"city\": \"New-York\",\"zip\": \"10001\",\"state\": \"NY\",\"country\": \"US\"},\"customer_ref_id\": \"IMAGINARY_CUSTOMER_REF_1\",\"products\": [{\"quantity\": 1,\"ean\": \"WI220002EAN\"},{\"quantity\": 3,\"ean\": \"WI330002EAN\"}]},{\"address\": {\"name\": \"Calamity Jane\",\"email\": \"calamity.jane@farwest.com\",\"address1\": \"SW 8th St\",\"address2\": \"Block 1\",\"city\": \"Miami\",\"zip\": \"33135\",\"state\": \"FL\",\"country\": \"US\"},\"customer_ref_id\": \"IMAGINARY_CUSTOMER_REF_2\",\"products\": [{\"quantity\": 2,\"ean\": \"WI220002EAN\"},{\"quantity\": 1,\"ean\": \"WI440002EAN\"},{\"quantity\": 1,\"ean\": \"WI550002EAN\"}]}]($|&.*)"
+                    }
+                ]
+            },
+            "response": {
+                "status": 200,
+                "bodyFileName": "Dropshipmentv2-Update.json",
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
+
+        {            
+            "request": {
+                "method": "POST",
                 "urlPattern": "/measure",
                 "headers": {
                     "Authorization": {
