@@ -8,9 +8,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.FormBody;
 import sugimomoto.withings4j.model.WithingsActionType;
 
-public class DropshipmentCreateOrderParameters extends QueryParameters {
+public class DropshipmentCreateOrderQueryParameters extends QueryParameters {
 
-    public DropshipmentCreateOrderParameters(){
+    public DropshipmentCreateOrderQueryParameters(){
         this.builder.add("action", WithingsActionType.DROPSHIPMENT_V2_CREATEORDER_CREATEORDER.getValue());
     }
 
