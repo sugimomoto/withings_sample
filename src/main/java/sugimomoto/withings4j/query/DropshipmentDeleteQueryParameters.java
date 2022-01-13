@@ -24,7 +24,7 @@ public class DropshipmentDeleteQueryParameters extends QueryParameters{
     }
 
     public void setOrderId(String orderId) {
-        this.builder.add("orderid", orderId);
+        this.builder.add("order_id", orderId);
     }
     
     private void setSignature() {
