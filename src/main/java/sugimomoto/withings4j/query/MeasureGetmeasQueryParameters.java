@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import sugimomoto.withings4j.model.*;
 
-public class GetMeasQueryParameters extends QueryParameters {
-    public GetMeasQueryParameters() {
+public class MeasureGetmeasQueryParameters extends QueryParameters {
+    public MeasureGetmeasQueryParameters() {
         this.builder.add("action", "getmeas");
     }
 

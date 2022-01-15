@@ -34,7 +34,7 @@ public class APIClientTest {
 
     @Test
     public void MeasQueryParametersTest(){
-        GetMeasQueryParameters param = new GetMeasQueryParameters();
+        MeasureGetmeasQueryParameters param = new MeasureGetmeasQueryParameters();
         param.setMeasType(MeasType.Weight);
         param.setMeasTypes(new MeasType[]{MeasType.Weight,MeasType.Height,MeasType.MuscleMass});
         param.setCategory(MeasCategory.RealMeasures);
@@ -74,7 +74,7 @@ public class APIClientTest {
     @Test
     public void ActivitiesQueryParametersTest(){
 
-        GetActivityQueryParameters param = new GetActivityQueryParameters();
+        MeasurevGetactivityQueryParameters param = new MeasurevGetactivityQueryParameters();
         param.setStartDateYMD("2021-01-01");
         param.setEndDateYMD("2021-01-02");
         param.setLastUpdate(12345);
@@ -107,7 +107,7 @@ public class APIClientTest {
     public void getActivityTest() throws WithingsAPIException, IOException{
         init();
 
-        GetActivityQueryParameters param = new GetActivityQueryParameters();    
+        MeasurevGetactivityQueryParameters param = new MeasurevGetactivityQueryParameters();    
         param.setStartDateYMD("2020-12-01");
         param.setEndDateYMD("2020-12-02");
 
@@ -146,7 +146,7 @@ public class APIClientTest {
     public void getMeasureTest() throws WithingsAPIException, IOException{
         init();
 
-        GetMeasQueryParameters param = new GetMeasQueryParameters();
+        MeasureGetmeasQueryParameters param = new MeasureGetmeasQueryParameters();
         param.setMeasType(MeasType.Weight);
         param.setStartDate("2021-01-01");
         param.setEndDate("2021-01-02");

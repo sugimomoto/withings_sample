@@ -27,11 +27,11 @@ public class WithingsAPIClient extends APIClient {
         return this.endpointUrl + resource.getValue();
     }
 
-    public ActivityBase getActivities(GetActivityQueryParameters param) throws IOException,WithingsAPIException {
+    public ActivityBase getActivities(MeasurevGetactivityQueryParameters param) throws IOException,WithingsAPIException {
         return (ActivityBase)getAPIResponse(getUrl(Resource.V2_MEASURE), param, ActivityBase.class);
     }
 
-    public MeasBase getMeasures(GetMeasQueryParameters param) throws IOException,WithingsAPIException {
+    public MeasBase getMeasures(MeasureGetmeasQueryParameters param) throws IOException,WithingsAPIException {
         return (MeasBase)getAPIResponse(getUrl(Resource.V1_MEASURE), param, MeasBase.class);
     }
 

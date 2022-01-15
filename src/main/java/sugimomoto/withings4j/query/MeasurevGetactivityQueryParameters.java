@@ -1,8 +1,8 @@
 package sugimomoto.withings4j.query;
 
-public class GetActivityQueryParameters extends QueryParameters {
+public class MeasurevGetactivityQueryParameters extends QueryParameters {
 
-    public GetActivityQueryParameters() {
+    public MeasurevGetactivityQueryParameters() {
         this.builder.add("action", "getactivity");
     }
 
