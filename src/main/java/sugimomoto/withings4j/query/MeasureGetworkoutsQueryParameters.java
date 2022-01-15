@@ -1,11 +1,5 @@
 package sugimomoto.withings4j.query;
 
-import java.util.List;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import okhttp3.FormBody;
 import sugimomoto.withings4j.model.WithingsActionType;
 
 public class MeasureGetworkoutsQueryParameters extends QueryParameters {
@@ -14,4 +8,23 @@ public class MeasureGetworkoutsQueryParameters extends QueryParameters {
         this.builder.add("action", WithingsActionType.MEASURE_V2_GETWORKOUTS_GETWORKOUTS.getValue());
     }
     
+    public void setStartDateYMD(String startDateYMD) {
+        this.builder.add("startdateymd", startDateYMD);
+    }
+
+    public void setEndDateYMD(String endDateYMD) {
+        this.builder.add("enddateymd", endDateYMD);
+    }
+
+    public void setLastUpdate(int lastUpdate) {
+        this.builder.add("lastupdate", String.valueOf(lastUpdate));
+    }
+
+    public void setOffset(int offset) {
+        this.builder.add("offset", String.valueOf(offset));
+    }
+
+    public void setDataFileds(String dataFileds) {
+        this.builder.add("data_fields", dataFileds);
+    }
 }

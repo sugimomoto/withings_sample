@@ -13,5 +13,13 @@ public class NotifyRevokeQueryParameters extends QueryParameters {
     public NotifyRevokeQueryParameters() {
         this.builder.add("action", WithingsActionType.NOTIFY_REVOKE_REVOKE.getValue());
     }
-    
+        
+    public void setCallbackurl(String callbackurl) {
+        this.builder.add("callbackurl", callbackurl);
+    }
+
+    public void setAppli(int appli) {
+        this.builder.add("appli", String.valueOf(appli));
+    }
+
 }
