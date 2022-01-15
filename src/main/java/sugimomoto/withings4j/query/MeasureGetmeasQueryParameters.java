@@ -7,7 +7,7 @@ import sugimomoto.withings4j.model.*;
 
 public class MeasureGetmeasQueryParameters extends QueryParameters {
     public MeasureGetmeasQueryParameters() {
-        this.builder.add("action", "getmeas");
+        this.builder.add("action", WithingsActionType.MEASURE_GETMEAS_GETMEAS.getValue());
     }
 
     public void setStartDate(String startDate) {
