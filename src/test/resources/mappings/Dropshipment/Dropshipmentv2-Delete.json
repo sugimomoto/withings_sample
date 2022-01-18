@@ -1,0 +1,38 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPattern": "/v2/dropshipment",
+        "headers": {
+            "Authorization": {
+                "doesNotMatch": "Bearer ($|&.*)"
+            },
+            "Content-Type": {
+                "matches": "application/x-www-form-urlencoded"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matches": "(.*&|^)action=delete($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)client_id=test_client_id($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)nonce=test_nonce($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)order_id=test_order_id($|&.*)"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "Dropshipmentv2-Delete.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
