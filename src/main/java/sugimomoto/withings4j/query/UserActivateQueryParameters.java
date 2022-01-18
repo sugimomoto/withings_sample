@@ -37,7 +37,7 @@ public class UserActivateQueryParameters extends QueryParameters {
     }
 
     public void setBirthdate(int birthdate) {
-        this.builder.add("birthdate", String.valueOf(birthdate);
+        this.builder.add("birthdate", String.valueOf(birthdate));
     }
 
     public void setMeasures(MeasuresParameter measures) throws JsonProcessingException {
