@@ -1,0 +1,38 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPattern": "/v2/oauth2",
+        "headers": {
+            "Content-Type": {
+                "matches": "application/x-www-form-urlencoded"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matches": "(.*&|^)action=requesttoken($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)grant_type=authorization_code($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)client_id=test_client_id($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)client_secret=test_client_secret($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)code=exception_code($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)redirect_uri=http%3A%2F%2Flocalhost%3A33333($|&.*)"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "OAuth20-GetyouraccesstokenException.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

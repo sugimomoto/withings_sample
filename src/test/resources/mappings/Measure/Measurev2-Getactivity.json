@@ -1,0 +1,32 @@
+{            
+    "request": {
+        "method": "POST",
+        "urlPattern": "/v2/measure",
+        "headers": {
+            "Authorization": {
+                "matches": "Bearer dummy_token"
+            },
+            "Content-Type": {
+                "matches": "application/x-www-form-urlencoded"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matches": "(.*&|^)action=getactivity($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)startdateymd=2020-12-01($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)enddateymd=2020-12-02($|&.*)"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "Measurev2-Getactivity.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

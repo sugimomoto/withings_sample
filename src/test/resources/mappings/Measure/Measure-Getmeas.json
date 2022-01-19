@@ -1,0 +1,35 @@
+{            
+    "request": {
+        "method": "POST",
+        "urlPattern": "/measure",
+        "headers": {
+            "Authorization": {
+                "matches": "Bearer dummy_token"
+            },
+            "Content-Type": {
+                "matches": "application/x-www-form-urlencoded"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matches": "(.*&|^)action=getmeas($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)meastype=1($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)startdate=2021-01-01($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)enddate=2021-01-02($|&.*)"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "Measure-Getmeas.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
