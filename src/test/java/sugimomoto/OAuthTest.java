@@ -16,7 +16,7 @@ import sugimomoto.withings4j.query.*;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class OAuthTest 
 {
 
     @Rule

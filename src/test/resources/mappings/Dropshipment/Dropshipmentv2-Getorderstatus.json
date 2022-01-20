@@ -24,10 +24,10 @@
                 "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
             },
             {
-                "matches": "(.*&|^)order_ids=[\"order_id_1\",\"order_id_2\"]($|&.*)"
+                "matches": "(.*&|^)order_ids=[(.)order_id_1(.),(.)order_id_2(.)]($|&.*)"
             },
             {
-                "matches": "(.*&|^)customer_ref_ids=[\"customer_ref_id_1\",\"customer_ref_id_2\"]($|&.*)"
+                "matches": "(.*&|^)customer_ref_ids=[(.)customer_ref_id_1(.),(.)customer_ref_id_2(.)]($|&.*)"
             }
         ]
     },
