@@ -1,0 +1,32 @@
+{            
+    "request": {
+        "method": "POST",
+        "urlPattern": "/notfiy",
+        "headers": {
+            "Authorization": {
+                "matches": "Bearer dummy_token"
+            },
+            "Content-Type": {
+                "matches": "application/x-www-form-urlencoded"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matches": "(.*&|^)action=revoke($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)callbackurl=https://test.example.com($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)appli=12345($|&.*)"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "Notify/Notify-Revoke.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{            
+    "request": {
+        "method": "POST",
+        "urlPattern": "/notfiy",
+        "headers": {
+            "Authorization": {
+                "matches": "Bearer dummy_token"
+            },
+            "Content-Type": {
+                "matches": "application/x-www-form-urlencoded"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matches": "(.*&|^)action=update($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)callbackurl=https://test.example.com($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)appli=12345($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)new_callbackurl=https://new_test.example.com($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)new_appli=23456($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)comment=update_comment($|&.*)"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "Notify/Notify-Update.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
