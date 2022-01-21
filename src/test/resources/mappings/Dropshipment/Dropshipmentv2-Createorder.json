@@ -36,7 +36,7 @@
     },
     "response": {
         "status": 200,
-        "bodyFileName": "Dropshipmentv2-Createorder.json",
+        "bodyFileName": "Dropshipment/Dropshipmentv2-Createorder.json",
         "headers": {
             "Content-Type": "application/json"
         }

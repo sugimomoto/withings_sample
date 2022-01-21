@@ -33,7 +33,7 @@
     },
     "response": {
         "status": 200,
-        "bodyFileName": "Dropshipmentv2-Update.json",
+        "bodyFileName": "Dropshipment/Dropshipmentv2-Update.json",
         "headers": {
             "Content-Type": "application/json"
         }

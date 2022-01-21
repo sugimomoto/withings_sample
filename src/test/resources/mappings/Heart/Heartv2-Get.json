@@ -1,0 +1,29 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPattern": "/v2/heart",
+        "headers": {
+            "Authorization": {
+                "doesNotMatch": "Bearer ($|&.*)"
+            },
+            "Content-Type": {
+                "matches": "application/x-www-form-urlencoded"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matches": "(.*&|^)action=get($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)signalid=48($|&.*)"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "Heart/Heartv2-Get.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
