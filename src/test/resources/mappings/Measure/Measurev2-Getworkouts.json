@@ -12,7 +12,7 @@
         },
         "bodyPatterns": [
             {
-                "matches": "(.*&|^)action=getactivity($|&.*)"
+                "matches": "(.*&|^)action=getworkouts($|&.*)"
             },
             {
                 "matches": "(.*&|^)startdateymd=2020-12-01($|&.*)"
@@ -24,7 +24,7 @@
     },
     "response": {
         "status": 200,
-        "bodyFileName": "Measure/Measurev2-Getactivity.json",
+        "bodyFileName": "Measure/Measurev2-Getworkouts.json",
         "headers": {
             "Content-Type": "application/json"
         }

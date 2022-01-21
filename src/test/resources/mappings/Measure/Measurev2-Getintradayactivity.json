@@ -12,19 +12,22 @@
         },
         "bodyPatterns": [
             {
-                "matches": "(.*&|^)action=getactivity($|&.*)"
+                "matches": "(.*&|^)action=getintradayactivity($|&.*)"
             },
             {
-                "matches": "(.*&|^)startdateymd=2020-12-01($|&.*)"
+                "matches": "(.*&|^)startdate=2021-01-01($|&.*)"
             },
             {
-                "matches": "(.*&|^)enddateymd=2020-12-02($|&.*)"
+                "matches": "(.*&|^)enddate=2021-01-02($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)data_fields=steps,elevation,calories($|&.*)"
             }
         ]
     },
     "response": {
         "status": 200,
-        "bodyFileName": "Measure/Measurev2-Getactivity.json",
+        "bodyFileName": "Measure/Measurev2-Getintradayactivity.json",
         "headers": {
             "Content-Type": "application/json"
         }
