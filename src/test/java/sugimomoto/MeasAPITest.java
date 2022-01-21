@@ -5,9 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.util.List;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
-
-import org.junit.Rule;
 import org.junit.Test;
 
 import okhttp3.FormBody;
@@ -15,22 +12,7 @@ import sugimomoto.withings4j.*;
 import sugimomoto.withings4j.model.*;
 import sugimomoto.withings4j.query.*;
 
-public class APIClientTest {
-
-    @Rule
-    public WireMockRule wireMockRule = new WireMockRule(8081);
-
-    private String mockUrl = "http://localhost:8081";
-
-    private WithingsAPIClient client;
-
-    public void init(){
-        AccessToken token = new AccessToken();
-        token.setAccessToken("dummy_token");
-
-        client = new WithingsAPIClient(token);
-        client.setEndpointUrl(mockUrl);
-    }
+public class MeasAPITest extends APIClientTestSettup {
 
     @Test
     public void MeasQueryParametersTest(){
@@ -105,8 +87,6 @@ public class APIClientTest {
     
     @Test
     public void getActivityTest() throws WithingsAPIException, IOException{
-        init();
-
         MeasurevGetactivityQueryParameters param = new MeasurevGetactivityQueryParameters();    
         param.setStartDateYMD("2020-12-01");
         param.setEndDateYMD("2020-12-02");
@@ -144,8 +124,6 @@ public class APIClientTest {
 
     @Test
     public void getMeasureTest() throws WithingsAPIException, IOException{
-        init();
-
         MeasureGetmeasQueryParameters param = new MeasureGetmeasQueryParameters();
         param.setMeasType(MeasType.Weight);
         param.setStartDate("2021-01-01");
