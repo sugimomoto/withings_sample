@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "POST",
-        "urlPattern": "/v2/heart",
+        "urlPattern": "/v2/user",
         "headers": {
             "Authorization": {
                 "matches": "Bearer ($|&.*)"
@@ -12,16 +12,13 @@
         },
         "bodyPatterns": [
             {
-                "matches": "(.*&|^)action=get($|&.*)"
-            },
-            {
-                "matches": "(.*&|^)signalid=48($|&.*)"
+                "matches": "(.*&|^)action=getdevice($|&.*)"
             }
         ]
     },
     "response": {
         "status": 200,
-        "bodyFileName": "Heart/Heartv2-Get.json",
+        "bodyFileName": "User/Userv2-Getdevice.json",
         "headers": {
             "Content-Type": "application/json"
         }

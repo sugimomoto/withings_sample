@@ -1,10 +1,10 @@
 {
     "request": {
         "method": "POST",
-        "urlPattern": "/v2/heart",
+        "urlPattern": "/v2/signature",
         "headers": {
             "Authorization": {
-                "matches": "Bearer ($|&.*)"
+                "doesNotMatch": "Bearer ($|&.*)"
             },
             "Content-Type": {
                 "matches": "application/x-www-form-urlencoded"
@@ -12,22 +12,22 @@
         },
         "bodyPatterns": [
             {
-                "matches": "(.*&|^)action=list($|&.*)"
+                "matches": "(.*&|^)action=getnonce($|&.*)"
             },
             {
-                "matches": "(.*&|^)startdate=2021-01-01($|&.*)"
+                "matches": "(.*&|^)client_id=test_client_id($|&.*)"
             },
             {
-                "matches": "(.*&|^)enddate=2021-01-02($|&.*)"
+                "matches": "(.*&|^)timestamp=1594245600($|&.*)"
             },
             {
-                "matches": "(.*&|^)offset=1($|&.*)"
+                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
             }
         ]
     },
     "response": {
         "status": 200,
-        "bodyFileName": "Heart/Heartv2-List.json",
+        "bodyFileName": "Signature/Signaturev2-Getnonce.json",
         "headers": {
             "Content-Type": "application/json"
         }

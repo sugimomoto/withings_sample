@@ -1,0 +1,68 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPattern": "/v2/user",
+        "headers": {
+            "Authorization": {
+                "doesNotMatch": "Bearer ($|&.*)"
+            },
+            "Content-Type": {
+                "matches": "application/x-www-form-urlencoded"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matches": "(.*&|^)action=activate($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)client_id=test_client_id($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)nonce=test_nonce($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)mailingpref=test_mailingpref($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)birthdate=1563746400($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)measures=(.)(.)preflang(.): (.)en_EN(.),(.)birthdate(.): (.)12345678(.),(.)gender(.): 1,(.)shortname(.): (.)ABC(.),(.)measures(.): [(.)(.)value(.): 180,(.)unit(.): 2,(.)type(.): 4(.),(.)(.)value(.): 8000,(.)unit(.): 2,(.)type(.): 1(.)](.)($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)gender=0($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)preflang=en_EN($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)unit_pref=(.)(.)weight(.):1,(.)height(.):7,(.)distance(.):8,(.)temperature(.):13(.)($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)email=test_email($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)timezone=America/New_York($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)shortname=sample_shortname($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)external_id=test_external_id($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)mac_addresses=[(.)00:24:e4:xx:xx:xx(.),(.)00:24:e4:xx:xx:xx(.)]($|&.*)"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "User/Userv2-Activate.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

@@ -1,10 +1,10 @@
 {
     "request": {
         "method": "POST",
-        "urlPattern": "/v2/heart",
+        "urlPattern": "/v2/user",
         "headers": {
             "Authorization": {
-                "matches": "Bearer ($|&.*)"
+                "doesNotMatch": "Bearer ($|&.*)"
             },
             "Content-Type": {
                 "matches": "application/x-www-form-urlencoded"
@@ -15,13 +15,22 @@
                 "matches": "(.*&|^)action=get($|&.*)"
             },
             {
-                "matches": "(.*&|^)signalid=48($|&.*)"
+                "matches": "(.*&|^)client_id=test_client_id($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)nonce=test_nonce($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)email=test_email($|&.*)"
             }
         ]
     },
     "response": {
         "status": 200,
-        "bodyFileName": "Heart/Heartv2-Get.json",
+        "bodyFileName": "User/Userv2-Get.json",
         "headers": {
             "Content-Type": "application/json"
         }

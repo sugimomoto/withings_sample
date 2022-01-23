@@ -1,10 +1,10 @@
-{
+{            
     "request": {
         "method": "POST",
-        "urlPattern": "/v2/heart",
+        "urlPattern": "/v2/sleep",
         "headers": {
             "Authorization": {
-                "matches": "Bearer ($|&.*)"
+                "matches": "Bearer dummy_token"
             },
             "Content-Type": {
                 "matches": "application/x-www-form-urlencoded"
@@ -12,16 +12,19 @@
         },
         "bodyPatterns": [
             {
-                "matches": "(.*&|^)action=get($|&.*)"
+                "matches": "(.*&|^)action=getsummary($|&.*)"
             },
             {
-                "matches": "(.*&|^)signalid=48($|&.*)"
+                "matches": "(.*&|^)startdateymd=2020-12-01($|&.*)"
+            },
+            {
+                "matches": "(.*&|^)enddateymd=2020-12-02($|&.*)"
             }
         ]
     },
     "response": {
         "status": 200,
-        "bodyFileName": "Heart/Heartv2-Get.json",
+        "bodyFileName": "Sleep/Sleepv2-Getsummary.json",
         "headers": {
             "Content-Type": "application/json"
         }

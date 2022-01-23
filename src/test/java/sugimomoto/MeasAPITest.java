@@ -14,10 +14,6 @@ import sugimomoto.withings4j.query.*;
 
 public class MeasAPITest extends APIClientTestSettup {
 
-
-    @Test
-    
-
     @Test
     public void MeasQueryParametersTest(){
         MeasureGetmeasQueryParameters param = new MeasureGetmeasQueryParameters();
