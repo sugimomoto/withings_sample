@@ -18,6 +18,80 @@ public class DropshipmentAPITest extends APIClientTestSettup {
     public void DropshipmentCreateOrderQueryParametersTest() throws JsonProcessingException{
         DropshipmentCreateOrderQueryParameters param = new DropshipmentCreateOrderQueryParameters();
 
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setOrder(getSampleOrders());
+        param.setCustomerId("test_customer_id");
+        param.setTestMode(1);
+
+        FormBody formBody = param.getQueryParameters();
+
+        assertEquals(7, formBody.size());
+        
+        assertEquals("action", formBody.name(0));
+        assertEquals("createorder", formBody.value(0));
+        
+        assertEquals("client_id", formBody.name(1));
+        assertEquals("test_client_id", formBody.value(1));
+        
+        assertEquals("nonce", formBody.name(2));
+        assertEquals("test_nonce", formBody.value(2));
+
+        assertEquals("order", formBody.name(3));
+        assertEquals("[{\"address\":{\"name\":\"John Wayne\",\"email\":\"john.wayne@farwest.com\",\"address1\":\"1st Avenue\",\"address2\":\"Apartment 12\",\"city\":\"New-York\",\"zip\":\"10001\",\"state\":\"NY\",\"country\":\"US\"},\"customer_ref_id\":\"IMAGINARY_CUSTOMER_REF_1\",\"products\":[{\"quantity\":1,\"ean\":\"WI220002EAN\"},{\"quantity\":3,\"ean\":\"WI330002EAN\"}]},{\"address\":{\"name\":\"Calamity Jane\",\"email\":\"calamity.jane@farwest.com\",\"address1\":\"SW 8th St\",\"address2\":\"Block 1\",\"city\":\"Miami\",\"zip\":\"33135\",\"state\":\"FL\",\"country\":\"US\"},\"customer_ref_id\":\"IMAGINARY_CUSTOMER_REF_2\",\"products\":[{\"quantity\":2,\"ean\":\"WI220002EAN\"},{\"quantity\":1,\"ean\":\"WI440002EAN\"},{\"quantity\":1,\"ean\":\"WI550002EAN\"}]}]", formBody.value(3));
+
+        assertEquals("customerid", formBody.name(4));
+        assertEquals("test_customer_id", formBody.value(4));
+
+        assertEquals("testmode", formBody.name(5));
+        assertEquals("1", formBody.value(5));
+
+        assertEquals("signature", formBody.name(6));
+        assertEquals("sample", formBody.value(6));
+    }
+
+    @Test
+    public void DropshipmentDeleteQueryParametersTest(){
+        throw new AssertionFailedError();
+    }
+
+    @Test
+    public void DropshipmentGetorderstatusQueryParametersTest(){
+        throw new AssertionFailedError();
+    }
+
+    @Test
+    public void DropshipmentUpdateQueryParametersTest(){
+        throw new AssertionFailedError();
+    }
+
+    @Test
+    public void Dropshipmentv2CreateorderTest(){
+        throw new AssertionFailedError();
+    }
+
+    @Test
+    public void Dropshipmentv2CreateuserorderTest(){
+        throw new AssertionFailedError();
+    }
+
+    @Test
+    public void Dropshipmentv2DeleteTest(){
+        throw new AssertionFailedError();
+    }  
+
+    @Test
+    public void Dropshipmentv2GetorderstatusTest(){
+        throw new AssertionFailedError();
+    }
+
+    @Test
+    public void Dropshipmentv2UpdateTest(){
+        throw new AssertionFailedError();
+    }
+
+    
+    private ArrayList<OrderParameter> getSampleOrders(){
         AddressParameter address1 = new AddressParameter();
         address1.setName("John Wayne");
         address1.setEmail("john.wayne@farwest.com");
@@ -81,59 +155,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         orders.add(order1);
         orders.add(order2);
 
-        param.setClientId("test_client_id");
-        param.setNonce("test_nonce");
-        param.setOrder(orders);
-        param.setCustomerId("test_customer_id");
-        param.setTestMode(1);
-
-        FormBody formBody = param.getQueryParameters();
-
-        assertEquals(7, formBody.size());
-        
-        
-
-        throw new AssertionFailedError();
-    }
-
-    @Test
-    public void DropshipmentDeleteQueryParametersTest(){
-        throw new AssertionFailedError();
-    }
-
-    @Test
-    public void DropshipmentGetorderstatusQueryParametersTest(){
-        throw new AssertionFailedError();
-    }
-
-    @Test
-    public void DropshipmentUpdateQueryParametersTest(){
-        throw new AssertionFailedError();
-    }
-
-    @Test
-    public void Dropshipmentv2CreateorderTest(){
-        throw new AssertionFailedError();
-    }
-
-    @Test
-    public void Dropshipmentv2CreateuserorderTest(){
-        throw new AssertionFailedError();
-    }
-
-    @Test
-    public void Dropshipmentv2DeleteTest(){
-        throw new AssertionFailedError();
-    }  
-
-    @Test
-    public void Dropshipmentv2GetorderstatusTest(){
-        throw new AssertionFailedError();
-    }
-
-    @Test
-    public void Dropshipmentv2UpdateTest(){
-        throw new AssertionFailedError();
+        return orders;
     }
 
 }
