@@ -24,7 +24,7 @@
                 "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
             },
             {
-                "matches": "(.*&|^)mailingpref=test_mailingpref($|&.*)"
+                "matches": "(.*&|^)mailingpref=false($|&.*)"
             },
             {
                 "matches": "(.*&|^)birthdate=1563746400($|&.*)"
