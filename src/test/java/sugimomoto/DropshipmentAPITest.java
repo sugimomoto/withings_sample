@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.github.jknack.handlebars.internal.lang3.RegExUtils;
 
 import org.junit.Test;
 
 import junit.framework.AssertionFailedError;
 import okhttp3.FormBody;
+import sugimomoto.withings4j.model.Measure;
 import sugimomoto.withings4j.query.*;
 
 public class DropshipmentAPITest extends APIClientTestSettup {
@@ -52,7 +54,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
     }
 
     @Test
-    public void DropshipmentCreateUserOrderQueryParametersTest(){
+    public void DropshipmentCreateUserOrderQueryParametersTest() throws JsonProcessingException{
 
         DropshipmentCreateUserOrderQueryParameters param = new DropshipmentCreateUserOrderQueryParameters();
         
@@ -60,15 +62,25 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         param.setNonce("test_nonce");
         param.setMailingpref(false);
         param.setBirthdate(1563746400);
-
-
+        param.setMeasures(getSamplMeasure());
+        param.setGender(0);
+        param.setPreflang("en_EN");
+        param.setUnitPref(getSampleUnitPref());
+        param.setEmail("sample@example.com");
+        param.setTimezone("America/New_York");
+        param.setShortname("test_shortname");
+        param.setExternalId("test_external_Id");
         param.setOrder(getSampleOrders());
-        param.setCustomerId("test_customer_id");
+        param.setFirstName("test_firstname");
+        param.setLastName("test_lastname");
+        param.setPhoneNumber("000-0000-0000");
+        param.setRecoveryCode("test_recovery_code");
+        param.setGoals(getSampleGoals());
         param.setTestMode(1);
 
         FormBody formBody = param.getQueryParameters();
 
-        assertEquals(7, formBody.size());
+        assertEquals(21, formBody.size());
         
         assertEquals("action", formBody.name(0));
         assertEquals("createorder", formBody.value(0));
@@ -210,6 +222,27 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         throw new AssertionFailedError();
     }
 
+    private MeasuresParameter getSamplMeasure(){
+        MeasureParameter measure1 = new MeasureParameter();
+        measure1.setValue(180);
+        measure1.setUnit(-2);
+        measure1.setType(4);
+
+        MeasureParameter measure2 = new MeasureParameter();
+        measure2.setValue(8000);
+        measure2.setUnit(-2);
+        measure2.setType(1);
+
+        MeasuresParameter measures = new MeasuresParameter();
+        measures.setPreflang("en_EN");
+        measures.setBirthdate("12345678");
+        measures.setGender(1);
+        measures.setShortname("ABC");
+        measures.setMeasures(Arrays.asList(measure1,measure2));
+
+        return measures;
+    }
+
     
     private ArrayList<OrderParameter> getSampleOrders(){
         AddressParameter address1 = new AddressParameter();
@@ -276,6 +309,30 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         orders.add(order2);
 
         return orders;
+    }
+
+    private UnitPreferencesParameter getSampleUnitPref() {
+        UnitPreferencesParameter unitPreference = new UnitPreferencesParameter();
+        unitPreference.setWeight(1);
+        unitPreference.setHeight(7);
+        unitPreference.setDistance(8);
+        unitPreference.setTemperature(13);
+
+        return unitPreference;
+    }
+
+    
+    private GoalsParameter getSampleGoals() {
+        WeightParameter weight = new WeightParameter();
+        weight.setValue(70500);
+        weight.setUnit(-3);
+
+        GoalsParameter goals = new GoalsParameter();
+        goals.setSteps(28800);
+        goals.setSleep(28800);
+        goals.setWeight(weight);
+
+        return goals;
     }
 
 }
