@@ -81,9 +81,9 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         FormBody formBody = param.getQueryParameters();
 
         assertEquals(21, formBody.size());
-        
+
         assertEquals("action", formBody.name(0));
-        assertEquals("createorder", formBody.value(0));
+        assertEquals("createuserorder", formBody.value(0));
         
         assertEquals("client_id", formBody.name(1));
         assertEquals("test_client_id", formBody.value(1));
@@ -91,17 +91,59 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         assertEquals("nonce", formBody.name(2));
         assertEquals("test_nonce", formBody.value(2));
 
-        assertEquals("order", formBody.name(3));
-        assertEquals("[{\"address\":{\"name\":\"John Wayne\",\"email\":\"john.wayne@farwest.com\",\"address1\":\"1st Avenue\",\"address2\":\"Apartment 12\",\"city\":\"New-York\",\"zip\":\"10001\",\"state\":\"NY\",\"country\":\"US\"},\"customer_ref_id\":\"IMAGINARY_CUSTOMER_REF_1\",\"products\":[{\"quantity\":1,\"ean\":\"WI220002EAN\"},{\"quantity\":3,\"ean\":\"WI330002EAN\"}]},{\"address\":{\"name\":\"Calamity Jane\",\"email\":\"calamity.jane@farwest.com\",\"address1\":\"SW 8th St\",\"address2\":\"Block 1\",\"city\":\"Miami\",\"zip\":\"33135\",\"state\":\"FL\",\"country\":\"US\"},\"customer_ref_id\":\"IMAGINARY_CUSTOMER_REF_2\",\"products\":[{\"quantity\":2,\"ean\":\"WI220002EAN\"},{\"quantity\":1,\"ean\":\"WI440002EAN\"},{\"quantity\":1,\"ean\":\"WI550002EAN\"}]}]", formBody.value(3));
+        assertEquals("mailingpref", formBody.name(3));
+        assertEquals("false", formBody.value(3));
+        
+        assertEquals("birthdate", formBody.name(4));
+        assertEquals("1563746400", formBody.value(4));
 
-        assertEquals("customerid", formBody.name(4));
-        assertEquals("test_customer_id", formBody.value(4));
+        assertEquals("measures", formBody.name(5));
+        assertEquals("{\"preflang\":\"en_EN\",\"birthdate\":\"12345678\",\"gender\":1,\"shortname\":\"ABC\",\"measures\":[{\"value\":180,\"unit\":-2,\"type\":4},{\"value\":8000,\"unit\":-2,\"type\":1}]}", formBody.value(5));
 
-        assertEquals("testmode", formBody.name(5));
-        assertEquals("1", formBody.value(5));
+        assertEquals("gender", formBody.name(6));
+        assertEquals("0", formBody.value(6));
+        
+        assertEquals("preflang", formBody.name(7));
+        assertEquals("en_EN", formBody.value(7));
 
-        assertEquals("signature", formBody.name(6));
-        assertEquals("sample", formBody.value(6));
+        assertEquals("unit_pref", formBody.name(8));
+        assertEquals("{\"weight\":1,\"height\":7,\"distance\":8,\"temperature\":13}", formBody.value(8));
+
+        assertEquals("email", formBody.name(9));
+        assertEquals("sample@example.com", formBody.value(9));
+        
+        assertEquals("timezone", formBody.name(10));
+        assertEquals("America/New_York", formBody.value(10));
+        
+        assertEquals("shortname", formBody.name(11));
+        assertEquals("test_shortname", formBody.value(11));
+        
+        assertEquals("external_id", formBody.name(12));
+        assertEquals("test_external_Id", formBody.value(12));
+        
+        assertEquals("order", formBody.name(13));
+        assertEquals("[{\"address\":{\"name\":\"John Wayne\",\"email\":\"john.wayne@farwest.com\",\"address1\":\"1st Avenue\",\"address2\":\"Apartment 12\",\"city\":\"New-York\",\"zip\":\"10001\",\"state\":\"NY\",\"country\":\"US\"},\"customer_ref_id\":\"IMAGINARY_CUSTOMER_REF_1\",\"products\":[{\"quantity\":1,\"ean\":\"WI220002EAN\"},{\"quantity\":3,\"ean\":\"WI330002EAN\"}]},{\"address\":{\"name\":\"Calamity Jane\",\"email\":\"calamity.jane@farwest.com\",\"address1\":\"SW 8th St\",\"address2\":\"Block 1\",\"city\":\"Miami\",\"zip\":\"33135\",\"state\":\"FL\",\"country\":\"US\"},\"customer_ref_id\":\"IMAGINARY_CUSTOMER_REF_2\",\"products\":[{\"quantity\":2,\"ean\":\"WI220002EAN\"},{\"quantity\":1,\"ean\":\"WI440002EAN\"},{\"quantity\":1,\"ean\":\"WI550002EAN\"}]}]", formBody.value(13));
+
+        assertEquals("firstname", formBody.name(14));
+        assertEquals("test_firstname", formBody.value(14));
+        
+        assertEquals("lastname", formBody.name(15));
+        assertEquals("test_lastname", formBody.value(15));
+        
+        assertEquals("phonenumber", formBody.name(16));
+        assertEquals("000-0000-0000", formBody.value(16));
+        
+        assertEquals("recovery_code", formBody.name(17));
+        assertEquals("test_recovery_code", formBody.value(17));
+
+        assertEquals("goals", formBody.name(18));
+        assertEquals("{\"steps\":10000,\"sleep\":28800,\"weight\":{\"value\":70500,\"unit\":-3}}", formBody.value(18));
+
+        assertEquals("testmode", formBody.name(19));
+        assertEquals("1", formBody.value(19));
+
+        assertEquals("signature", formBody.name(20));
+        assertEquals("sample", formBody.value(20));
     }
 
     @Test
