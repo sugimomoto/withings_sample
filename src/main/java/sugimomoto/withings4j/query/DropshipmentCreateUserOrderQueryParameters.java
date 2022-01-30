@@ -5,102 +5,91 @@ import java.util.List;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import okhttp3.FormBody;
 import sugimomoto.withings4j.model.WithingsActionType;
 
 public class DropshipmentCreateUserOrderQueryParameters extends QueryParameters {
 
     public DropshipmentCreateUserOrderQueryParameters(){
-        this.builder.add("action", WithingsActionType.DROPSHIPMENT_V2_CREATEUSERORDER_CREATEUSERORDER.getValue());
-    }
-
-    @Override
-    public FormBody getQueryParameters() {
-        setSignature();
-        return builder.build();
+        this.parameters.put("action", WithingsActionType.DROPSHIPMENT_V2_CREATEUSERORDER_CREATEUSERORDER.getValue());
     }
 
     public void setClientId(String clientId) {
-        this.builder.add("client_id", clientId);
+        this.parameters.put("client_id", clientId);
     }
 
     public void setNonce(String nonce) {
-        this.builder.add("nonce", nonce);
-    }
-
-    private void setSignature(){
-        this.builder.add("signature", "");
+        this.parameters.put("nonce", nonce);
     }
 
     public void setMailingpref(Boolean mailingpref) {
-        this.builder.add("mailingpref", String.valueOf(mailingpref));
+        this.parameters.put("mailingpref", String.valueOf(mailingpref));
     }
 
     public void setBirthdate(int birthdate) {
-        this.builder.add("birthdate", String.valueOf(birthdate));
+        this.parameters.put("birthdate", String.valueOf(birthdate));
     }
 
     public void setMeasures(MeasuresParameter measures) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        this.builder.add("measures", mapper.writeValueAsString(measures));
+        this.parameters.put("measures", mapper.writeValueAsString(measures));
     }
 
     public void setGender(int gender) {
-        this.builder.add("gender", String.valueOf(gender));
+        this.parameters.put("gender", String.valueOf(gender));
     }
 
     public void setPreflang(String preflang) {
-        this.builder.add("preflang", preflang);
+        this.parameters.put("preflang", preflang);
     }
 
     public void setUnitPref(UnitPreferencesParameter unitPref) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        this.builder.add("unit_pref", mapper.writeValueAsString(unitPref));
+        this.parameters.put("unit_pref", mapper.writeValueAsString(unitPref));
     }
 
     public void setEmail(String email) {
-        this.builder.add("email", email);
+        this.parameters.put("email", email);
     }
 
     public void setTimezone(String timezone) {
-        this.builder.add("timezone", timezone);
+        this.parameters.put("timezone", timezone);
     }
 
     public void setShortname(String shortname) {
-        this.builder.add("shortname", shortname);
+        this.parameters.put("shortname", shortname);
     }
 
     public void setExternalId(String externalId) {
-        this.builder.add("external_id", externalId);
+        this.parameters.put("external_id", externalId);
     }
 
     public void setOrder(List<OrderParameter> orderParameter) throws JsonProcessingException{
         ObjectMapper mapper = new ObjectMapper();
-        this.builder.add("order", mapper.writeValueAsString(orderParameter));
+        this.parameters.put("order", mapper.writeValueAsString(orderParameter));
     }
     
     public void setFirstName(String firstName) {
-        this.builder.add("firstname", firstName);
+        this.parameters.put("firstname", firstName);
     }
 
     public void setLastName(String lastName) {
-        this.builder.add("lastname", lastName);
+        this.parameters.put("lastname", lastName);
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.builder.add("phonenumber", phoneNumber);
+        this.parameters.put("phonenumber", phoneNumber);
     }
 
     public void setRecoveryCode(String recoveryCode) {
-        this.builder.add("recovery_code", recoveryCode);
+        this.parameters.put("recovery_code", recoveryCode);
     }
 
     public void setGoals(GoalsParameter goals) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        this.builder.add("goals", mapper.writeValueAsString(goals));
+        this.parameters.put("goals", mapper.writeValueAsString(goals));
     }
     
     public void setTestMode(int testmode) {
-        this.builder.add("testmode", String.valueOf(testmode));
+        this.parameters.put("testmode", String.valueOf(testmode));
     }
 }

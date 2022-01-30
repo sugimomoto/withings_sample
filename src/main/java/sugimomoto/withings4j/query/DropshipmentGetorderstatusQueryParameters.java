@@ -9,36 +9,30 @@ import sugimomoto.withings4j.model.WithingsActionType;
 public class DropshipmentGetorderstatusQueryParameters extends QueryParameters{
 
     public DropshipmentGetorderstatusQueryParameters() {
-        this.builder.add("action", WithingsActionType.DROPSHIPMENT_V2_GETORDERSTATUS_GETORDERSTATUS.getValue());
-    }
-
-    @Override
-    public FormBody getQueryParameters() {
-        setSignature();
-        return builder.build();
+        this.parameters.put("action", WithingsActionType.DROPSHIPMENT_V2_GETORDERSTATUS_GETORDERSTATUS.getValue());
     }
 
     public void setClientId(String clientId) {
-        this.builder.add("client_id", clientId);
+        this.parameters.put("client_id", clientId);
     }
 
     public void setNonce(String nonce) {
-        this.builder.add("nonce", nonce);
+        this.parameters.put("nonce", nonce);
     }
 
     public void setOrderIds(List<String> orderIds) {
-        this.builder.add("order_ids", "[" + orderIds.stream().collect(Collectors.joining(",")) + "]");
+        this.parameters.put("order_ids", "[" + orderIds.stream().collect(Collectors.joining(",")) + "]");
     }
 
     public void setCustomerRefIds(List<String> customerRefIds) {
-        this.builder.add("customer_lef_ids", "[" + customerRefIds.stream().collect(Collectors.joining(",")) + "]");
+        this.parameters.put("customer_lef_ids", "[" + customerRefIds.stream().collect(Collectors.joining(",")) + "]");
     }
 
     public void setCustomerId(String customerId) {
-        this.builder.add("customerid", customerId);
+        this.parameters.put("customerid", customerId);
     }
     
     private void setSignature() {
-        this.builder.add("signature", "arg1");
+        this.parameters.put("signature", "arg1");
     }
 }

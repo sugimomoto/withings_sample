@@ -5,11 +5,11 @@ import sugimomoto.withings4j.model.WithingsActionType;
 public class HeartGetQueryParameters extends QueryParameters {
 
     public HeartGetQueryParameters() {
-        this.builder.add("action", WithingsActionType.HEART_V2_GET_GET.getValue());
+        this.parameters.put("action", WithingsActionType.HEART_V2_GET_GET.getValue());
     }
     
     public void setSignalId(String signalId) {
-        this.builder.add("signalid", signalId);
+        this.parameters.put("signalid", signalId);
     }
 
 }

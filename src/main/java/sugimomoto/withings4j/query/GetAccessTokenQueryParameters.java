@@ -6,23 +6,23 @@ import sugimomoto.withings4j.model.WithingsActionType;
 public class GetAccessTokenQueryParameters extends QueryParameters {
 
     public GetAccessTokenQueryParameters() {
-        this.builder.add("action", WithingsActionType.OAUTH_20_GET_YOUR_ACCESS_TOKEN_REQUESTTOKEN.getValue());
-        this.builder.add("grant_type", GrantType.AUTHORIZATION_CODE.getValue());
+        this.parameters.put("action", WithingsActionType.OAUTH_20_GET_YOUR_ACCESS_TOKEN_REQUESTTOKEN.getValue());
+        this.parameters.put("grant_type", GrantType.AUTHORIZATION_CODE.getValue());
     }
 
     public void setClientId(String clientId) {
-        this.builder.add("client_id", clientId);
+        this.parameters.put("client_id", clientId);
     }
 
     public void setClientSecret(String clientSecret) {
-        this.builder.add("client_secret", clientSecret);
+        this.parameters.put("client_secret", clientSecret);
     }
 
     public void setCode(String code) {
-        this.builder.add("code", code);
+        this.parameters.put("code", code);
     }
 
     public void setRedirectUri(String redirectUri) {
-        this.builder.add("redirect_uri", redirectUri);
+        this.parameters.put("redirect_uri", redirectUri);
     }
 }

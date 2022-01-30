@@ -3,26 +3,26 @@ package sugimomoto.withings4j.query;
 public class MeasurevGetactivityQueryParameters extends QueryParameters {
 
     public MeasurevGetactivityQueryParameters() {
-        this.builder.add("action", "getactivity");
+        this.parameters.put("action", "getactivity");
     }
 
     public void setStartDateYMD(String startDateYMD) {
-        this.builder.add("startdateymd", startDateYMD);
+        this.parameters.put("startdateymd", startDateYMD);
     }
 
     public void setEndDateYMD(String endDateYMD) {
-        this.builder.add("enddateymd", endDateYMD);
+        this.parameters.put("enddateymd", endDateYMD);
     }
 
     public void setLastUpdate(Integer lastUpdate) {
-        this.builder.add("lastupdate", lastUpdate.toString());
+        this.parameters.put("lastupdate", lastUpdate.toString());
     }
 
     public void setOffset(Integer offset) {
-        this.builder.add("offset", offset.toString());
+        this.parameters.put("offset", offset.toString());
     }
 
     public void setDataFileds(String dataFileds) {
-        this.builder.add("data_fields", dataFileds);
+        this.parameters.put("data_fields", dataFileds);
     }
 }

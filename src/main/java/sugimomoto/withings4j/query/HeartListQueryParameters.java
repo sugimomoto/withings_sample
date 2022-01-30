@@ -5,18 +5,18 @@ import sugimomoto.withings4j.model.WithingsActionType;
 public class HeartListQueryParameters extends QueryParameters {
 
     public HeartListQueryParameters() {
-        this.builder.add("action", WithingsActionType.HEART_V2_LIST_LIST.getValue());
+        this.parameters.put("action", WithingsActionType.HEART_V2_LIST_LIST.getValue());
     }
 
     public void setStartDate(int startDate) {
-        this.builder.add("startdate", String.valueOf(startDate));
+        this.parameters.put("startdate", String.valueOf(startDate));
     }
 
     public void setEndDate(int endDate) {
-        this.builder.add("enddate", String.valueOf(endDate));
+        this.parameters.put("enddate", String.valueOf(endDate));
     }
 
     public void setOffset(int offset) {
-        this.builder.add("offset", String.valueOf(offset));
+        this.parameters.put("offset", String.valueOf(offset));
     }
 }

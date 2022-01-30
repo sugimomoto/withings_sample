@@ -5,7 +5,7 @@ import sugimomoto.withings4j.model.WithingsActionType;
 public class UserGetdeviceQueryParameters extends QueryParameters {
 
     public UserGetdeviceQueryParameters() {
-        this.builder.add("action", WithingsActionType.USER_V2_GETDEVICE_GETDEVICE.getValue());
+        this.parameters.put("action", WithingsActionType.USER_V2_GETDEVICE_GETDEVICE.getValue());
     }
     
 }

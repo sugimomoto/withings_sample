@@ -6,28 +6,18 @@ import sugimomoto.withings4j.model.WithingsActionType;
 public class UserGetQueryParameters extends QueryParameters {
 
     public UserGetQueryParameters() {
-        this.builder.add("action", WithingsActionType.USER_V2_GET_GET.getValue());
-    }
-
-    @Override
-    public FormBody getQueryParameters() {
-        setSignature();
-        return builder.build();
+        this.parameters.put("action", WithingsActionType.USER_V2_GET_GET.getValue());
     }
 
     public void setClientId(String clientId) {
-        this.builder.add("client_id", clientId);
+        this.parameters.put("client_id", clientId);
     }
 
     public void setNonce(String nonce) {
-        this.builder.add("nonce", nonce);
-    }
-
-    private void setSignature(){
-        this.builder.add("signature", "");
+        this.parameters.put("nonce", nonce);
     }
     
     public void setEmail(String email) {
-        this.builder.add("email", email);
+        this.parameters.put("email", email);
     }
 }

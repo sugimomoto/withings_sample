@@ -5,15 +5,15 @@ import sugimomoto.withings4j.model.WithingsActionType;
 public class NotifyGetQueryParameters extends QueryParameters {
 
     public NotifyGetQueryParameters() {
-        this.builder.add("action", WithingsActionType.NOTIFY_GET_GET.getValue());
+        this.parameters.put("action", WithingsActionType.NOTIFY_GET_GET.getValue());
     }
     
     public void setCallbackurl(String callbackurl) {
-        this.builder.add("callbackurl", callbackurl);
+        this.parameters.put("callbackurl", callbackurl);
     }
 
     public void setAppli(int appli) {
-        this.builder.add("appli", String.valueOf(appli));
+        this.parameters.put("appli", String.valueOf(appli));
     }
 
 }
