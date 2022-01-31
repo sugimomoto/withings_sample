@@ -20,8 +20,4 @@ public class DropshipmentDeleteQueryParameters extends QueryParameters{
     public void setOrderId(String orderId) {
         this.parameters.put("order_id", orderId);
     }
-    
-    private void setSignature() {
-    }
-
 }

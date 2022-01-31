@@ -28,8 +28,4 @@ public class DropshipmentUpdateQueryParameters extends QueryParameters{
         ObjectMapper mapper = new ObjectMapper();
         this.parameters.put("order", mapper.writeValueAsString(orderParameter));
     }
-
-    private void setSignature() {
-        this.parameters.put("signature", "arg1");
-    }
 }

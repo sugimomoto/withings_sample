@@ -31,8 +31,4 @@ public class DropshipmentGetorderstatusQueryParameters extends QueryParameters{
     public void setCustomerId(String customerId) {
         this.parameters.put("customerid", customerId);
     }
-    
-    private void setSignature() {
-        this.parameters.put("signature", "arg1");
-    }
 }

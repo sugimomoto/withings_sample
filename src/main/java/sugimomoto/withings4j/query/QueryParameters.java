@@ -27,7 +27,7 @@ public abstract class QueryParameters implements IQueryParameters {
     public FormBody getQueryParameters(String secretKey) throws InvalidKeyException, NoSuchAlgorithmException, WithingsAPIException {
 
         if(parameters.containsKey("client_id") && parameters.containsKey("nonce")){
-            throw new WithingsAPIException("client_id and nonce is required for the signature.");
+            throw new WithingsAPIException("If you need a signature, client_id and nonce is required.");
         }
 
         parameters.put("signature", Signature.SignedByHmacSHA256(
