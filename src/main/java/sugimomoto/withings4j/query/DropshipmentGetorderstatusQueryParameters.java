@@ -8,8 +8,9 @@ import sugimomoto.withings4j.model.WithingsActionType;
 
 public class DropshipmentGetorderstatusQueryParameters extends QueryParameters{
 
-    public DropshipmentGetorderstatusQueryParameters() {
+    public DropshipmentGetorderstatusQueryParameters(String secretKey) {
         this.parameters.put("action", WithingsActionType.DROPSHIPMENT_V2_GETORDERSTATUS_GETORDERSTATUS.getValue());
+        this.secretKey = secretKey;
     }
 
     public void setClientId(String clientId) {

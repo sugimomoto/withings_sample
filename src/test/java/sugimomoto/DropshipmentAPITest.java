@@ -19,7 +19,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
     
     @Test
     public void DropshipmentCreateOrderQueryParametersTest() throws JsonProcessingException{
-        DropshipmentCreateOrderQueryParameters param = new DropshipmentCreateOrderQueryParameters();
+        DropshipmentCreateOrderQueryParameters param = new DropshipmentCreateOrderQueryParameters("secretKey");
 
         param.setClientId("test_client_id");
         param.setNonce("test_nonce");
@@ -50,13 +50,13 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         assertEquals("1", formBody.value(5));
 
         assertEquals("signature", formBody.name(6));
-        assertEquals("sample", formBody.value(6));
+        assertEquals("8a94158b758b02f2764c859370736265ead7a9a90c8f7b340ccfa952efc5a46e", formBody.value(6));
     }
 
     @Test
     public void DropshipmentCreateUserOrderQueryParametersTest() throws JsonProcessingException{
 
-        DropshipmentCreateUserOrderQueryParameters param = new DropshipmentCreateUserOrderQueryParameters();
+        DropshipmentCreateUserOrderQueryParameters param = new DropshipmentCreateUserOrderQueryParameters("secretKey");
         
         param.setClientId("test_client_id");
         param.setNonce("test_nonce");
@@ -148,7 +148,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
 
     @Test
     public void DropshipmentDeleteQueryParametersTest(){
-        DropshipmentDeleteQueryParameters param = new DropshipmentDeleteQueryParameters();
+        DropshipmentDeleteQueryParameters param = new DropshipmentDeleteQueryParameters("secretKey");
         param.setClientId("test_client_id");
         param.setNonce("test_nonce");
         param.setOrderId("test_order_id");
@@ -175,7 +175,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
     @Test
     public void DropshipmentGetorderstatusQueryParametersTest(){
 
-        DropshipmentGetorderstatusQueryParameters param = new DropshipmentGetorderstatusQueryParameters();
+        DropshipmentGetorderstatusQueryParameters param = new DropshipmentGetorderstatusQueryParameters("secretKey");
         param.setClientId("test_client_id");
         param.setNonce("test_nonce");
         param.setOrderIds(Arrays.asList("test_order_id_1","test_order_id_2"));
@@ -209,7 +209,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
 
     @Test
     public void DropshipmentUpdateQueryParametersTest() throws JsonProcessingException{
-        DropshipmentUpdateQueryParameters param = new DropshipmentUpdateQueryParameters();
+        DropshipmentUpdateQueryParameters param = new DropshipmentUpdateQueryParameters("secretKey");
         
         param.setClientId("test_client_id");
         param.setNonce("test_nonce");

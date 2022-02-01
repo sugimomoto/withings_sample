@@ -2,16 +2,20 @@ package sugimomoto.withings4j.query;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import okhttp3.FormBody;
 import sugimomoto.withings4j.WithingsAPIException;
 
-public abstract class QueryParameters implements IQueryParameters {
+public class QueryParameters implements IQueryParameters {
 
-    protected HashMap<String,String> parameters;
+    protected LinkedHashMap<String,String> parameters = new LinkedHashMap<>();
 
-    public FormBody getQueryParameters() {
+    protected String secretKey;
+
+    public FormBody getQueryParameters() throws WithingsAPIException {
+
+        setupSignatured();
 
         FormBody.Builder builder = new FormBody.Builder();
 
@@ -24,21 +28,26 @@ public abstract class QueryParameters implements IQueryParameters {
         return builder.build();
     }
 
-    public FormBody getQueryParameters(String secretKey) throws InvalidKeyException, NoSuchAlgorithmException, WithingsAPIException {
+    public void setupSignatured() throws WithingsAPIException {
 
-        if(parameters.containsKey("client_id") && parameters.containsKey("nonce")){
-            throw new WithingsAPIException("If you need a signature, client_id and nonce is required.");
+        if(secretKey == null | secretKey.isEmpty()){
+            return;
         }
 
-        parameters.put("signature", Signature.SignedByHmacSHA256(
-            parameters.get("action"),
-            parameters.get("client_id"),
-            parameters.get("nonce"),
-            secretKey
-            ));
+        if(!parameters.containsKey("client_id") && !parameters.containsKey("nonce")){
+            throw new WithingsAPIException("If you need a signatured this query parameters, client_id and nonce is required.");
+        }
 
-        return getQueryParameters();
+        try{
+            parameters.put("signature", Signature.SignedByHmacSHA256(
+                parameters.get("action"),
+                parameters.get("client_id"),
+                parameters.get("nonce"),
+                secretKey
+                ));
+
+        }catch(InvalidKeyException | NoSuchAlgorithmException ex){
+            throw new WithingsAPIException("Probably you use invalid client secret. Please confirm that value.");
+        }
     }
-
-
 }

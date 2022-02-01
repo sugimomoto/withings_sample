@@ -8,8 +8,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import sugimomoto.withings4j.model.WithingsActionType;
 
 public class DropshipmentUpdateQueryParameters extends QueryParameters{
-    public DropshipmentUpdateQueryParameters() {
+
+    public DropshipmentUpdateQueryParameters(String secretKey) {
         this.parameters.put("action", WithingsActionType.DROPSHIPMENT_V2_UPDATE_UPDATE.getValue());
+        this.secretKey = secretKey;
     }
 
     public void setClientId(String clientId) {
