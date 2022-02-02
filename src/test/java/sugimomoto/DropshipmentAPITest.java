@@ -143,7 +143,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         assertEquals("1", formBody.value(19));
 
         assertEquals("signature", formBody.name(20));
-        assertEquals("sample", formBody.value(20));
+        assertEquals("d857ebb83045153b7f598b58d141e3c26010810561c9a2d439f2d615417878e5", formBody.value(20));
     }
 
     @Test
@@ -169,7 +169,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         assertEquals("test_order_id", formBody.value(3));
 
         assertEquals("signature", formBody.name(4));
-        assertEquals("sample", formBody.value(4));
+        assertEquals("7a239636bd323b182586425c5887c613cd622cfb100d5cf5ee2c880f14c68d73", formBody.value(4));
     }
 
     @Test
@@ -204,7 +204,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         assertEquals("test_customer_id", formBody.value(5));
 
         assertEquals("signature", formBody.name(6));
-        assertEquals("sample", formBody.value(6));
+        assertEquals("f81544d00f4e675dc8f61de57d33ae9460fd34bc983b76807d268fddf8e11ca6", formBody.value(6));
     }
 
     @Test
@@ -236,7 +236,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         assertEquals("[{\"address\":{\"name\":\"John Wayne\",\"email\":\"john.wayne@farwest.com\",\"address1\":\"1st Avenue\",\"address2\":\"Apartment 12\",\"city\":\"New-York\",\"zip\":\"10001\",\"state\":\"NY\",\"country\":\"US\"},\"customer_ref_id\":\"IMAGINARY_CUSTOMER_REF_1\",\"products\":[{\"quantity\":1,\"ean\":\"WI220002EAN\"},{\"quantity\":3,\"ean\":\"WI330002EAN\"}]},{\"address\":{\"name\":\"Calamity Jane\",\"email\":\"calamity.jane@farwest.com\",\"address1\":\"SW 8th St\",\"address2\":\"Block 1\",\"city\":\"Miami\",\"zip\":\"33135\",\"state\":\"FL\",\"country\":\"US\"},\"customer_ref_id\":\"IMAGINARY_CUSTOMER_REF_2\",\"products\":[{\"quantity\":2,\"ean\":\"WI220002EAN\"},{\"quantity\":1,\"ean\":\"WI440002EAN\"},{\"quantity\":1,\"ean\":\"WI550002EAN\"}]}]", formBody.value(4));
 
         assertEquals("signature", formBody.name(5));
-        assertEquals("sample", formBody.value(5));
+        assertEquals("7b496fcf012c29cf6d5b4743d1f3a8a0d5b59e48f716b1a086a54efbc36dba5d", formBody.value(5));
     }
 
     @Test
@@ -370,7 +370,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         weight.setUnit(-3);
 
         GoalsParameter goals = new GoalsParameter();
-        goals.setSteps(28800);
+        goals.setSteps(10000);
         goals.setSleep(28800);
         goals.setWeight(weight);
 

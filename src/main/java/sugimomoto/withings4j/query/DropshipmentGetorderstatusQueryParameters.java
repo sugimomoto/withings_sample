@@ -22,11 +22,11 @@ public class DropshipmentGetorderstatusQueryParameters extends QueryParameters{
     }
 
     public void setOrderIds(List<String> orderIds) {
-        this.parameters.put("order_ids", "[" + orderIds.stream().collect(Collectors.joining(",")) + "]");
+        this.parameters.put("order_ids", "[\"" + orderIds.stream().collect(Collectors.joining("\",\"")) + "\"]");
     }
 
     public void setCustomerRefIds(List<String> customerRefIds) {
-        this.parameters.put("customer_lef_ids", "[" + customerRefIds.stream().collect(Collectors.joining(",")) + "]");
+        this.parameters.put("customer_ref_ids", "[\"" + customerRefIds.stream().collect(Collectors.joining("\",\"")) + "\"]");
     }
 
     public void setCustomerId(String customerId) {
