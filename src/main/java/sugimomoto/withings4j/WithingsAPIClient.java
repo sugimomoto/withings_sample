@@ -27,13 +27,36 @@ public class WithingsAPIClient extends APIClient {
         return this.endpointUrl + resource.getValue();
     }
 
-    public ActivityBase getActivities(MeasurevGetactivityQueryParameters param) throws IOException,WithingsAPIException {
+    public ActivityBase getActivities(MeasurevGetactivityQueryParameters param) throws IOException, WithingsAPIException {
         return (ActivityBase)getAPIResponse(getUrl(Resource.V2_MEASURE), param, ActivityBase.class);
     }
 
-    public MeasBase getMeasures(MeasureGetmeasQueryParameters param) throws IOException,WithingsAPIException {
+    public MeasBase getMeasures(MeasureGetmeasQueryParameters param) throws IOException, WithingsAPIException {
         return (MeasBase)getAPIResponse(getUrl(Resource.V1_MEASURE), param, MeasBase.class);
     }
+
+    public OrderBase dropshipmentCreateorder(DropshipmentCreateOrderQueryParameters param) throws WithingsAPIException, IOException {
+        return (OrderBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, OrderBase.class);
+    }
+
+    public UserOrderBase dropshipmentCreateuserorder(DropshipmentCreateUserOrderQueryParameters param) throws WithingsAPIException, IOException{
+        return (UserOrderBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, UserOrderBase.class);
+    }
+
+    public ResponseBase dropshipmentDelete(DropshipmentDeleteQueryParameters param) throws WithingsAPIException, IOException{
+        return (ResponseBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, ResponseBase.class);
+    }
+
+    public OrderStatusBase dropshipmentGetorderstatus(DropshipmentGetorderstatusQueryParameters param) throws WithingsAPIException, IOException{
+        return (OrderStatusBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, OrderStatusBase.class);
+    }
+
+    public OrderBase dropshipmentUpdate(DropshipmentUpdateQueryParameters param) throws WithingsAPIException, IOException{
+        return (OrderBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, OrderBase.class);
+    }
+
+
+
 
     public void setToken(AccessToken token){
         this.token = token;
@@ -42,4 +65,5 @@ public class WithingsAPIClient extends APIClient {
     public AccessToken getToken(){
         return token;
     }
+
 }

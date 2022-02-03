@@ -6,13 +6,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.jknack.handlebars.internal.lang3.RegExUtils;
 
 import org.junit.Test;
 
 import junit.framework.AssertionFailedError;
 import okhttp3.FormBody;
-import sugimomoto.withings4j.model.Measure;
+import sugimomoto.withings4j.model.*;
 import sugimomoto.withings4j.query.*;
 
 public class DropshipmentAPITest extends APIClientTestSettup {
@@ -240,8 +239,21 @@ public class DropshipmentAPITest extends APIClientTestSettup {
     }
 
     @Test
-    public void Dropshipmentv2CreateorderTest(){
-        throw new AssertionFailedError();
+    public void Dropshipmentv2CreateorderTest() throws JsonProcessingException{
+
+        DropshipmentCreateOrderQueryParameters param = new DropshipmentCreateOrderQueryParameters("secretKey");
+
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setOrder(getSampleOrders());
+        param.setCustomerId("test_customer_id");
+        param.setTestMode(1);
+
+        OrderBase orderBase = client.dropshipmentCreateorder(param);
+
+        assertEquals(0, orderBase.getStatus());
+        
+
     }
 
     @Test
