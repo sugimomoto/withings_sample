@@ -2,6 +2,7 @@ package sugimomoto;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,6 +12,7 @@ import org.junit.Test;
 
 import junit.framework.AssertionFailedError;
 import okhttp3.FormBody;
+import sugimomoto.withings4j.WithingsAPIException;
 import sugimomoto.withings4j.model.*;
 import sugimomoto.withings4j.query.*;
 
@@ -239,7 +241,7 @@ public class DropshipmentAPITest extends APIClientTestSettup {
     }
 
     @Test
-    public void Dropshipmentv2CreateorderTest() throws JsonProcessingException{
+    public void Dropshipmentv2CreateorderTest() throws WithingsAPIException, IOException{
 
         DropshipmentCreateOrderQueryParameters param = new DropshipmentCreateOrderQueryParameters("secretKey");
 
@@ -251,9 +253,19 @@ public class DropshipmentAPITest extends APIClientTestSettup {
 
         OrderBase orderBase = client.dropshipmentCreateorder(param);
 
-        assertEquals(0, orderBase.getStatus());
-        
+        assertEquals((Integer)0, orderBase.getStatus());
 
+        assertEquals(1, orderBase.getBody().getOrders().size());
+
+        Order order = orderBase.getBody().getOrders().get(0);
+        assertEquals("D12345678", order.getOrderID());
+        assertEquals("MOUVEMENTREFERENCE12345678", order.getCustomerRefID());
+        assertEquals("VERIFIED", order.getStatus());
+        assertEquals(1, order.getProducts().size());
+
+        Product product = order.getProducts().get(0);                
+        assertEquals("3700546702518", product.getEan());
+        assertEquals(3, product.getQuantity());
     }
 
     @Test

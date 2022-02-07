@@ -40,7 +40,7 @@ public abstract class APIClient {
         return response;
     }
 
-    public String buildRequest(String url, FormBody body, Headers headers) throws IOException{
+    public String buildRequest(String url, FormBody body, Headers headers) throws IOException,WithingsAPIException{
         Request requst = new Request.Builder()
             .url(url)
             .headers(headers)
@@ -48,6 +48,9 @@ public abstract class APIClient {
             .build();
 
         Response response = client.newCall(requst).execute();
+
+        if(response.code() != 200)
+            throw new WithingsAPIException(response.body().string(), response.code());
 
         return response.body().string();
     }

@@ -91,7 +91,7 @@ public class MeasAPITest extends APIClientTestSettup {
         param.setStartDateYMD("2020-12-01");
         param.setEndDateYMD("2020-12-02");
 
-        ActivityBase response = client.getActivities(param);
+        ActivityBase response = client.MeasureGetactivity(param);
 
         List<Activity> activities = response.getBody().getActivities();
 
@@ -129,7 +129,7 @@ public class MeasAPITest extends APIClientTestSettup {
         param.setStartDate("2021-01-01");
         param.setEndDate("2021-01-02");
 
-        MeasBase measBase = client.getMeasures(param);
+        MeasBase measBase = client.measureGetmeas(param);
 
         assertEquals((Integer)0, measBase.getStatus());
 
