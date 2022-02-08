@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import junit.framework.AssertionFailedError;
 import okhttp3.FormBody;
+import sugimomoto.withings4j.WithingsAPIClient;
 import sugimomoto.withings4j.WithingsAPIException;
 import sugimomoto.withings4j.model.*;
 import sugimomoto.withings4j.query.*;
@@ -269,8 +270,43 @@ public class DropshipmentAPITest extends APIClientTestSettup {
     }
 
     @Test
-    public void Dropshipmentv2CreateuserorderTest(){
-        throw new AssertionFailedError();
+    public void Dropshipmentv2CreateuserorderTest() throws WithingsAPIException, IOException{
+        DropshipmentCreateUserOrderQueryParameters param = new DropshipmentCreateUserOrderQueryParameters("secretKey");
+        
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setMailingpref(false);
+        param.setBirthdate(1563746400);
+        param.setMeasures(getSamplMeasure());
+        param.setGender(0);
+        param.setPreflang("en_EN");
+        param.setUnitPref(getSampleUnitPref());
+        param.setEmail("sample@example.com");
+        param.setTimezone("America/New_York");
+        param.setShortname("test_shortname");
+        param.setExternalId("test_external_Id");
+        param.setOrder(getSampleOrders());
+        param.setRecoveryCode("test_recovery_code");
+        param.setGoals(getSampleGoals());
+        param.setTestMode(1);
+
+        UserOrderBase userOrderBase = client.dropshipmentCreateuserorder(param);
+
+        assertEquals((Integer)0, userOrderBase.getStatus());
+        assertEquals("490ed603fe9bd2ce10027bdba0c932069cd27085", userOrderBase.getBody().getUser().getCode());
+        assertEquals("3b7a6db0-ec7e-479b-9675-2a3d8d6a7e51", userOrderBase.getBody().getUser().getCode());
+
+        assertEquals(1, userOrderBase.getBody().getOrders().size());
+
+        Order order = userOrderBase.getBody().getOrders().get(0);
+        assertEquals("D12345678", order.getOrderID());
+        assertEquals("MOUVEMENTREFERENCE12345678", order.getCustomerRefID());
+        assertEquals("VERIFIED", order.getStatus());
+        assertEquals(1, order.getProducts().size());
+
+        Product product = order.getProducts().get(0);                
+        assertEquals("3700546702518", product.getEan());
+        assertEquals(3, product.getQuantity());
     }
 
     @Test
