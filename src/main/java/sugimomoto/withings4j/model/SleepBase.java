@@ -2,7 +2,7 @@ package sugimomoto.withings4j.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SleepBase extends ResponseBase {
+public class SleepBase extends ResponseBaseAbstract {
     private SleepSeriesBody body;
 
     @JsonProperty("body")

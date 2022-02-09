@@ -12,7 +12,7 @@
         },
         "bodyPatterns": [
             {
-                "matches": "(.*&|^)action=delete($|&.*)"
+                "matches": "(.*&|^)action=update($|&.*)"
             },
             {
                 "matches": "(.*&|^)client_id=test_client_id($|&.*)"
@@ -21,13 +21,13 @@
                 "matches": "(.*&|^)nonce=test_nonce($|&.*)"
             },
             {
-                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                "matches": "(.*&|^)signature=7b496fcf012c29cf6d5b4743d1f3a8a0d5b59e48f716b1a086a54efbc36dba5d($|&.*)"
             },
             {
                 "matches": "(.*&|^)order_id=test_order_id($|&.*)"
             },
             {
-                "matches": "(.*&|^)order=[(.)(.)address(.): (.)(.)name(.): (.)John Wayne(.),(.)email(.): (.)john.wayne(.)farwest.com(.),(.)address1(.): (.)1st Avenue(.),(.)address2(.): (.)Apartment 12(.),(.)city(.): (.)NewYork(.),(.)zip(.): (.)10001(.),(.)state(.): (.)NY(.),(.)country(.): (.)US(.)(.),(.)customer_ref_id(.): (.)IMAGINARY_CUSTOMER_REF_1(.),(.)products(.): [(.)(.)quantity(.): 1,(.)ean(.): (.)WI220002EAN(.)(.),(.)(.)quantity(.): 3,(.)ean(.): (.)WI330002EAN(.)(.)](.),(.)(.)address(.): (.)(.)name(.): (.)Calamity Jane(.),(.)email(.): (.)calamity.jane(.)farwest.com(.),(.)address1(.): (.)SW 8th St(.),(.)address2(.): (.)Block 1(.),(.)city(.): (.)Miami(.),(.)zip(.): (.)33135(.),(.)state(.): (.)FL(.),(.)country(.): (.)US(.)(.),(.)customer_ref_id(.): (.)IMAGINARY_CUSTOMER_REF_2(.),(.)products(.): [(.)(.)quantity(.): 2,(.)ean(.): (.)WI220002EAN(.)(.),(.)(.)quantity(.): 1,(.)ean(.): (.)WI440002EAN(.)(.),(.)(.)quantity(.): 1,(.)ean(.): (.)WI550002EAN(.)(.)](.)]($|&.*)"
+                "matches": "(.*&|^)order=%5B%7B%22address%22%3A%7B%22name%22%3A%22John%20Wayne%22%2C%22email%22%3A%22john.wayne%40farwest.com%22%2C%22address1%22%3A%221st%20Avenue%22%2C%22address2%22%3A%22Apartment%2012%22%2C%22city%22%3A%22New-York%22%2C%22zip%22%3A%2210001%22%2C%22state%22%3A%22NY%22%2C%22country%22%3A%22US%22%7D%2C%22customer_ref_id%22%3A%22IMAGINARY_CUSTOMER_REF_1%22%2C%22products%22%3A%5B%7B%22quantity%22%3A1%2C%22ean%22%3A%22WI220002EAN%22%7D%2C%7B%22quantity%22%3A3%2C%22ean%22%3A%22WI330002EAN%22%7D%5D%7D%2C%7B%22address%22%3A%7B%22name%22%3A%22Calamity%20Jane%22%2C%22email%22%3A%22calamity.jane%40farwest.com%22%2C%22address1%22%3A%22SW%208th%20St%22%2C%22address2%22%3A%22Block%201%22%2C%22city%22%3A%22Miami%22%2C%22zip%22%3A%2233135%22%2C%22state%22%3A%22FL%22%2C%22country%22%3A%22US%22%7D%2C%22customer_ref_id%22%3A%22IMAGINARY_CUSTOMER_REF_2%22%2C%22products%22%3A%5B%7B%22quantity%22%3A2%2C%22ean%22%3A%22WI220002EAN%22%7D%2C%7B%22quantity%22%3A1%2C%22ean%22%3A%22WI440002EAN%22%7D%2C%7B%22quantity%22%3A1%2C%22ean%22%3A%22WI550002EAN%22%7D%5D%7D%5D($|&.*)"
             }
         ]
     },

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -284,17 +285,15 @@ public class DropshipmentAPITest extends APIClientTestSettup {
         param.setEmail("sample@example.com");
         param.setTimezone("America/New_York");
         param.setShortname("test_shortname");
-        param.setExternalId("test_external_Id");
+        param.setExternalId("test_external_id");
         param.setOrder(getSampleOrders());
-        param.setRecoveryCode("test_recovery_code");
-        param.setGoals(getSampleGoals());
         param.setTestMode(1);
 
         UserOrderBase userOrderBase = client.dropshipmentCreateuserorder(param);
 
         assertEquals((Integer)0, userOrderBase.getStatus());
         assertEquals("490ed603fe9bd2ce10027bdba0c932069cd27085", userOrderBase.getBody().getUser().getCode());
-        assertEquals("3b7a6db0-ec7e-479b-9675-2a3d8d6a7e51", userOrderBase.getBody().getUser().getCode());
+        assertEquals(UUID.fromString("3b7a6db0-ec7e-479b-9675-2a3d8d6a7e51"), userOrderBase.getBody().getUser().getExternalID());
 
         assertEquals(1, userOrderBase.getBody().getOrders().size());
 
@@ -310,18 +309,63 @@ public class DropshipmentAPITest extends APIClientTestSettup {
     }
 
     @Test
-    public void Dropshipmentv2DeleteTest(){
-        throw new AssertionFailedError();
+    public void Dropshipmentv2DeleteTest() throws WithingsAPIException, IOException{
+        DropshipmentDeleteQueryParameters param = new DropshipmentDeleteQueryParameters("secretKey");
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setOrderId("test_order_id");
+
+        ResponseBase responseBase = client.dropshipmentDelete(param);
+
+        assertEquals((Integer)0, responseBase.getStatus());
+        assertEquals("{}", responseBase.getBody().toString());
     }  
 
     @Test
-    public void Dropshipmentv2GetorderstatusTest(){
-        throw new AssertionFailedError();
+    public void Dropshipmentv2GetorderstatusTest() throws WithingsAPIException, IOException{
+        DropshipmentGetorderstatusQueryParameters param = new DropshipmentGetorderstatusQueryParameters("secretKey");
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setOrderIds(Arrays.asList("test_order_id_1","test_order_id_2"));
+        param.setCustomerRefIds(Arrays.asList("test_customer_ref_id_1","test_customer_ref_id_2"));
+        param.setCustomerId("test_customer_id");
+
+        OrderStatusBase orderStatusBase = client.dropshipmentGetorderstatus(param);
+
+        assertEquals((Integer)0, orderStatusBase.getStatus());
+
+        assertEquals(1, orderStatusBase.getBody().getOrders().size());
+        OrderStatus orderStatus = orderStatusBase.getBody().getOrders().get(0);
+
+        assertEquals("D12345678", orderStatus.getOrderID());
+        assertEquals("MOUVEMENTREFERENCE12345678", orderStatus.getCustomerRefID());
+        assertEquals("SHIPPED", orderStatus.getStatus());
+        assertEquals("UPS Parcel", orderStatus.getCarrier());
+        assertEquals("Next Day Air", orderStatus.getCarrierService());
+        assertEquals("1ZY1111111", orderStatus.getTrackingNumber());
+        assertEquals("in_transit", orderStatus.getParcelStatus());
+
+        assertEquals(1, orderStatus.getProducts().size());
+
+        Product product = orderStatus.getProducts().get(0);
+        assertEquals("3700546702518", product.getEan());
+        assertEquals(3, product.getQuantity());
+        assertEquals(3, product.getMacAddrsses().size());
+        assertEquals("00:24:e4:xx:xx:xx", product.getMacAddrsses().get(0));
     }
 
     @Test
-    public void Dropshipmentv2UpdateTest(){
-        throw new AssertionFailedError();
+    public void Dropshipmentv2UpdateTest() throws WithingsAPIException, IOException{
+        DropshipmentUpdateQueryParameters param = new DropshipmentUpdateQueryParameters("secretKey");
+        
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setOrderId("test_order_id");
+        param.setOrder(getSampleOrders());
+
+        OrderBase responseBase = client.dropshipmentUpdate(param);
+
+        assertEquals((Integer)0, responseBase.getStatus());
     }
 
     private MeasuresParameter getSamplMeasure(){

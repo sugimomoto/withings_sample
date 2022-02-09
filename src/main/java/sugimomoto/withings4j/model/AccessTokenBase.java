@@ -1,6 +1,6 @@
 package sugimomoto.withings4j.model;
 
-public class AccessTokenBase extends ResponseBase {
+public class AccessTokenBase extends ResponseBaseAbstract {
 
     private AccessToken body;
 

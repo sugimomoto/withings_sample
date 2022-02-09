@@ -2,19 +2,11 @@ package sugimomoto.withings4j.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public abstract class ResponseBase implements IResponse {
-    private Integer status;
-    private String error;
+public class ResponseBase extends ResponseBaseAbstract {
+    private Object body;
 
-    @JsonProperty("status")
-    public Integer getStatus() { return status; }
-    
-    @JsonProperty("status")
-    public void setStatus(Integer value) { this.status = value; }
-
-    @JsonProperty("error")
-    public String getError() { return error; }
-
-    @JsonProperty("error")
-    public void setError(String error) { this.error = error; }
+    @JsonProperty("body")
+    public Object getBody() { return body; }
+    @JsonProperty("body")
+    public void setBody(Object value) { this.body = value; }
 }

@@ -12,7 +12,7 @@
         },
         "bodyPatterns": [
             {
-                "matches": "(.*&|^)action=delete($|&.*)"
+                "matches": "(.*&|^)action=getorderstatus($|&.*)"
             },
             {
                 "matches": "(.*&|^)client_id=test_client_id($|&.*)"
@@ -21,7 +21,7 @@
                 "matches": "(.*&|^)nonce=test_nonce($|&.*)"
             },
             {
-                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                "matches": "(.*&|^)signature=f81544d00f4e675dc8f61de57d33ae9460fd34bc983b76807d268fddf8e11ca6($|&.*)"
             },
             {
                 "matches": "(.*&|^)order_ids=[(.)order_id_1(.),(.)order_id_2(.)]($|&.*)"

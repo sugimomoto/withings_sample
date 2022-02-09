@@ -2,11 +2,11 @@ package sugimomoto.withings4j.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class OrderStatusBase extends ResponseBase {
-    private OrderStatus body;
+public class OrderStatusBase extends ResponseBaseAbstract {
+    private OrderStatusBody body;
 
     @JsonProperty("body")
-    public OrderStatus getBody() { return body; }
+    public OrderStatusBody getBody() { return body; }
     @JsonProperty("body")
-    public void setBody(OrderStatus value) { this.body = value; }
+    public void setBody(OrderStatusBody value) { this.body = value; }
 }

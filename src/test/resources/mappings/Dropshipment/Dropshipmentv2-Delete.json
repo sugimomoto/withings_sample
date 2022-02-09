@@ -21,7 +21,7 @@
                 "matches": "(.*&|^)nonce=test_nonce($|&.*)"
             },
             {
-                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                "matches": "(.*&|^)signature=7a239636bd323b182586425c5887c613cd622cfb100d5cf5ee2c880f14c68d73($|&.*)"
             },
             {
                 "matches": "(.*&|^)order_id=test_order_id($|&.*)"

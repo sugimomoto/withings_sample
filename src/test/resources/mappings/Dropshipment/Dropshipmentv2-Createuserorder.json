@@ -57,9 +57,6 @@
                 "matches": "(.*&|^)order=%5B%7B%22address%22%3A%7B%22name%22%3A%22John%20Wayne%22%2C%22email%22%3A%22john.wayne%40farwest.com%22%2C%22address1%22%3A%221st%20Avenue%22%2C%22address2%22%3A%22Apartment%2012%22%2C%22city%22%3A%22New-York%22%2C%22zip%22%3A%2210001%22%2C%22state%22%3A%22NY%22%2C%22country%22%3A%22US%22%7D%2C%22customer_ref_id%22%3A%22IMAGINARY_CUSTOMER_REF_1%22%2C%22products%22%3A%5B%7B%22quantity%22%3A1%2C%22ean%22%3A%22WI220002EAN%22%7D%2C%7B%22quantity%22%3A3%2C%22ean%22%3A%22WI330002EAN%22%7D%5D%7D%2C%7B%22address%22%3A%7B%22name%22%3A%22Calamity%20Jane%22%2C%22email%22%3A%22calamity.jane%40farwest.com%22%2C%22address1%22%3A%22SW%208th%20St%22%2C%22address2%22%3A%22Block%201%22%2C%22city%22%3A%22Miami%22%2C%22zip%22%3A%2233135%22%2C%22state%22%3A%22FL%22%2C%22country%22%3A%22US%22%7D%2C%22customer_ref_id%22%3A%22IMAGINARY_CUSTOMER_REF_2%22%2C%22products%22%3A%5B%7B%22quantity%22%3A2%2C%22ean%22%3A%22WI220002EAN%22%7D%2C%7B%22quantity%22%3A1%2C%22ean%22%3A%22WI440002EAN%22%7D%2C%7B%22quantity%22%3A1%2C%22ean%22%3A%22WI550002EAN%22%7D%5D%7D%5D($|&.*)"
             },
             {
-                "matches": "(.*&|^)customerid=test_customer_id($|&.*)"
-            },
-            {
                 "matches": "(.*&|^)testmode=1($|&.*)"
             }
         ]

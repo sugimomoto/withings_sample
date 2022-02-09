@@ -2,7 +2,7 @@ package sugimomoto.withings4j.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class NotifyListBase extends ResponseBase {
+public class NotifyListBase extends ResponseBaseAbstract {
     private NotifyBody body;
 
     @JsonProperty("body")
