@@ -24,10 +24,10 @@
                 "matches": "(.*&|^)signature=f81544d00f4e675dc8f61de57d33ae9460fd34bc983b76807d268fddf8e11ca6($|&.*)"
             },
             {
-                "matches": "(.*&|^)order_ids=[(.)order_id_1(.),(.)order_id_2(.)]($|&.*)"
+                "matches": "(.*&|^)order_ids=%5B%22test_order_id_1%22%2C%22test_order_id_2%22%5D($|&.*)"
             },
             {
-                "matches": "(.*&|^)customer_ref_ids=[(.)customer_ref_id_1(.),(.)customer_ref_id_2(.)]($|&.*)"
+                "matches": "(.*&|^)customer_ref_ids=%5B%22test_customer_ref_id_1%22%2C%22test_customer_ref_id_2%22%5D($|&.*)"
             }
         ]
     },
