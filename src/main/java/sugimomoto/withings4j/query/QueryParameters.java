@@ -30,7 +30,7 @@ public class QueryParameters implements IQueryParameters {
 
     public void setupSignatured() throws WithingsAPIException {
 
-        if(secretKey == null | secretKey.isEmpty()){
+        if(secretKey == null || secretKey.isEmpty()){
             return;
         }
 
