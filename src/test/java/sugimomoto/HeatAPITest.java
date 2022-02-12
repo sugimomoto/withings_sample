@@ -2,22 +2,23 @@ package sugimomoto;
 
 import static org.junit.Assert.assertEquals;
 
-import java.text.Normalizer.Form;
+import java.io.IOException;
 
 import org.junit.Test;
 
-import kotlin.NotImplementedError;
 import okhttp3.FormBody;
+import sugimomoto.withings4j.WithingsAPIException;
+import sugimomoto.withings4j.model.*;
 import sugimomoto.withings4j.query.*;
 
 public class HeatAPITest extends APIClientTestSettup{
 
     @Test
     public void HeartGetQueryParametersTest(){
-        HeartGetQueryParameters heartGetQueryParameters = new HeartGetQueryParameters();
-        heartGetQueryParameters.setSignalId("1");
+        HeartGetQueryParameters param = new HeartGetQueryParameters();
+        param.setSignalId("1");
         
-        FormBody formBody = heartGetQueryParameters.getQueryParameters();
+        FormBody formBody = param.getQueryParameters();
 
         assertEquals(2, formBody.size());
 
@@ -30,12 +31,12 @@ public class HeatAPITest extends APIClientTestSettup{
 
     @Test
     public void HeartListQueryParametersTest(){
-        HeartListQueryParameters heartListQueryParameters = new HeartListQueryParameters();
-        heartListQueryParameters.setStartDate(1594159644);
-        heartListQueryParameters.setEndDate(1594159645);
-        heartListQueryParameters.setOffset(1);
+        HeartListQueryParameters param = new HeartListQueryParameters();
+        param.setStartDate(1594159644);
+        param.setEndDate(1594159645);
+        param.setOffset(1);
 
-        FormBody formBody = heartListQueryParameters.getQueryParameters();
+        FormBody formBody = param.getQueryParameters();
 
         assertEquals(4, formBody.size());
 
@@ -53,12 +54,47 @@ public class HeatAPITest extends APIClientTestSettup{
     }
     
     @Test
-    public void Heartv2GetTest(){
-        throw new NotImplementedError();
+    public void Heartv2GetTest() throws WithingsAPIException, IOException{
+        HeartGetQueryParameters param = new HeartGetQueryParameters();
+        param.setSignalId("48");
+
+        HeartBase heartBase = client.heartGet(param);
+
+        assertEquals((Integer)0, heartBase.getStatus());
+
+        HeartBody heartBody = heartBase.getBody();
+
+        assertEquals("[1,2,3,4,5,6,7,8,9]", heartBody.getSignal());
+        assertEquals(500, heartBody.getSamplingFrequency());
+        assertEquals(1, heartBody.getWearposition());
     }
 
     @Test
-    public void Heartv2ListTest(){
-        throw new NotImplementedError();
+    public void Heartv2ListTest() throws WithingsAPIException, IOException{
+        HeartListQueryParameters param = new HeartListQueryParameters();
+        param.setStartDate(1594159644);
+        param.setEndDate(1594159645);
+        param.setOffset(1);
+
+        HeartListBase heartListBase = client.heartList(param);
+
+        assertEquals((Integer)0, heartListBase.getStatus());
+        
+        HeartListBody heartListBody = heartListBase.getBody();
+
+        assertEquals(1, heartListBody.getSeries().size());
+        assertEquals(true, heartListBody.getMore());
+        assertEquals(0, heartListBody.getOffset());
+
+        Series series = heartListBody.getSeries().get(0);
+
+        assertEquals("892359876fd8805ac45bab078c4828692f0276b1", series.getDeviceid());
+        assertEquals(44, series.getModel());
+        assertEquals(48, series.getEcg().getSignalid());
+        assertEquals(1, series.getEcg().getAfib());
+        assertEquals(100, series.getBloodpressure().getDiastole());
+        assertEquals(101, series.getBloodpressure().getSystole());
+        assertEquals(82, series.getHeartRate());
+        assertEquals(1594159644, series.getTimestamp());
     }
 }
