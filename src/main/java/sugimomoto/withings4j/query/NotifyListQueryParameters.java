@@ -4,8 +4,6 @@ import sugimomoto.withings4j.model.WithingsActionType;
 
 public class NotifyListQueryParameters extends QueryParameters {
 
-
-
     public NotifyListQueryParameters() {
         this.parameters.put("action", WithingsActionType.NOTIFY_LIST_LIST.getValue());
     }
@@ -13,5 +11,4 @@ public class NotifyListQueryParameters extends QueryParameters {
     public void setAppli(int appli) {
         this.parameters.put("appli", String.valueOf(appli));
     }
-
 }

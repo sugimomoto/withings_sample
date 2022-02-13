@@ -1,7 +1,7 @@
 {            
     "request": {
         "method": "POST",
-        "urlPattern": "/notfiy",
+        "urlPattern": "/notify",
         "headers": {
             "Authorization": {
                 "matches": "Bearer dummy_token"

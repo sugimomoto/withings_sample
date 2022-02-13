@@ -1,7 +1,7 @@
 {            
     "request": {
         "method": "POST",
-        "urlPattern": "/notfiy",
+        "urlPattern": "/notify",
         "headers": {
             "Authorization": {
                 "matches": "Bearer dummy_token"
@@ -15,7 +15,7 @@
                 "matches": "(.*&|^)action=get($|&.*)"
             },
             {
-                "matches": "(.*&|^)callbackurl=https://test.example.com($|&.*)"
+                "matches": "(.*&|^)callbackurl=http%3A%2F%2Fexample.com($|&.*)"
             },
             {
                 "matches": "(.*&|^)appli=12345($|&.*)"
