@@ -6,8 +6,9 @@ import sugimomoto.withings4j.model.WithingsActionType;
 
 public class NotifySubscribeQueryParameters extends QueryParameters {
 
-    public NotifySubscribeQueryParameters() {
+    public NotifySubscribeQueryParameters(String secretKey) {
         this.parameters.put("action", WithingsActionType.NOTIFY_SUBSCRIBE_SUBSCRIBE.getValue());
+        this.secretKey = secretKey;
     }
         
     public void setCallbackurl(String callbackurl) {

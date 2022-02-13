@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import kotlin.NotImplementedError;
 import okhttp3.FormBody;
 import sugimomoto.withings4j.*;
 import sugimomoto.withings4j.model.*;
@@ -14,8 +15,14 @@ import sugimomoto.withings4j.query.*;
 
 public class MeasAPITest extends APIClientTestSettup {
 
+
     @Test
-    public void MeasQueryParametersTest(){
+    public void MeasureGetintradayactivityQueryParametersTest(){
+        throw new NotImplementedError();
+    }
+
+    @Test
+    public void MeasureGetmeasQueryParametersTest(){
         MeasureGetmeasQueryParameters param = new MeasureGetmeasQueryParameters();
         param.setMeasType(MeasType.Weight);
         param.setMeasTypes(new MeasType[]{MeasType.Weight,MeasType.Height,MeasType.MuscleMass});
@@ -54,7 +61,12 @@ public class MeasAPITest extends APIClientTestSettup {
     }
 
     @Test
-    public void ActivitiesQueryParametersTest(){
+    public void MeasureGetworkoutsQueryParametersTest(){
+        throw new NotImplementedError();
+    }
+
+    @Test
+    public void MeasurevGetactivityQueryParametersTest(){
 
         MeasurevGetactivityQueryParameters param = new MeasurevGetactivityQueryParameters();
         param.setStartDateYMD("2021-01-01");
@@ -86,44 +98,7 @@ public class MeasAPITest extends APIClientTestSettup {
     }
     
     @Test
-    public void getActivityTest() throws WithingsAPIException, IOException{
-        MeasurevGetactivityQueryParameters param = new MeasurevGetactivityQueryParameters();    
-        param.setStartDateYMD("2020-12-01");
-        param.setEndDateYMD("2020-12-02");
-
-        ActivityBase response = client.MeasureGetactivity(param);
-
-        List<Activity> activities = response.getBody().getActivities();
-
-        int count = 0;
-
-        assertEquals(27, activities.size());
-
-        for (Activity activity : activities) {
-            if(count == 0){
-                assertEquals((Integer)6676, activity.getSteps());
-                assertEquals(5078.594, activity.getDistance(),0);
-                assertEquals((Integer)0, activity.getElevation());
-                assertEquals((Integer)9095, activity.getSoft());
-                assertEquals((Integer)1049, activity.getModerate());
-                assertEquals((Integer)58, activity.getIntense());
-                assertEquals((Integer)1107, activity.getActive());
-                assertEquals(210.68, activity.getCalories(),0);
-                assertEquals(2014.409, activity.getTotalcalories(),0);
-                assertEquals("892359876fd8805ac45bab078c4828692f0276b1", activity.getDeviceid());
-                assertEquals("892359876fd8805ac45bab078c4828692f0276b2", activity.getHashDeviceid());
-                assertEquals("Asia/Tokyo", activity.getTimezone());
-                assertEquals("Sat Nov 06 09:00:00 JST 2021", activity.getDate().toString());
-                assertEquals((Integer)18, activity.getBrand());
-                assertEquals(false, activity.getIsTracker());
-            }
-            
-            count++;
-        }
-    }
-
-    @Test
-    public void getMeasureTest() throws WithingsAPIException, IOException{
+    public void MeasureGetmeasTest() throws WithingsAPIException, IOException{
         MeasureGetmeasQueryParameters param = new MeasureGetmeasQueryParameters();
         param.setMeasType(MeasType.Weight);
         param.setStartDate("2021-01-01");
@@ -170,5 +145,52 @@ public class MeasAPITest extends APIClientTestSettup {
             }
             count++;
         }
+    }
+
+    @Test
+    public void Measurev2GetactivityTest() throws WithingsAPIException, IOException{
+        MeasurevGetactivityQueryParameters param = new MeasurevGetactivityQueryParameters();    
+        param.setStartDateYMD("2020-12-01");
+        param.setEndDateYMD("2020-12-02");
+
+        ActivityBase response = client.MeasureGetactivity(param);
+
+        List<Activity> activities = response.getBody().getActivities();
+
+        int count = 0;
+
+        assertEquals(27, activities.size());
+
+        for (Activity activity : activities) {
+            if(count == 0){
+                assertEquals((Integer)6676, activity.getSteps());
+                assertEquals(5078.594, activity.getDistance(),0);
+                assertEquals((Integer)0, activity.getElevation());
+                assertEquals((Integer)9095, activity.getSoft());
+                assertEquals((Integer)1049, activity.getModerate());
+                assertEquals((Integer)58, activity.getIntense());
+                assertEquals((Integer)1107, activity.getActive());
+                assertEquals(210.68, activity.getCalories(),0);
+                assertEquals(2014.409, activity.getTotalcalories(),0);
+                assertEquals("892359876fd8805ac45bab078c4828692f0276b1", activity.getDeviceid());
+                assertEquals("892359876fd8805ac45bab078c4828692f0276b2", activity.getHashDeviceid());
+                assertEquals("Asia/Tokyo", activity.getTimezone());
+                assertEquals("Sat Nov 06 09:00:00 JST 2021", activity.getDate().toString());
+                assertEquals((Integer)18, activity.getBrand());
+                assertEquals(false, activity.getIsTracker());
+            }
+            
+            count++;
+        }
+    }
+
+    @Test
+    public void Measurev2GetintradayactivityTest(){
+        throw new NotImplementedError();
+    }
+
+    @Test
+    public void Measurev2GetworkoutsTest(){
+        throw new NotImplementedError();
     }
 }

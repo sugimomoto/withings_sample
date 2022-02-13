@@ -28,7 +28,7 @@ public class QueryParameters implements IQueryParameters {
         return builder.build();
     }
 
-    public void setupSignatured() throws WithingsAPIException {
+    private void setupSignatured() throws WithingsAPIException {
 
         if(secretKey == null || secretKey.isEmpty()){
             return;

@@ -8,6 +8,10 @@ public class NotifyUpdateQueryParameters extends QueryParameters {
         this.parameters.put("action", WithingsActionType.NOTIFY_UPDATE_UPDATE.getValue());
     }
 
+    public void setCallbackurl(String callbackurl) {
+        this.parameters.put("callbackurl", callbackurl);
+    }
+
     public void setAppli(int appli) {
         this.parameters.put("appli", String.valueOf(appli));
     }
