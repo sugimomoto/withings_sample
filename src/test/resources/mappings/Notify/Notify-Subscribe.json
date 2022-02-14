@@ -15,16 +15,16 @@
                 "matches": "(.*&|^)action=subscribe($|&.*)"
             },
             {
-                "matches": "(.*&|^)callbackurl=https://test.example.com($|&.*)"
+                "matches": "(.*&|^)callbackurl=http%3A%2F%2Fexample.com($|&.*)"
             },
             {
                 "matches": "(.*&|^)appli=12345($|&.*)"
             },
             {
-                "matches": "(.*&|^)signature=signature_test($|&.*)"
+                "matches": "(.*&|^)signature=e7eef8f48f91aebeb642a92b88daa672d46b910a5b4d81f1dd73996c0680d529($|&.*)"
             },
             {
-                "matches": "(.*&|^)nonce=nonce_test($|&.*)"
+                "matches": "(.*&|^)nonce=test_nonce($|&.*)"
             },
             {
                 "matches": "(.*&|^)client_id=test_client_id($|&.*)"

@@ -170,20 +170,40 @@ public class NotifyAPITest extends APIClientTestSettup {
     }
 
     @Test
-    public void NotifyRevokeTest(){
-        throw new NotImplementedError();
-        
+    public void NotifyRevokeTest() throws WithingsAPIException, IOException{
+        NotifyRevokeQueryParameters param = new NotifyRevokeQueryParameters();
+        param.setCallbackurl("http://example.com");
+        param.setAppli(12345);
+
+        ResponseBase responseBase = client.notifyRevoke(param);
+
+        assertEquals((Integer)0, responseBase.getStatus());
     }
 
     @Test
-    public void NotifySubscribeTest(){
-        throw new NotImplementedError();
+    public void NotifySubscribeTest() throws WithingsAPIException, IOException{
+        NotifySubscribeQueryParameters param = new NotifySubscribeQueryParameters("secretKey");
+        param.setCallbackurl("http://example.com");
+        param.setAppli(12345);
+        param.setNonce("test_nonce");
+        param.setClientId("test_client_id");
         
+        ResponseBase responseBase = client.notifySubscribe(param);
+
+        assertEquals((Integer)0, responseBase.getStatus());
     }
 
     @Test
-    public void NotifyUpdateTest(){
-        throw new NotImplementedError();
-        
+    public void NotifyUpdateTest() throws WithingsAPIException, IOException{
+        NotifyUpdateQueryParameters param = new NotifyUpdateQueryParameters();
+        param.setCallbackurl("http://example.com");
+        param.setAppli(12345);
+        param.setNewCallbackurl("http://example.com/update");
+        param.setNewAppli(23456);
+        param.setComment("update_comment");
+
+        ResponseBase responseBase = client.notifyUpdate(param);
+
+        assertEquals((Integer)0, responseBase.getStatus());
     }
 }

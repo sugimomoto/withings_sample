@@ -15,13 +15,13 @@
                 "matches": "(.*&|^)action=update($|&.*)"
             },
             {
-                "matches": "(.*&|^)callbackurl=https://test.example.com($|&.*)"
+                "matches": "(.*&|^)callbackurl=http%3A%2F%2Fexample.com($|&.*)"
             },
             {
                 "matches": "(.*&|^)appli=12345($|&.*)"
             },
             {
-                "matches": "(.*&|^)new_callbackurl=https://new_test.example.com($|&.*)"
+                "matches": "(.*&|^)new_callbackurl=http%3A%2F%2Fexample.com%2Fupdate($|&.*)"
             },
             {
                 "matches": "(.*&|^)new_appli=23456($|&.*)"

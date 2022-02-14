@@ -15,7 +15,7 @@
                 "matches": "(.*&|^)action=revoke($|&.*)"
             },
             {
-                "matches": "(.*&|^)callbackurl=https://test.example.com($|&.*)"
+                "matches": "(.*&|^)callbackurl=http%3A%2F%2Fexample.com($|&.*)"
             },
             {
                 "matches": "(.*&|^)appli=12345($|&.*)"
