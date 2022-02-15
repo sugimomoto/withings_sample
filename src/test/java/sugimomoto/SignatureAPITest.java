@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import kotlin.NotImplementedError;
 
-public class SignatureAPITest {
+public class SignatureAPITest extends APIClientTestSettup {
     
     @Test
     public void SignatureGetnonceQueryParametersTest(){

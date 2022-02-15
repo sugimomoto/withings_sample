@@ -5,14 +5,14 @@ import java.util.List;
 
 public class SleepSummaryBody {
     
-    private List<Series> series;
+    private List<SleepSummarySeries> series;
     private boolean more;
     private long offset;
 
     @JsonProperty("series")
-    public List<Series> getSeries() { return series; }
+    public List<SleepSummarySeries> getSeries() { return series; }
     @JsonProperty("series")
-    public void setSeries(List<Series> value) { this.series = value; }
+    public void setSeries(List<SleepSummarySeries> value) { this.series = value; }
 
     @JsonProperty("more")
     public boolean getMore() { return more; }

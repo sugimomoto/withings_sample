@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import kotlin.NotImplementedError;
 
-public class UserAPITest {
+public class UserAPITest extends APIClientTestSettup {
     
     @Test
     public void UserActivateQueryParametersTest(){
