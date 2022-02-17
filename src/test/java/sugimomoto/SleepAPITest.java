@@ -4,6 +4,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import kotlin.NotImplementedError;
 import okhttp3.FormBody;
@@ -84,7 +89,7 @@ public class SleepAPITest extends APIClientTestSettup {
     }
     
     @Test
-    public void Sleepv2GetsummaryTest() throws WithingsAPIException, IOException{
+    public void Sleepv2GetsummaryTest() throws WithingsAPIException, IOException, ParseException{
         SleepGetsummaryQueryParameters param = new SleepGetsummaryQueryParameters();
         param.setStartDateYMD("2020-12-01");
         param.setEndDateYMD("2020-12-02");
@@ -101,7 +106,8 @@ public class SleepAPITest extends APIClientTestSettup {
         assertEquals(51, sleepSummarySeries.getModelID());
         assertEquals(1594245600, sleepSummarySeries.getStartdate());
         assertEquals(1594257200, sleepSummarySeries.getEnddate());
-        assertEquals("2020-07-09", sleepSummarySeries.getDate());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        assertEquals(format.parse("2020-07-09"), sleepSummarySeries.getDate());
         assertEquals(1594257200, sleepSummarySeries.getCreated());
         assertEquals(1594257200, sleepSummarySeries.getModified());
 
