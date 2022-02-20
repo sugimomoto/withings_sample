@@ -82,11 +82,13 @@ public class SleepAPITest extends APIClientTestSettup {
 
         assertEquals(1594159200, sleepBase.getBody().getSeries().getStartdate());
         assertEquals(1594202400, sleepBase.getBody().getSeries().getEnddate());
-        assertEquals(1, sleepBase.getBody().getSeries().getHr().getTimestamp());
-        assertEquals(0, sleepBase.getBody().getSeries().getRr().getTimestamp());
-        assertEquals(1, sleepBase.getBody().getSeries().getSnoring().getTimestamp());
+        assertEquals(0, sleepBase.getBody().getSeries().getHr().getTimestamp());
+        assertEquals(1, sleepBase.getBody().getSeries().getRr().getTimestamp());
+        assertEquals(2, sleepBase.getBody().getSeries().getSnoring().getTimestamp());
         assertEquals("Aura Sensor V2", sleepBase.getBody().getModel());
         assertEquals(63, sleepBase.getBody().getModelID());
+
+        throw new NotImplementedError("timestampを動的に取得できるように修正する。");
     }
     
     @Test

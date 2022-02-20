@@ -9,10 +9,10 @@
           "$timestamp": 0
         },
         "rr": {
-          "$timestamp": 0
+          "$timestamp": 1
         },
         "snoring": {
-          "$timestamp": 0
+          "$timestamp": 2
         }
       },
       "model": "Aura Sensor V2",

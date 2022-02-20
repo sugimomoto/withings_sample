@@ -34,15 +34,17 @@ public class QueryParameters implements IQueryParameters {
             return;
         }
 
-        if(!parameters.containsKey("client_id") && !parameters.containsKey("nonce")){
-            throw new WithingsAPIException("If you need a signatured this query parameters, client_id and nonce is required.");
+        if(!parameters.containsKey("client_id") && (!parameters.containsKey("nonce") || !parameters.containsKey("timestamp"))){
+            throw new WithingsAPIException("If you need a signatured this query parameters, client_id and nonce or timestamp are required.");
         }
 
         try{
+            String param = parameters.containsKey("nonce") ? parameters.get("nonce") : parameters.get("timestamp");
+
             parameters.put("signature", Signature.SignedByHmacSHA256(
                 parameters.get("action"),
                 parameters.get("client_id"),
-                parameters.get("nonce"),
+                param,
                 secretKey
                 ));
 

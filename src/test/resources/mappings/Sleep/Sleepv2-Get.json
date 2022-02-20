@@ -15,10 +15,10 @@
                 "matches": "(.*&|^)action=get($|&.*)"
             },
             {
-                "matches": "(.*&|^)startdate=2021-01-01($|&.*)"
+                "matches": "(.*&|^)startdate=1594159644($|&.*)"
             },
             {
-                "matches": "(.*&|^)enddate=2021-01-02($|&.*)"
+                "matches": "(.*&|^)enddate=1594159645($|&.*)"
             }
         ]
     },

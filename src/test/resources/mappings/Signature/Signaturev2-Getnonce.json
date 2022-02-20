@@ -4,7 +4,7 @@
         "urlPattern": "/v2/signature",
         "headers": {
             "Authorization": {
-                "doesNotMatch": "Bearer ($|&.*)"
+                "matches": "Bearer dummy_token"
             },
             "Content-Type": {
                 "matches": "application/x-www-form-urlencoded"
@@ -18,10 +18,10 @@
                 "matches": "(.*&|^)client_id=test_client_id($|&.*)"
             },
             {
-                "matches": "(.*&|^)timestamp=1594245600($|&.*)"
+                "matches": "(.*&|^)timestamp=1594257200($|&.*)"
             },
             {
-                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                "matches": "(.*&|^)signature=813fa95f1669e344946e4cc248876293f05ec3de0335566c6529e12dd2f07d9a($|&.*)"
             }
         ]
     },
