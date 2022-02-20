@@ -1,6 +1,7 @@
 package sugimomoto.withings4j.query;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,8 +10,9 @@ import sugimomoto.withings4j.model.WithingsActionType;
 
 public class UserActivateQueryParameters extends QueryParameters {
 
-    public UserActivateQueryParameters() {
+    public UserActivateQueryParameters(String secretKey) {
         this.parameters.put("action", WithingsActionType.USER_V2_ACTIVATE_ACTIVATE.getValue());
+        this.secretKey = secretKey;
     }
     
     public void setClientId(String clientId) {
@@ -63,8 +65,8 @@ public class UserActivateQueryParameters extends QueryParameters {
         this.parameters.put("external_id", externalId);
     }
 
-    public void setMacAddresses(String macAddresses) {
-        this.parameters.put("mac_addresses", macAddresses);
+    public void setMacAddresses(List<String> macAddresses) {
+        this.parameters.put("mac_addresses", "[\"" + macAddresses.stream().collect(Collectors.joining("\",\"")) + "\"]");
     }
 
     public void setFirstName(String firstName) {
