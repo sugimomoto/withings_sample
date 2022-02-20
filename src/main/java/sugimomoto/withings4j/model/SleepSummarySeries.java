@@ -1,6 +1,8 @@
 package sugimomoto.withings4j.model;
 
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SleepSummarySeries {
@@ -10,6 +12,8 @@ public class SleepSummarySeries {
     private long modelID;
     private long startdate;
     private long enddate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private long created;
     private long modified;

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Locale;
 
@@ -106,8 +107,7 @@ public class SleepAPITest extends APIClientTestSettup {
         assertEquals(51, sleepSummarySeries.getModelID());
         assertEquals(1594245600, sleepSummarySeries.getStartdate());
         assertEquals(1594257200, sleepSummarySeries.getEnddate());
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        assertEquals(format.parse("2020-07-09"), sleepSummarySeries.getDate());
+        assertEquals(LocalDate.of(2020, 7, 9), sleepSummarySeries.getDate());
         assertEquals(1594257200, sleepSummarySeries.getCreated());
         assertEquals(1594257200, sleepSummarySeries.getModified());
 

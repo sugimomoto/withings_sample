@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import okhttp3.*;
 import sugimomoto.withings4j.model.*;
@@ -30,7 +31,8 @@ public abstract class APIClient {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        
+        mapper.registerModule(new JavaTimeModule());
+
         IResponse response = mapper.readValue(result, valueType);
 
         if(response.getStatus() != 0){
