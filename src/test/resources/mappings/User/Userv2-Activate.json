@@ -21,16 +21,16 @@
                 "matches": "(.*&|^)nonce=test_nonce($|&.*)"
             },
             {
-                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                "matches": "(.*&|^)signature=9c00b5cb8e2adcf454ebfebfd41e94b8fdfec61d730fefc6cd16a51d0095bd73($|&.*)"
             },
             {
-                "matches": "(.*&|^)mailingpref=test_mailingpref($|&.*)"
+                "matches": "(.*&|^)mailingpref=true($|&.*)"
             },
             {
                 "matches": "(.*&|^)birthdate=1563746400($|&.*)"
             },
             {
-                "matches": "(.*&|^)measures=(.)(.)preflang(.): (.)en_EN(.),(.)birthdate(.): (.)12345678(.),(.)gender(.): 1,(.)shortname(.): (.)ABC(.),(.)measures(.): [(.)(.)value(.): 180,(.)unit(.): 2,(.)type(.): 4(.),(.)(.)value(.): 8000,(.)unit(.): 2,(.)type(.): 1(.)](.)($|&.*)"
+                "matches": "(.*&|^)measures=%7B%22preflang%22%3A%22en_EN%22%2C%22birthdate%22%3A%2212345678%22%2C%22gender%22%3A1%2C%22shortname%22%3A%22ABC%22%2C%22measures%22%3A%5B%7B%22value%22%3A180%2C%22unit%22%3A-2%2C%22type%22%3A4%7D%2C%7B%22value%22%3A8000%2C%22unit%22%3A-2%2C%22type%22%3A1%7D%5D%7D($|&.*)"
             },
             {
                 "matches": "(.*&|^)gender=0($|&.*)"
@@ -39,22 +39,22 @@
                 "matches": "(.*&|^)preflang=en_EN($|&.*)"
             },
             {
-                "matches": "(.*&|^)unit_pref=(.)(.)weight(.):1,(.)height(.):7,(.)distance(.):8,(.)temperature(.):13(.)($|&.*)"
+                "matches": "(.*&|^)unit_pref=%7B%22weight%22%3A1%2C%22height%22%3A7%2C%22distance%22%3A8%2C%22temperature%22%3A13%7D($|&.*)"
             },
             {
-                "matches": "(.*&|^)email=test_email($|&.*)"
+                "matches": "(.*&|^)email=sample%40example.com($|&.*)"
             },
             {
-                "matches": "(.*&|^)timezone=America/New_York($|&.*)"
+                "matches": "(.*&|^)timezone=America%2FNew_York($|&.*)"
             },
             {
-                "matches": "(.*&|^)shortname=sample_shortname($|&.*)"
+                "matches": "(.*&|^)shortname=abc($|&.*)"
             },
             {
                 "matches": "(.*&|^)external_id=test_external_id($|&.*)"
             },
             {
-                "matches": "(.*&|^)mac_addresses=[(.)00:24:e4:xx:xx:xx(.),(.)00:24:e4:xx:xx:xx(.)]($|&.*)"
+                "matches": "(.*&|^)mac_addresses=%5B%2200%3A24%3Ae4%3Axx%3Axx%3Axx%22%2C%2200%3A24%3Ae4%3Axx%3Axx%3Axx%22%5D($|&.*)"
             }
         ]
     },

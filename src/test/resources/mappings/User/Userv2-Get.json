@@ -21,10 +21,10 @@
                 "matches": "(.*&|^)nonce=test_nonce($|&.*)"
             },
             {
-                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
+                "matches": "(.*&|^)signature=5c34950abc251bd012d1189ee1872093002f3e9897d746cd12a932f0f34b0614($|&.*)"
             },
             {
-                "matches": "(.*&|^)email=test_email($|&.*)"
+                "matches": "(.*&|^)email=sample%40example.com($|&.*)"
             }
         ]
     },

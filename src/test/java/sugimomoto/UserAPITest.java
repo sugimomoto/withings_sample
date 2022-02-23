@@ -2,7 +2,9 @@ package sugimomoto;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -10,6 +12,8 @@ import org.junit.Test;
 
 import kotlin.NotImplementedError;
 import okhttp3.FormBody;
+import sugimomoto.withings4j.WithingsAPIException;
+import sugimomoto.withings4j.model.*;
 import sugimomoto.withings4j.query.*;
 
 public class UserAPITest extends APIClientTestSettup {
@@ -185,13 +189,69 @@ public class UserAPITest extends APIClientTestSettup {
     }
     
     @Test
-    public void Userv2ActivateTest(){
-        throw new NotImplementedError();
+    public void Userv2ActivateTest() throws WithingsAPIException, IOException{
+        UserActivateQueryParameters param = new UserActivateQueryParameters("secretKey");
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setMailingpref(true);
+        param.setBirthdate(1563746400);
+        param.setMeasures(getSamplMeasure());
+        param.setGender(0);
+        param.setPreflang("en_EN");
+        param.setUnitPref(getSampleUnitPref());
+        param.setEmail("sample@example.com");
+        param.setTimezone("America/New_York");
+        param.setShortname("abc");
+        param.setExternalId("test_external_id");
+        param.setMacAddresses(Arrays.asList("00:24:e4:xx:xx:xx","00:24:e4:xx:xx:xx"));
+
+
+        UserDeviceBase userDeviceBase = client.userActivate(param);
+
+        assertEquals((Integer)0, userDeviceBase.getStatus());
+
+        assertEquals("490ed603fe9bd2ce10027bdba0c932069cd27085", userDeviceBase.getBody().getUser().getCode());
+        assertEquals(UUID.fromString("3b7a6db0-ec7e-479b-9675-2a3d8d6a7e51"), userDeviceBase.getBody().getUser().getExternalID());
+
+        assertEquals(1, userDeviceBase.getBody().getDevices().size());
+
+        Device device = userDeviceBase.getBody().getDevices().get(0);
+
+        assertEquals("00:24:e4:69:b2:30", device.getMACAddress());
+        assertEquals("Scale", device.getType());
+        assertEquals("Body Cardio", device.getModel());
+        assertEquals(6, device.getModelID());
+        assertEquals("medium", device.getBattery());
+        assertEquals("892359876fd8805ac45bab078c4828692f0276b1", device.getDeviceid());
+        assertEquals("Europe/Paris", device.getTimezone());
+        assertEquals(1594159644, device.getLastSessionDate());
     }
     
     @Test
-    public void Userv2GetTest(){
-        throw new NotImplementedError();
+    public void Userv2GetTest() throws WithingsAPIException, IOException{
+        UserGetQueryParameters param = new UserGetQueryParameters("secretKey");
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setEmail("sample@example.com");
+
+        UserBase userBase = client.userGet(param);
+
+        assertEquals((Integer)0, userBase.getStatus());
+
+        assertEquals("john.doe@my.email", userBase.getBody().getUser().getEmail());
+        assertEquals("John", userBase.getBody().getUser().getFirstname());
+        assertEquals("Doe", userBase.getBody().getUser().getLastname());
+        assertEquals("JDO", userBase.getBody().getUser().getShortname());
+        assertEquals(0, userBase.getBody().getUser().getGender());
+        assertEquals(1577829600, userBase.getBody().getUser().getBirthdate());
+        assertEquals("fr_FR", userBase.getBody().getUser().getPreflang());
+        assertEquals("Europe/Paris", userBase.getBody().getUser().getTimezone());
+        assertEquals(true, userBase.getBody().getUser().getMailingpref());
+        assertEquals(1, userBase.getBody().getUser().getUnitPref().getWeight());
+        assertEquals(6, userBase.getBody().getUser().getUnitPref().getHeight());
+        assertEquals(11, userBase.getBody().getUser().getUnitPref().getTemperature());
+        assertEquals(6, userBase.getBody().getUser().getUnitPref().getDistance());
+        assertEquals("+33612345678", userBase.getBody().getUser().getPhonenumber());
     }
     
     @Test
