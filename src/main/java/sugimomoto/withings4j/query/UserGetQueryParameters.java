@@ -5,8 +5,9 @@ import sugimomoto.withings4j.model.WithingsActionType;
 
 public class UserGetQueryParameters extends QueryParameters {
 
-    public UserGetQueryParameters() {
+    public UserGetQueryParameters(String seretKey) {
         this.parameters.put("action", WithingsActionType.USER_V2_GET_GET.getValue());
+        this.secretKey = seretKey;
     }
 
     public void setClientId(String clientId) {

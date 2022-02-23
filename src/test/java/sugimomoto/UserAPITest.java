@@ -103,27 +103,85 @@ public class UserAPITest extends APIClientTestSettup {
     
     @Test
     public void UserGetdeviceQueryParametersTest(){
-        throw new NotImplementedError();
+        UserGetdeviceQueryParameters param = new UserGetdeviceQueryParameters();
+        
+        FormBody formBody = param.getQueryParameters();
+
+        assertEquals(1, formBody.size());
+
+        assertEquals("action", formBody.name(0));
+        assertEquals("getdevice", formBody.value(0));
     }
     
     @Test
     public void UserGetgoalsQueryParametersTest(){
-        throw new NotImplementedError();
+        UserGetgoalsQueryParameters param = new UserGetgoalsQueryParameters();
+
+        FormBody formBody = param.getQueryParameters();
+
+        assertEquals(1, formBody.size());
+
+        assertEquals("action", formBody.name(0));
+        assertEquals("getgoals", formBody.value(0));
     }
     
     @Test
     public void UserGetQueryParametersTest(){
-        throw new NotImplementedError();
+        UserGetQueryParameters param = new UserGetQueryParameters("secretKey");
+        param.setClientId("test_client_id");
+        param.setNonce("test_nonce");
+        param.setEmail("sample@example.com");
+
+        FormBody formBody = param.getQueryParameters();
+        
+        assertEquals(5, formBody.size());
+
+        assertEquals("action", formBody.name(0));
+        assertEquals("get", formBody.value(0));
+        
+        assertEquals("client_id", formBody.name(1));
+        assertEquals("test_client_id", formBody.value(1));
+        
+        assertEquals("nonce", formBody.name(2));
+        assertEquals("test_nonce", formBody.value(2));
+
+        assertEquals("email", formBody.name(3));
+        assertEquals("sample@example.com", formBody.value(3));
+
+        assertEquals("signature", formBody.name(4));
+        assertEquals("5c34950abc251bd012d1189ee1872093002f3e9897d746cd12a932f0f34b0614", formBody.value(4));
     }
     
     @Test
     public void UserLinkQueryParametersTest(){
-        throw new NotImplementedError();
+        UserLinkQueryParameters param = new UserLinkQueryParameters();
+        param.setMacAddresses(Arrays.asList("00:24:e4:xx:xx:xx","00:24:e4:xx:xx:xx"));
+
+        FormBody formBody = param.getQueryParameters();
+
+        assertEquals(2, formBody.size());
+
+        assertEquals("action", formBody.name(0));
+        assertEquals("link", formBody.value(0));
+
+        assertEquals("mac_addresses", formBody.name(1));
+        assertEquals("[\"00:24:e4:xx:xx:xx\",\"00:24:e4:xx:xx:xx\"]", formBody.value(1));
     }
     
     @Test
     public void UserUnlinkQueryParametersTest(){
-        throw new NotImplementedError();
+        UserUnlinkQueryParameters param = new UserUnlinkQueryParameters();
+        param.setMacAddresses(Arrays.asList("00:24:e4:xx:xx:xx","00:24:e4:xx:xx:xx"));
+
+        FormBody formBody = param.getQueryParameters();
+
+        assertEquals(2, formBody.size());
+
+        assertEquals("action", formBody.name(0));
+        assertEquals("unlink", formBody.value(0));
+
+        assertEquals("mac_addresses", formBody.name(1));
+        assertEquals("[\"00:24:e4:xx:xx:xx\",\"00:24:e4:xx:xx:xx\"]", formBody.value(1));
     }
     
     @Test

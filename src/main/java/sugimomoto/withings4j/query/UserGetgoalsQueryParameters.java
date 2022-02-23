@@ -6,6 +6,5 @@ public class UserGetgoalsQueryParameters extends QueryParameters {
 
     public UserGetgoalsQueryParameters() {
         this.parameters.put("action", WithingsActionType.USER_V2_GETGOALS_GETGOALS.getValue());
-    }
-    
+    }    
 }
