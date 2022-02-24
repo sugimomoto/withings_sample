@@ -30,7 +30,7 @@
     },
     "response": {
         "status": 200,
-        "bodyFileName": "OAuth20-GetyouraccesstokenException.json",
+        "bodyFileName": "OAuth/OAuth20-GetyouraccesstokenException.json",
         "headers": {
             "Content-Type": "application/json"
         }

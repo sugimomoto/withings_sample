@@ -30,7 +30,7 @@
     },
     "response": {
         "status": 200,
-        "bodyFileName": "OAuth20-Getyouraccesstoken.json",
+        "bodyFileName": "OAuth/OAuth20-Getyouraccesstoken.json",
         "headers": {
             "Content-Type": "application/json"
         }
