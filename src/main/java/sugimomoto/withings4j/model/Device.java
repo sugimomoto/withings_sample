@@ -10,6 +10,7 @@ public class Device {
     private long modelID;
     private String battery;
     private String deviceid;
+    private String hashDeviceid;
     private String timezone;
     private long lastSessionDate;
 
@@ -42,6 +43,12 @@ public class Device {
     public String getDeviceid() { return deviceid; }
     @JsonProperty("deviceid")
     public void setDeviceid(String value) { this.deviceid = value; }
+
+    @JsonProperty("hash_deviceid")
+    public String getHashDeviceid() { return hashDeviceid; }
+    @JsonProperty("hash_deviceid")
+    public void setHashDeviceid(String value) { this.hashDeviceid = value; }
+
 
     @JsonProperty("timezone")
     public String getTimezone() { return timezone; }

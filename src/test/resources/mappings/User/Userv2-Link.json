@@ -4,7 +4,7 @@
         "urlPattern": "/v2/user",
         "headers": {
             "Authorization": {
-                "matches": "Bearer ($|&.*)"
+                "matches": "Bearer dummy_token"
             },
             "Content-Type": {
                 "matches": "application/x-www-form-urlencoded"
@@ -15,7 +15,7 @@
                 "matches": "(.*&|^)action=link($|&.*)"
             },
             {
-                "matches": "(.*&|^)mac_addresses=[(.)00:24:e4:xx:xx:xx(.),(.)00:24:e4:xx:xx:xx(.)]($|&.*)"
+                "matches": "(.*&|^)mac_addresses=%5B%2200%3A24%3Ae4%3Axx%3Axx%3Axx%22%2C%2200%3A24%3Ae4%3Axx%3Axx%3Axx%22%5D($|&.*)"
             }
         ]
     },

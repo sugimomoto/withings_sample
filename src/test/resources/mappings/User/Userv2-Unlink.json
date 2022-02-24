@@ -4,7 +4,7 @@
         "urlPattern": "/v2/user",
         "headers": {
             "Authorization": {
-                "doesNotMatch": "Bearer ($|&.*)"
+                "matches": "Bearer dummy_token"
             },
             "Content-Type": {
                 "matches": "application/x-www-form-urlencoded"
@@ -12,19 +12,10 @@
         },
         "bodyPatterns": [
             {
-                "matches": "(.*&|^)action=link($|&.*)"
+                "matches": "(.*&|^)action=unlink($|&.*)"
             },
             {
-                "matches": "(.*&|^)client_id=test_client_id($|&.*)"
-            },
-            {
-                "matches": "(.*&|^)nonce=test_nonce($|&.*)"
-            },
-            {
-                "matches": "(.*&|^)signature=test_signature_sample($|&.*)"
-            },
-            {
-                "matches": "(.*&|^)email=test_email($|&.*)"
+                "matches": "(.*&|^)mac_addresses=%5B%2200%3A24%3Ae4%3Axx%3Axx%3Axx%22%2C%2200%3A24%3Ae4%3Axx%3Axx%3Axx%22%5D($|&.*)"
             }
         ]
     },

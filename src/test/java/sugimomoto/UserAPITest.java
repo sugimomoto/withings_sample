@@ -255,23 +255,69 @@ public class UserAPITest extends APIClientTestSettup {
     }
     
     @Test
-    public void Userv2GetdeviceTest(){
-        throw new NotImplementedError();
+    public void Userv2GetdeviceTest() throws WithingsAPIException, IOException{
+        UserGetdeviceQueryParameters param = new UserGetdeviceQueryParameters();
+
+        DeviceBase deviceBase = client.userGetDevice(param);
+
+        assertEquals((Integer)0, deviceBase.getStatus());
+        assertEquals(1, deviceBase.getBody().getDevices().size());
+
+        Device device = deviceBase.getBody().getDevices().get(0);
+
+        assertEquals("Scale", device.getType());
+        assertEquals("Body Cardio", device.getModel());
+        assertEquals(6, device.getModelID());
+        assertEquals("medium", device.getBattery());
+        assertEquals("892359876fd8805ac45bab078c4828692f0276b1", device.getDeviceid());
+        assertEquals("892359876fd8805ac45bab078c4828692f0276b1", device.getHashDeviceid());
+        assertEquals("Europe/Paris", device.getTimezone());
+        assertEquals(1594159644, device.getLastSessionDate());
     }
     
     @Test
-    public void Userv2GetgoalsTest(){
-        throw new NotImplementedError();
+    public void Userv2GetgoalsTest() throws WithingsAPIException, IOException{
+        UserGetgoalsQueryParameters param = new UserGetgoalsQueryParameters();
+
+        GoalsBase goalsBase = client.userGetGoals(param);
+
+        assertEquals((Integer)0, goalsBase.getStatus());
+        assertEquals(10000, goalsBase.getBody().getGoals().getSteps());
+        assertEquals(28800, goalsBase.getBody().getGoals().getSleep());
+        assertEquals(70500, goalsBase.getBody().getGoals().getWeight().getValue());
+        assertEquals(-3, goalsBase.getBody().getGoals().getWeight().getUnit());
     }
     
     @Test
-    public void Userv2LinkTest(){
-        throw new NotImplementedError();
+    public void Userv2LinkTest() throws WithingsAPIException, IOException{
+        UserLinkQueryParameters param = new UserLinkQueryParameters();
+        param.setMacAddresses(Arrays.asList("00:24:e4:xx:xx:xx","00:24:e4:xx:xx:xx"));
+
+        DeviceBase deviceBase = client.userLink(param);
+
+        assertEquals((Integer)0, deviceBase.getStatus());
+        assertEquals(1, deviceBase.getBody().getDevices().size());
+
+        Device device = deviceBase.getBody().getDevices().get(0);
+
+        assertEquals("00:24:e4:69:b2:30", device.getMACAddress());
+        assertEquals("Scale", device.getType());
+        assertEquals("Body Cardio", device.getModel());
+        assertEquals(6, device.getModelID());
+        assertEquals("medium", device.getBattery());
+        assertEquals("892359876fd8805ac45bab078c4828692f0276b1", device.getDeviceid());
+        assertEquals("Europe/Paris", device.getTimezone());
+        assertEquals(1594159644, device.getLastSessionDate());
     }
     
     @Test
-    public void Userv2UnlinkTest(){
-        throw new NotImplementedError();
+    public void Userv2UnlinkTest() throws WithingsAPIException, IOException{
+        UserUnlinkQueryParameters param = new UserUnlinkQueryParameters();
+        param.setMacAddresses(Arrays.asList("00:24:e4:xx:xx:xx","00:24:e4:xx:xx:xx"));
+
+        ResponseBase responseBase = client.userUnlink(param);
+
+        assertEquals((Integer)0, responseBase.getStatus());
     }
 
 }
