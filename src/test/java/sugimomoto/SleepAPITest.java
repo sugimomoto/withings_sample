@@ -80,15 +80,21 @@ public class SleepAPITest extends APIClientTestSettup {
 
         assertEquals((Integer)0, sleepBase.getStatus());
 
-        assertEquals(1594159200, sleepBase.getBody().getSeries().getStartdate());
-        assertEquals(1594202400, sleepBase.getBody().getSeries().getEnddate());
-        assertEquals(0, sleepBase.getBody().getSeries().getHr().getTimestamp());
-        assertEquals(1, sleepBase.getBody().getSeries().getRr().getTimestamp());
-        assertEquals(2, sleepBase.getBody().getSeries().getSnoring().getTimestamp());
-        assertEquals("Aura Sensor V2", sleepBase.getBody().getModel());
-        assertEquals(63, sleepBase.getBody().getModelID());
+        assertEquals(152, sleepBase.getBody().getSeries().size());
+        assertEquals(32, sleepBase.getBody().getModel());
 
-        throw new NotImplementedError("timestampを動的に取得できるように修正する。");
+        SleepSeries sleepSeries = sleepBase.getBody().getSeries().get(0);
+
+        assertEquals(1641740400, sleepSeries.getStartdate());
+        assertEquals(1, sleepSeries.getState());
+        assertEquals(1641740520, sleepSeries.getEnddate());
+        assertEquals("Aura Sensor V2", sleepSeries.getModel());
+        assertEquals(2, sleepSeries.getHr().size());
+        assertEquals((Integer)70, sleepSeries.getHr().get("1641740400"));
+        assertEquals((Integer)11, sleepSeries.getRr().get("1641740400"));
+        assertEquals((Integer)0, sleepSeries.getSnoring().get("1641740400"));
+        assertEquals("60d07a1e2c4c9e644d064df21c0d90fb2c96512b", sleepSeries.getHashDeviceId());
+        assertEquals(63, sleepSeries.getModelId());
     }
     
     @Test

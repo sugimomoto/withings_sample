@@ -1,25 +1,21 @@
 package sugimomoto.withings4j.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SleepSeriesBody {
-    private SleepSeries series;
-    private String model;
-    private long modelID;
+    private List<SleepSeries> series;
+    private long model;
 
     @JsonProperty("series")
-    public SleepSeries getSeries() { return series; }
+    public List<SleepSeries> getSeries() { return series; }
     @JsonProperty("series")
-    public void setSeries(SleepSeries value) { this.series = value; }
+    public void setSeries(List<SleepSeries> value) { this.series = value; }
 
     @JsonProperty("model")
-    public String getModel() { return model; }
+    public long getModel() { return model; }
     @JsonProperty("model")
-    public void setModel(String value) { this.model = value; }
-
-    @JsonProperty("model_id")
-    public long getModelID() { return modelID; }
-    @JsonProperty("model_id")
-    public void setModelID(long value) { this.modelID = value; }
+    public void setModel(long value) { this.model = value; }
 
 }
