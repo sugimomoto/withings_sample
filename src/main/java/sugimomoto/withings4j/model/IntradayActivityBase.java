@@ -3,11 +3,11 @@ package sugimomoto.withings4j.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IntradayActivityBase extends ResponseBaseAbstract {
-    private ActivityBody body;    
+    private IntradayActivityBody body;
 
     @JsonProperty("body")
-    public ActivityBody getBody() { return body; }
+    public IntradayActivityBody getBody() { return body; }
 
     @JsonProperty("body")
-    public void setBody(ActivityBody value) { this.body = value; }
+    public void setBody(IntradayActivityBody value) { this.body = value; }
 }

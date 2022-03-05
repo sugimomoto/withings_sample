@@ -9,9 +9,13 @@ import sugimomoto.withings4j.WithingsAPIException;
 
 public class QueryParameters implements IQueryParameters {
 
-    protected LinkedHashMap<String,String> parameters = new LinkedHashMap<>();
+    protected LinkedHashMap<String,String> parameters;
 
     protected String secretKey;
+
+    public QueryParameters() {
+        this.parameters = new LinkedHashMap<>();
+    }
 
     public FormBody getQueryParameters() throws WithingsAPIException {
 

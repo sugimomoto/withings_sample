@@ -221,8 +221,31 @@ public class MeasAPITest extends APIClientTestSettup {
 }
 
     @Test
-    public void Measurev2GetintradayactivityTest(){
-        throw new NotImplementedError();
+    public void Measurev2GetintradayactivityTest() throws WithingsAPIException, IOException{
+        MeasureGetintradayactivityQueryParameters param = new MeasureGetintradayactivityQueryParameters();
+        param.setStartDate(1594159644);
+        param.setEndDate(1594159645);
+
+        IntradayActivityBase intradayActivityBase = client.measureGetintradayactivity(param);
+
+        assertEquals((Integer)0, intradayActivityBase.getStatus());
+
+        assertEquals(1177, intradayActivityBase.getBody().getSeries().size());
+
+        IntradayActivitySeries series = intradayActivityBase.getBody().getSeries().get("1641765617");
+
+        assertEquals("892359876fd8805ac45bab078c4828692f0276b1", series.getDeviceid());
+        assertEquals("Pulse", series.getModel());
+        assertEquals(51, series.getModelID());
+        assertEquals(0, series.getSteps());
+        assertEquals(1, series.getElevation());
+        assertEquals(2, series.getCalories());
+        assertEquals(3, series.getDistance());
+        assertEquals(4, series.getStroke());
+        assertEquals(5, series.getPoolLap());
+        assertEquals(6, series.getDuration());
+        assertEquals(7, series.getHeartRate());
+        assertEquals(8, series.getSpo2Auto());
     }
 
     @Test

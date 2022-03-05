@@ -19,9 +19,6 @@
             },
             {
                 "matches": "(.*&|^)enddate=1594159645($|&.*)"
-            },
-            {
-                "matches": "(.*&|^)data_fields=steps,elevation,calories($|&.*)"
             }
         ]
     },
