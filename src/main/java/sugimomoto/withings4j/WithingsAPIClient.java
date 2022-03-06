@@ -1,7 +1,6 @@
 package sugimomoto.withings4j;
 
 import java.io.IOException;
-import java.util.function.ObjDoubleConsumer;
 
 import okhttp3.*;
 import sugimomoto.withings4j.model.*;
@@ -28,31 +27,31 @@ public class WithingsAPIClient extends APIClient {
         return this.endpointUrl + resource.getValue();
     }
 
-    public OrderBase dropshipmentCreateorder(DropshipmentCreateOrderQueryParameters param) throws WithingsAPIException, IOException {
+    public OrderBase dropshipmentCreateorder(DropshipmentCreateOrderQueryParameters param) throws WithingsAPIException {
         return (OrderBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, OrderBase.class);
     }
 
-    public UserOrderBase dropshipmentCreateuserorder(DropshipmentCreateUserOrderQueryParameters param) throws WithingsAPIException, IOException{
+    public UserOrderBase dropshipmentCreateuserorder(DropshipmentCreateUserOrderQueryParameters param) throws WithingsAPIException{
         return (UserOrderBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, UserOrderBase.class);
     }
 
-    public ResponseBase dropshipmentDelete(DropshipmentDeleteQueryParameters param) throws WithingsAPIException, IOException{
+    public ResponseBase dropshipmentDelete(DropshipmentDeleteQueryParameters param) throws WithingsAPIException{
         return (ResponseBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, ResponseBase.class);
     }
 
-    public OrderStatusBase dropshipmentGetorderstatus(DropshipmentGetorderstatusQueryParameters param) throws WithingsAPIException, IOException{
+    public OrderStatusBase dropshipmentGetorderstatus(DropshipmentGetorderstatusQueryParameters param) throws WithingsAPIException{
         return (OrderStatusBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, OrderStatusBase.class);
     }
 
-    public OrderBase dropshipmentUpdate(DropshipmentUpdateQueryParameters param) throws WithingsAPIException, IOException{
+    public OrderBase dropshipmentUpdate(DropshipmentUpdateQueryParameters param) throws WithingsAPIException{
         return (OrderBase)getAPIResponse(getUrl(Resource.V2_DROPSHIPMENT), param, OrderBase.class);
     }
 
-    public HeartBase heartGet(HeartGetQueryParameters param) throws WithingsAPIException, IOException{
+    public HeartBase heartGet(HeartGetQueryParameters param) throws WithingsAPIException{
         return (HeartBase)getAPIResponse(getUrl(Resource.V2_HEART), param, HeartBase.class);
     }
 
-    public HeartListBase heartList(HeartListQueryParameters param) throws WithingsAPIException, IOException{
+    public HeartListBase heartList(HeartListQueryParameters param) throws WithingsAPIException{
         return (HeartListBase)getAPIResponse(getUrl(Resource.V2_HEART), param, HeartListBase.class);
     }
 
@@ -64,67 +63,67 @@ public class WithingsAPIClient extends APIClient {
         return (MeasBase)getAPIResponse(getUrl(Resource.V1_MEASURE), param, MeasBase.class);
     }
 
-    public IntradayActivityBase measureGetintradayactivity(MeasureGetintradayactivityQueryParameters param) throws WithingsAPIException, IOException{
+    public IntradayActivityBase measureGetintradayactivity(MeasureGetintradayactivityQueryParameters param) throws WithingsAPIException{
         return (IntradayActivityBase)getAPIResponse(getUrl(Resource.V2_MEASURE), param, IntradayActivityBase.class);
     }
 
-    public WorkoutsBase measureGetworkouts(MeasureGetworkoutsQueryParameters param) throws WithingsAPIException, IOException{
+    public WorkoutsBase measureGetworkouts(MeasureGetworkoutsQueryParameters param) throws WithingsAPIException{
         return (WorkoutsBase)getAPIResponse(getUrl(Resource.V2_MEASURE), param, WorkoutsBase.class);
     }
 
-    public NotifyBase notifyGet(NotifyGetQueryParameters param) throws WithingsAPIException, IOException{
+    public NotifyBase notifyGet(NotifyGetQueryParameters param) throws WithingsAPIException{
         return (NotifyBase)getAPIResponse(getUrl(Resource.V1_NOTIFY), param, NotifyBase.class);
     }
 
-    public NotifyListBase notifyList(NotifyListQueryParameters param) throws WithingsAPIException, IOException{
+    public NotifyListBase notifyList(NotifyListQueryParameters param) throws WithingsAPIException{
         return (NotifyListBase)getAPIResponse(getUrl(Resource.V1_NOTIFY), param, NotifyListBase.class);
     }
 
-    public ResponseBase notifyRevoke(NotifyRevokeQueryParameters param) throws WithingsAPIException, IOException{
+    public ResponseBase notifyRevoke(NotifyRevokeQueryParameters param) throws WithingsAPIException{
         return (ResponseBase)getAPIResponse(getUrl(Resource.V1_NOTIFY), param, ResponseBase.class);
     }
 
-    public ResponseBase notifySubscribe(NotifySubscribeQueryParameters param) throws WithingsAPIException, IOException{
+    public ResponseBase notifySubscribe(NotifySubscribeQueryParameters param) throws WithingsAPIException{
         return (ResponseBase)getAPIResponse(getUrl(Resource.V1_NOTIFY), param, ResponseBase.class);
     }
 
-    public ResponseBase notifyUpdate(NotifyUpdateQueryParameters param) throws WithingsAPIException, IOException{
+    public ResponseBase notifyUpdate(NotifyUpdateQueryParameters param) throws WithingsAPIException{
         return (ResponseBase)getAPIResponse(getUrl(Resource.V1_NOTIFY), param, ResponseBase.class);
     }
 
-    public SignatureBase signatureGetnonce(SignatureGetnonceQueryParameters param) throws WithingsAPIException, IOException{
+    public SignatureBase signatureGetnonce(SignatureGetnonceQueryParameters param) throws WithingsAPIException{
         return (SignatureBase)getAPIResponse(getUrl(Resource.V2_SIGNATURE), param, SignatureBase.class);
     }
 
-    public SleepBase sleepGet(SleepGetQueryParameters param) throws WithingsAPIException, IOException{
+    public SleepBase sleepGet(SleepGetQueryParameters param) throws WithingsAPIException{
         return (SleepBase)getAPIResponse(getUrl(Resource.V2_SLEEP), param, SleepBase.class);
     }
 
-    public SleepSummaryBase sleepGetsummary(SleepGetsummaryQueryParameters param) throws WithingsAPIException, IOException{
+    public SleepSummaryBase sleepGetsummary(SleepGetsummaryQueryParameters param) throws WithingsAPIException{
         return (SleepSummaryBase)getAPIResponse(getUrl(Resource.V2_SLEEP), param, SleepSummaryBase.class);
     }
 
-    public UserDeviceBase userActivate(UserActivateQueryParameters param) throws WithingsAPIException, IOException{
+    public UserDeviceBase userActivate(UserActivateQueryParameters param) throws WithingsAPIException{
         return (UserDeviceBase)getAPIResponse(getUrl(Resource.V2_USER), param, UserDeviceBase.class);
     }
 
-    public UserBase userGet(UserGetQueryParameters param) throws WithingsAPIException, IOException{
+    public UserBase userGet(UserGetQueryParameters param) throws WithingsAPIException{
         return (UserBase)getAPIResponse(getUrl(Resource.V2_USER), param, UserBase.class);
     }
 
-    public DeviceBase userGetDevice(UserGetdeviceQueryParameters param) throws WithingsAPIException, IOException{
+    public DeviceBase userGetDevice(UserGetdeviceQueryParameters param) throws WithingsAPIException{
         return (DeviceBase)getAPIResponse(getUrl(Resource.V2_USER), param, DeviceBase.class);
     }
 
-    public GoalsBase userGetGoals(UserGetgoalsQueryParameters param) throws WithingsAPIException, IOException{
+    public GoalsBase userGetGoals(UserGetgoalsQueryParameters param) throws WithingsAPIException{
         return (GoalsBase)getAPIResponse(getUrl(Resource.V2_USER), param, GoalsBase.class);
     }
 
-    public DeviceBase userLink(UserLinkQueryParameters param) throws WithingsAPIException, IOException{
+    public DeviceBase userLink(UserLinkQueryParameters param) throws WithingsAPIException{
         return (DeviceBase)getAPIResponse(getUrl(Resource.V2_USER), param, DeviceBase.class);
     }
 
-    public ResponseBase userUnlink(UserUnlinkQueryParameters param) throws WithingsAPIException, IOException{
+    public ResponseBase userUnlink(UserUnlinkQueryParameters param) throws WithingsAPIException{
         return (ResponseBase)getAPIResponse(getUrl(Resource.V2_USER), param, ResponseBase.class);
     }
 

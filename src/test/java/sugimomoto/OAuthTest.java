@@ -141,4 +141,16 @@ public class OAuthTest
         assertEquals((Integer)503, status);
     }
 
+    @Test(expected = WithingsAPIException.class)
+    public void oAutEmptyCheckTest(){
+        this.init();
+        authService.getAccessToken("");
+    }
+
+    @Test(expected = WithingsAPIException.class)
+    public void oAuthNullCheckTest(){
+        this.init();
+        authService.getAccessToken(null);
+    }
+
 }

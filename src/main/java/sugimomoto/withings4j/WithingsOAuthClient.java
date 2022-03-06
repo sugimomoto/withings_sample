@@ -25,8 +25,13 @@ public class WithingsOAuthClient extends APIClient implements AuthenticationServ
     }
 
     @Override
-    public AccessTokenBase getAccessToken(String code) throws IOException,WithingsAPIException {
+    public AccessTokenBase getAccessToken(String code) throws WithingsAPIException {
         GetAccessTokenQueryParameters query = new GetAccessTokenQueryParameters();
+
+        if(Utilities.isNullOrEmpty(code,this.clientId,this.clientSecret,this.redirectUrl)){
+            throw new WithingsAPIException("Code, ClientId, ClientSecret,RedirectUrl can not use as null or empty.");
+        }
+
         query.setClientId(this.clientId);
         query.setClientSecret(this.clientSecret);
         query.setCode(code);
@@ -36,8 +41,13 @@ public class WithingsOAuthClient extends APIClient implements AuthenticationServ
     }
 
     @Override
-    public AccessTokenBase getRefreshToken(AccessToken refreshToken) throws IOException {
+    public AccessTokenBase getRefreshToken(AccessToken refreshToken) throws WithingsAPIException {
         GetRefreshTokenQueryParameters query = new GetRefreshTokenQueryParameters();
+
+        if(Utilities.isNullOrEmpty(refreshToken.getRefreshToken(),clientId,this.clientSecret)){
+            throw new WithingsAPIException("Code, ClientId, ClientSecret,RedirectUrl can not use as null or empty.");
+        }
+
         query.setClientId(this.clientId);
         query.setClientSecret(this.clientSecret);
         query.setRefreshToken(refreshToken.getRefreshToken());
