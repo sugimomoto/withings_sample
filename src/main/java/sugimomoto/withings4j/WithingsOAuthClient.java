@@ -1,7 +1,5 @@
 package sugimomoto.withings4j;
 
-import java.io.IOException;
-
 import okhttp3.*;
 import sugimomoto.withings4j.model.*;
 import sugimomoto.withings4j.query.*;
